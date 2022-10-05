@@ -1,0 +1,17 @@
+local callback = function(text)
+			if text == "Continuar" then
+				c=true
+			end
+		end
+		local BindableFunction = Instance.new('BindableFunction')
+		BindableFunction.OnInvoke = callback
+		game:GetService("StarterGui"):SetCore("SendNotification", {
+			Title = "Esperando..."; 
+			Text = "Complete sua Quest!"; 
+			Duration = 30; 
+			Icon = nil; 
+			Button1 = "Continuar";
+			Button2 = "Parar";
+			Callback = BindableFunction
+		})
+		repeat wait()until c
