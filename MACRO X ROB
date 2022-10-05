@@ -6,7 +6,7 @@ for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleA
 				end)
 			end
 		end
-    wait()
+    wait(0.5)
     for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
 			if v.Name == "Rob" then
 				pcall(function()
@@ -15,7 +15,7 @@ for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleA
 				end)
 			end
 		end
-wait()
+wait(0.5)
 for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
 			if v.Name == "Rob" then
 				pcall(function()
