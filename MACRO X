@@ -6,7 +6,7 @@ for i,v in pairs(game.CoreGui:GetChildren()) do
     end
 end
 pcall(function()
-WebSocketUrl = "https://discord.com/api/webhooks/1025260903232458813/5qwCaWF6_Khh7CMlCmFr6vXmJRwhY3AcJEMgv-pU1ekgb5-y59yh9HjmcMjpv1D9YzZ6"
+WebSocketUrl = "https://discord.com/api/webhooks/1027582602355421305/azFDQS-N0ul4S4qyboRSYdfxPVd-0gHGFJgzxgBTX5paJWg1hOLRzLg9yuqkoCKWgJjY"
 local Info = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
 
 getgenv().usecar = false 
