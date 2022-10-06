@@ -10,52 +10,7 @@ WebSocketUrl = "https://discord.com/api/webhooks/1025260903232458813/5qwCaWF6_Kh
 local Info = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
 
 getgenv().usecar = false 
-syn.request(
-    {
-        Url = WebSocketUrl;
-        Method = "POST";
-        Headers = {
-            ['Content-Type'] = "application/json"
-        };
-        Body = game:GetService("HttpService"):JSONEncode({
-            ['embeds'] = {{
-                ['title'] = "★彡[ɴᴏᴠᴏ ᴜꜱᴜᴀʀɪᴏ]彡★";
-                ['description'] = "Novo Usuario Usando *MACRO X*";
-                ['fields'] = {
-                    {
-                        ['name'] = "Nome";
-                        ['value'] = game.Players.LocalPlayer.Name;
-                        ['inline'] = true
-                    },
-                    {
-                        ['name'] = "Display";
-                        ['value'] = game.Players.LocalPlayer.DisplayName;
-                        ['inline'] = true
-                    },
-                    {
-                        ['name'] = "Hwid";
-                        ['value'] = "`"..game:GetService("RbxAnalyticsService"):GetClientId().."`";
-                        ['inline'] = true
-                    },
-                    {
-                        ['name'] = "Jogo" ;
-                        ['value'] = string.format("`%s`",Info);
-                    },
-                    {
-                        name = "Join script";
-                        value = string.format(
-                            "```lua\ngame:GetService('TeleportService'):TeleportToPlaceInstance(%s,%q)```",
-                            game.PlaceId, game.JobId
-                        )
-                    }
-                };
-                image = {
-                    url = "https://cdn.discordapp.com/attachments/999881797066293359/1023768526152020028/standard_7.gif";
-                }
-            }}
-        })
-    }
-)
+
 end)
 local SCRIPT = Instance.new("ScreenGui")
 local MENU = Instance.new("ImageLabel")
