@@ -644,6 +644,91 @@ local function PKVKS_fake_script() -- MENU.BOTÕES
 			
 			return RETORNAR
 		end
+		function Tab:CriarBox(text, callback)
+			local TextButton = Instance.new("TextBox")
+	
+			local UICorner = Instance.new("UICorner")
+			local DropShadow_2 = Instance.new("Frame")
+			local UICorner_2 = Instance.new("UICorner")
+			local UICorner_3 = Instance.new("UICorner")
+	
+			TextButton.Name = "Item"
+			TextButton.Parent = MENU2
+			TextButton.BackgroundColor3 = Color3.fromRGB(16, 15, 16)
+			TextButton.BorderSizePixel = 0
+			TextButton.Position = UDim2.new(8.71804523, 0, 1.47317064, 0)
+			TextButton.Size = UDim2.new(0, 260, 0, 22)
+			TextButton.ZIndex = 3
+			TextButton.Font = Enum.Font.FredokaOne
+			TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+			TextButton.TextSize = 14.000
+			TextButton.Text = "  "..text
+			TextButton.TextXAlignment = Enum.TextXAlignment.Left
+			TextButton.FocusLost:Connect(function(b)
+				if b then
+					pcall(callback, TextButton.Text)
+					wait(0.1)
+					TextButton.Text = "  "..text
+				end
+			end)
+	
+	
+
+	
+	
+	
+			UICorner_3.Parent = TextButton
+	
+			--[[
+			local DropShadow = Instance.new("Frame")
+			local UICorner = Instance.new("UICorner")
+			local DropShadow_2 = Instance.new("Frame")
+			local UICorner_2 = Instance.new("UICorner")
+			local DropShadow_3 = Instance.new("Frame")
+			local UICorner_3 = Instance.new("UICorner")
+			local DropShadow_4 = Instance.new("Frame")
+			local UICorner_4 = Instance.new("UICorner")
+	
+			--Properties:
+	
+			DropShadow.Name = "DropShadow"
+			DropShadow.Parent = TextButton
+			DropShadow.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			DropShadow.BorderSizePixel = 0
+			DropShadow.Position = UDim2.new(0, -1, 0, -1)
+			DropShadow.Size = UDim2.new(1, 0, 1, 0)
+	
+			UICorner.Parent = DropShadow
+	
+			DropShadow_2.Name = "DropShadow"
+			DropShadow_2.Parent = TextButton
+			DropShadow_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			DropShadow_2.BorderSizePixel = 0
+			DropShadow_2.Position = UDim2.new(0, 1, 0, 1)
+			DropShadow_2.Size = UDim2.new(1, 0, 1, 0)
+	
+			UICorner_2.Parent = DropShadow_2
+	
+			DropShadow_3.Name = "DropShadow"
+			DropShadow_3.Parent = TextButton
+			DropShadow_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			DropShadow_3.BorderSizePixel = 0
+			DropShadow_3.Position = UDim2.new(0, 1, 0, -1)
+			DropShadow_3.Size = UDim2.new(1, 0, 1, 0)
+	
+			UICorner_3.Parent = DropShadow_3
+	
+			DropShadow_4.Name = "DropShadow"
+			DropShadow_4.Parent = TextButton
+			DropShadow_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			DropShadow_4.BorderSizePixel = 0
+			DropShadow_4.Position = UDim2.new(0, -1, 0, 1)
+			DropShadow_4.Size = UDim2.new(1, 0, 1, 0)
+	
+			UICorner_4.Parent = DropShadow_4
+			]]
+
+		end
 		function Tab:CriarToggle(text, callback)
 			local liga = Instance.new("TextButton")
 	
