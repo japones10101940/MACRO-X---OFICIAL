@@ -28,9 +28,9 @@ function tp1(pos)
  
         game:GetService("TweenService"):Create(Body, TweenInfo.new(diff.Magnitude / speed, Enum.EasingStyle.Linear), {Position = pos}):Play()
         if game.Players.LocalPlayer.Character.Humanoid.Sit == true then
-            speed = 25
+            speed = 45
         else
-            speed = 25
+            speed = 45
         end
  
         if diff.Magnitude < 1 then chegou = true end
@@ -40,7 +40,7 @@ function tp1(pos)
     Body:Destroy()
     step:Disconnect()
 end
-local altura = 1042
+local altura = 3
 function tp2(pos)
     
     instant(game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0, altura, 0))
