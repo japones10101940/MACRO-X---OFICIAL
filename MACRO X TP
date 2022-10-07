@@ -40,7 +40,7 @@ function tp1(pos)
     Body:Destroy()
     step:Disconnect()
 end
-local altura = 14
+local altura = 64
 function tp2(pos)
     
     instant(game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0, altura, 0))
