@@ -1,0 +1,135 @@
+local Root = game.Players.LocalPlayer.Character.HumanoidRootPart
+
+game:GetService("RunService").Stepped:Connect(function()
+    Root = game.Players.LocalPlayer.Character.HumanoidRootPart
+end)
+require(game:GetService("ReplicatedStorage").Module.AlexRagdoll).Ragdoll=function()return wait(9e9) end
+function getCar()
+    for i,v in pairs(game:GetService("Workspace").Vehicles:GetDescendants()) do
+        if v.Name == "Seat" and v:FindFirstChild("PlayerName") ~= nil then
+            if v.PlayerName.Value == game.Players.LocalPlayer.Name then
+                return v.Parent.Engine
+            end
+        end
+    end
+    return nil
+end
+function getCamaro()
+    local vehicle, spec, nearest = nil,nil, 10000
+
+    for i, v in next, require(game.ReplicatedStorage.Module.UI).CircleAction.Specs do
+        if v.Name == "Enter Driver" and v.ValidRoot.Name == "Camaro" --[[or Jeep]] then
+            local dist = (v.ValidRoot.PrimaryPart.Position - Root.Position).Magnitude
+
+            if dist < nearest then
+                vehicle, spec, nearest = v.ValidRoot, v, dist
+            end
+        end
+    end
+
+    if vehicle ~= nil then
+        return vehicle,spec,nearest
+        -- tp to 'vehicle.Seat' and call 'spec:Callback(true)'
+    end
+end
+local func
+for i,v in next, getgc(true) do
+    if type(v) == 'function' and getinfo(v).name == NOME then
+        func = v
+    end
+end
+function instant(pos)
+    if getCar() then
+        getCar().CFrame = CFrame.new(pos)
+    end
+    if not getCar() then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(pos)
+    end
+end
+
+function tp1(pos)
+    local Body  = Instance.new("BodyPosition",game.Players.LocalPlayer.Character.HumanoidRootPart)
+    Body.D = 500
+    Body.P = 15e3
+    Body.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+    Body.MaxForce = Vector3.new(9e9, 9e9, 9e9)
+    local diff =  (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - pos)
+    local chegou = false
+    local speed = 0
+
+
+    step = game:GetService("RunService").Stepped:Connect(function()
+        if getCar() then
+            getCar().BodyGyro.MaxTorque = Vector3.new(9e9, 0, 9e9)
+        end
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
+        diff = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - pos)
+
+        game:GetService("TweenService"):Create(Body, TweenInfo.new(diff.Magnitude / speed, Enum.EasingStyle.Linear), {Position = pos}):Play()
+        if game.Players.LocalPlayer.Character.Humanoid.Sit == true then
+            speed = 400 
+        else
+            speed = 100
+        end
+
+        if diff.Magnitude < 1 then chegou = true end
+    end)
+
+    repeat wait() until chegou == true or game.Players.LocalPlayer.Character.Humanoid.Health == 0
+    Body:Destroy()
+    step:Disconnect()
+end
+local altura = 1500
+function tp2(pos)
+    if not getCar() then
+        if getgenv().usecar == true then
+            local car,spec,nearest = getCamaro()
+
+            local diff1 = (car.Seat.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
+            local diff2 =  (pos - game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
+
+            if diff1.Magnitude < diff2.Magnitude then
+                instant(game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0, altura, 0))
+                task.wait()
+                tp1(car.Seat.Position + Vector3.new(0, altura, 0))
+                wait()
+                local time = 0
+
+                spawn(function()
+                    repeat 
+                        spec:Callback(true)
+                        wait(0.3)
+                    until getCar() or time > 2
+                end)
+                repeat
+                    time+=0.01
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(car.Seat.Position + Vector3.new(0, 10, 0))
+                    task.wait()
+                until getCar() or time > 2
+                if time < 2 then
+
+                end
+            end
+        end
+    end
+    instant(game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0, altura, 0))
+    task.wait()
+    tp1(pos + Vector3.new(0, altura, 0))
+    task.wait()
+    if not getCar() then
+        instant(pos + Vector3.new(0, 15, 0))
+        wait(0.1)
+        for i = 1,5 do
+            instant(pos + Vector3.new(0, 5, 0))
+            pcall(func)
+            game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, -1, 0)
+            wait()
+        end
+    else
+        getCar().CFrame = CFrame.new(pos)
+        getCar().BodyGyro.MaxTorque = Vector3.new(0,0,0)
+    end
+end
+
+
+return tp1, tp2
