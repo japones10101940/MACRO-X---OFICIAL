@@ -1,0 +1,542 @@
+
+local ScreenGui = Instance.new("ScreenGui")
+local MENU = Instance.new("ImageLabel")
+local safe = Instance.new("TextButton")
+local TextButton_Roundify_25px = Instance.new("ImageLabel")
+local TextLabel = Instance.new("TextLabel")
+local Creditos = Instance.new("TextButton")
+local TextButton_Roundify_25px_2 = Instance.new("ImageLabel")
+local Outros = Instance.new("TextButton")
+local TextButton_Roundify_25px_3 = Instance.new("ImageLabel")
+local MENU2 = Instance.new("ImageLabel")
+local TP1 = Instance.new("TextButton")
+local TP1_Roundify_25px = Instance.new("ImageLabel")
+local TP2 = Instance.new("TextButton")
+local TP1_Roundify_25px_2 = Instance.new("ImageLabel")
+local TP3 = Instance.new("TextButton")
+local TP1_Roundify_25px_3 = Instance.new("ImageLabel")
+local OUTROS = Instance.new("ImageLabel")
+local FPS = Instance.new("TextButton")
+local TextButton_Roundify_25px_4 = Instance.new("ImageLabel")
+local VERFPS = Instance.new("TextButton")
+local TextButton_Roundify_25px_5 = Instance.new("ImageLabel")
+local TROCARSERVE = Instance.new("TextButton")
+local TextButton_Roundify_25px_6 = Instance.new("ImageLabel")
+local voltar = Instance.new("TextButton")
+local TextLabel_2 = Instance.new("TextLabel")
+local UIGradient = Instance.new("UIGradient")
+
+SCRIPT.Name = "SCRIPT"
+SCRIPT.Parent = game.CoreGui
+
+MENU.Name = "MENU"
+MENU.Parent = ScreenGui
+MENU.AnchorPoint = Vector2.new(0.5, 0.5)
+MENU.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+MENU.BackgroundTransparency = 1.000
+MENU.ClipsDescendants = true
+MENU.Position = UDim2.new(0.412051082, 0, 0.499732256, 0)
+MENU.Size = UDim2.new(0, 128, 0, 141)
+MENU.Image = "rbxassetid://3570695787"
+MENU.ImageColor3 = Color3.fromRGB(0, 0, 0)
+MENU.ImageTransparency = 0.200
+MENU.ScaleType = Enum.ScaleType.Slice
+MENU.SliceCenter = Rect.new(100, 100, 100, 100)
+MENU.SliceScale = 0.250
+
+safe.Name = "safe"
+safe.Parent = MENU
+safe.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+safe.BackgroundTransparency = 1.000
+safe.BorderSizePixel = 0
+safe.Position = UDim2.new(0.109375, 0, 0.234042555, 0)
+safe.Size = UDim2.new(0, 99, 0, 21)
+safe.ZIndex = 3
+safe.Font = Enum.Font.FredokaOne
+safe.Text = "..."
+safe.TextColor3 = Color3.fromRGB(255, 255, 255)
+safe.TextSize = 14.000
+
+TextButton_Roundify_25px.Name = "TextButton_Roundify_25px"
+TextButton_Roundify_25px.Parent = safe
+TextButton_Roundify_25px.Active = true
+TextButton_Roundify_25px.AnchorPoint = Vector2.new(0.5, 0.5)
+TextButton_Roundify_25px.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_Roundify_25px.BackgroundTransparency = 1.000
+TextButton_Roundify_25px.Position = UDim2.new(0.5, 0, 0.5, 0)
+TextButton_Roundify_25px.Selectable = true
+TextButton_Roundify_25px.Size = UDim2.new(1, 0, 1, 0)
+TextButton_Roundify_25px.Image = "rbxassetid://3570695787"
+TextButton_Roundify_25px.ImageColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_Roundify_25px.ScaleType = Enum.ScaleType.Slice
+TextButton_Roundify_25px.SliceCenter = Rect.new(100, 100, 100, 100)
+TextButton_Roundify_25px.SliceScale = 0.250
+
+TextLabel.Parent = MENU
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(0.03125, 0, 0.0992907882, 0)
+TextLabel.Size = UDim2.new(0, 79, 0, 11)
+TextLabel.Font = Enum.Font.FredokaOne
+TextLabel.Text = "Safe Zones:"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 14.000
+
+Creditos.Name = "Creditos"
+Creditos.Parent = MENU
+Creditos.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Creditos.BackgroundTransparency = 1.000
+Creditos.BorderSizePixel = 0
+Creditos.Position = UDim2.new(0.109375, 0, 0.446808517, 0)
+Creditos.Size = UDim2.new(0, 99, 0, 25)
+Creditos.ZIndex = 3
+Creditos.Font = Enum.Font.FredokaOne
+Creditos.Text = "Credits"
+Creditos.TextColor3 = Color3.fromRGB(255, 255, 255)
+Creditos.TextSize = 14.000
+
+TextButton_Roundify_25px_2.Name = "TextButton_Roundify_25px"
+TextButton_Roundify_25px_2.Parent = Creditos
+TextButton_Roundify_25px_2.Active = true
+TextButton_Roundify_25px_2.AnchorPoint = Vector2.new(0.5, 0.5)
+TextButton_Roundify_25px_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_Roundify_25px_2.BackgroundTransparency = 1.000
+TextButton_Roundify_25px_2.Position = UDim2.new(0.5, 0, 0.5, 0)
+TextButton_Roundify_25px_2.Selectable = true
+TextButton_Roundify_25px_2.Size = UDim2.new(1, 0, 1, 0)
+TextButton_Roundify_25px_2.Image = "rbxassetid://3570695787"
+TextButton_Roundify_25px_2.ImageColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_Roundify_25px_2.ScaleType = Enum.ScaleType.Slice
+TextButton_Roundify_25px_2.SliceCenter = Rect.new(100, 100, 100, 100)
+TextButton_Roundify_25px_2.SliceScale = 0.250
+
+Outros.Name = "Outros"
+Outros.Parent = MENU
+Outros.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Outros.BackgroundTransparency = 1.000
+Outros.BorderSizePixel = 0
+Outros.Position = UDim2.new(0.109375, 0, 0.673758984, 0)
+Outros.Size = UDim2.new(0, 99, 0, 26)
+Outros.ZIndex = 3
+Outros.Font = Enum.Font.FredokaOne
+Outros.Text = "Outros"
+Outros.TextColor3 = Color3.fromRGB(255, 255, 255)
+Outros.TextSize = 14.000
+
+TextButton_Roundify_25px_3.Name = "TextButton_Roundify_25px"
+TextButton_Roundify_25px_3.Parent = Outros
+TextButton_Roundify_25px_3.Active = true
+TextButton_Roundify_25px_3.AnchorPoint = Vector2.new(0.5, 0.5)
+TextButton_Roundify_25px_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_Roundify_25px_3.BackgroundTransparency = 1.000
+TextButton_Roundify_25px_3.Position = UDim2.new(0.5, 0, 0.5, 0)
+TextButton_Roundify_25px_3.Selectable = true
+TextButton_Roundify_25px_3.Size = UDim2.new(1, 0, 1, 0)
+TextButton_Roundify_25px_3.Image = "rbxassetid://3570695787"
+TextButton_Roundify_25px_3.ImageColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_Roundify_25px_3.ScaleType = Enum.ScaleType.Slice
+TextButton_Roundify_25px_3.SliceCenter = Rect.new(100, 100, 100, 100)
+TextButton_Roundify_25px_3.SliceScale = 0.250
+
+MENU2.Name = "MENU 2"
+MENU2.Parent = ScreenGui
+MENU2.AnchorPoint = Vector2.new(0.5, 0.5)
+MENU2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+MENU2.BackgroundTransparency = 1.000
+MENU2.ClipsDescendants = true
+MENU2.Position = UDim2.new(0.587857544, 0, 0.49855116, 0)
+MENU2.Size = UDim2.new(0, 128, 0, 129)
+MENU2.Image = "rbxassetid://3570695787"
+MENU2.ImageColor3 = Color3.fromRGB(0, 0, 0)
+MENU2.ImageTransparency = 0.200
+MENU2.ScaleType = Enum.ScaleType.Slice
+MENU2.SliceCenter = Rect.new(100, 100, 100, 100)
+MENU2.SliceScale = 0.250
+
+TP1.Name = "TP 1"
+TP1.Parent = MENU2
+TP1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TP1.BackgroundTransparency = 1.000
+TP1.BorderSizePixel = 0
+TP1.Position = UDim2.new(0.109375, 0, 0.0990451723, 0)
+TP1.Size = UDim2.new(0, 99, 0, 26)
+TP1.ZIndex = 2
+TP1.Font = Enum.Font.FredokaOne
+TP1.Text = "TP SAFE (1)"
+TP1.TextColor3 = Color3.fromRGB(255, 255, 255)
+TP1.TextSize = 14.000
+
+TP1_Roundify_25px.Name = "TP 1_Roundify_25px"
+TP1_Roundify_25px.Parent = TP1
+TP1_Roundify_25px.Active = true
+TP1_Roundify_25px.AnchorPoint = Vector2.new(0.5, 0.5)
+TP1_Roundify_25px.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TP1_Roundify_25px.BackgroundTransparency = 1.000
+TP1_Roundify_25px.Position = UDim2.new(0.5, 0, 0.5, 0)
+TP1_Roundify_25px.Selectable = true
+TP1_Roundify_25px.Size = UDim2.new(1, 0, 1, 0)
+TP1_Roundify_25px.Image = "rbxassetid://3570695787"
+TP1_Roundify_25px.ImageColor3 = Color3.fromRGB(0, 0, 0)
+TP1_Roundify_25px.ScaleType = Enum.ScaleType.Slice
+TP1_Roundify_25px.SliceCenter = Rect.new(100, 100, 100, 100)
+TP1_Roundify_25px.SliceScale = 0.250
+
+TP2.Name = "TP 2"
+TP2.Parent = MENU2
+TP2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TP2.BackgroundTransparency = 1.000
+TP2.BorderSizePixel = 0
+TP2.Position = UDim2.new(0.109375, 0, 0.626506865, 0)
+TP2.Size = UDim2.new(0, 99, 0, 26)
+TP2.ZIndex = 2
+TP2.Font = Enum.Font.FredokaOne
+TP2.Text = "TP SAFE (3)"
+TP2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TP2.TextSize = 14.000
+
+TP1_Roundify_25px_2.Name = "TP 1_Roundify_25px"
+TP1_Roundify_25px_2.Parent = TP2
+TP1_Roundify_25px_2.Active = true
+TP1_Roundify_25px_2.AnchorPoint = Vector2.new(0.5, 0.5)
+TP1_Roundify_25px_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TP1_Roundify_25px_2.BackgroundTransparency = 1.000
+TP1_Roundify_25px_2.Position = UDim2.new(0.5, 0, 0.5, 0)
+TP1_Roundify_25px_2.Selectable = true
+TP1_Roundify_25px_2.Size = UDim2.new(1, 0, 1, 0)
+TP1_Roundify_25px_2.Image = "rbxassetid://3570695787"
+TP1_Roundify_25px_2.ImageColor3 = Color3.fromRGB(0, 0, 0)
+TP1_Roundify_25px_2.ScaleType = Enum.ScaleType.Slice
+TP1_Roundify_25px_2.SliceCenter = Rect.new(100, 100, 100, 100)
+TP1_Roundify_25px_2.SliceScale = 0.250
+
+TP3.Name = "TP 3"
+TP3.Parent = MENU2
+TP3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TP3.BackgroundTransparency = 1.000
+TP3.BorderSizePixel = 0
+TP3.Position = UDim2.new(0.109375, 0, 0.347272128, 0)
+TP3.Size = UDim2.new(0, 99, 0, 26)
+TP3.ZIndex = 2
+TP3.Font = Enum.Font.FredokaOne
+TP3.Text = "TP SAFE (2)"
+TP3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TP3.TextSize = 14.000
+
+TP1_Roundify_25px_3.Name = "TP 1_Roundify_25px"
+TP1_Roundify_25px_3.Parent = TP3
+TP1_Roundify_25px_3.Active = true
+TP1_Roundify_25px_3.AnchorPoint = Vector2.new(0.5, 0.5)
+TP1_Roundify_25px_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TP1_Roundify_25px_3.BackgroundTransparency = 1.000
+TP1_Roundify_25px_3.Position = UDim2.new(0.5, 0, 0.5, 0)
+TP1_Roundify_25px_3.Selectable = true
+TP1_Roundify_25px_3.Size = UDim2.new(1, 0, 1, 0)
+TP1_Roundify_25px_3.Image = "rbxassetid://3570695787"
+TP1_Roundify_25px_3.ImageColor3 = Color3.fromRGB(0, 0, 0)
+TP1_Roundify_25px_3.ScaleType = Enum.ScaleType.Slice
+TP1_Roundify_25px_3.SliceCenter = Rect.new(100, 100, 100, 100)
+TP1_Roundify_25px_3.SliceScale = 0.250
+
+OUTROS.Name = "OUTROS"
+OUTROS.Parent = ScreenGui
+OUTROS.AnchorPoint = Vector2.new(0.5, 0.5)
+OUTROS.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+OUTROS.BackgroundTransparency = 1.000
+OUTROS.ClipsDescendants = true
+OUTROS.Position = UDim2.new(0.397857547, 0, 0.497763753, 0)
+OUTROS.Image = "rbxassetid://3570695787"
+OUTROS.ImageColor3 = Color3.fromRGB(0, 0, 0)
+OUTROS.ImageTransparency = 0.200
+OUTROS.ScaleType = Enum.ScaleType.Slice
+OUTROS.SliceCenter = Rect.new(100, 100, 100, 100)
+OUTROS.SliceScale = 0.250
+
+FPS.Name = "FPS"
+FPS.Parent = OUTROS
+FPS.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+FPS.BackgroundTransparency = 1.000
+FPS.BorderSizePixel = 0
+FPS.Position = UDim2.new(0.1015625, 0, 0.127659678, 0)
+FPS.Size = UDim2.new(0, 102, 0, 26)
+FPS.ZIndex = 3
+FPS.Font = Enum.Font.FredokaOne
+FPS.Text = "FPS BOOST"
+FPS.TextColor3 = Color3.fromRGB(255, 255, 255)
+FPS.TextSize = 14.000
+
+TextButton_Roundify_25px_4.Name = "TextButton_Roundify_25px"
+TextButton_Roundify_25px_4.Parent = FPS
+TextButton_Roundify_25px_4.Active = true
+TextButton_Roundify_25px_4.AnchorPoint = Vector2.new(0.5, 0.5)
+TextButton_Roundify_25px_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_Roundify_25px_4.BackgroundTransparency = 1.000
+TextButton_Roundify_25px_4.Position = UDim2.new(0.5, 0, 0.5, 0)
+TextButton_Roundify_25px_4.Selectable = true
+TextButton_Roundify_25px_4.Size = UDim2.new(1, 0, 1, 0)
+TextButton_Roundify_25px_4.Image = "rbxassetid://3570695787"
+TextButton_Roundify_25px_4.ImageColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_Roundify_25px_4.ScaleType = Enum.ScaleType.Slice
+TextButton_Roundify_25px_4.SliceCenter = Rect.new(100, 100, 100, 100)
+TextButton_Roundify_25px_4.SliceScale = 0.250
+
+VERFPS.Name = "VER FPS"
+VERFPS.Parent = OUTROS
+VERFPS.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+VERFPS.BackgroundTransparency = 1.000
+VERFPS.BorderSizePixel = 0
+VERFPS.Position = UDim2.new(0.1015625, 0, 0.354610026, 0)
+VERFPS.Size = UDim2.new(0, 102, 0, 26)
+VERFPS.ZIndex = 3
+VERFPS.Font = Enum.Font.FredokaOne
+VERFPS.Text = "VER FPS"
+VERFPS.TextColor3 = Color3.fromRGB(255, 255, 255)
+VERFPS.TextSize = 14.000
+
+TextButton_Roundify_25px_5.Name = "TextButton_Roundify_25px"
+TextButton_Roundify_25px_5.Parent = VERFPS
+TextButton_Roundify_25px_5.Active = true
+TextButton_Roundify_25px_5.AnchorPoint = Vector2.new(0.5, 0.5)
+TextButton_Roundify_25px_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_Roundify_25px_5.BackgroundTransparency = 1.000
+TextButton_Roundify_25px_5.Position = UDim2.new(0.5, 0, 0.5, 0)
+TextButton_Roundify_25px_5.Selectable = true
+TextButton_Roundify_25px_5.Size = UDim2.new(1, 0, 1, 0)
+TextButton_Roundify_25px_5.Image = "rbxassetid://3570695787"
+TextButton_Roundify_25px_5.ImageColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_Roundify_25px_5.ScaleType = Enum.ScaleType.Slice
+TextButton_Roundify_25px_5.SliceCenter = Rect.new(100, 100, 100, 100)
+TextButton_Roundify_25px_5.SliceScale = 0.250
+
+TROCARSERVE.Name = "TROCAR SERVE"
+TROCARSERVE.Parent = OUTROS
+TROCARSERVE.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TROCARSERVE.BackgroundTransparency = 1.000
+TROCARSERVE.BorderSizePixel = 0
+TROCARSERVE.Position = UDim2.new(0.0546875, 0, 0.609929323, 0)
+TROCARSERVE.Size = UDim2.new(0, 114, 0, 26)
+TROCARSERVE.ZIndex = 3
+TROCARSERVE.Font = Enum.Font.FredokaOne
+TROCARSERVE.Text = "TROCAR SERVER"
+TROCARSERVE.TextColor3 = Color3.fromRGB(255, 255, 255)
+TROCARSERVE.TextSize = 14.000
+
+TextButton_Roundify_25px_6.Name = "TextButton_Roundify_25px"
+TextButton_Roundify_25px_6.Parent = TROCARSERVE
+TextButton_Roundify_25px_6.Active = true
+TextButton_Roundify_25px_6.AnchorPoint = Vector2.new(0.5, 0.5)
+TextButton_Roundify_25px_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_Roundify_25px_6.BackgroundTransparency = 1.000
+TextButton_Roundify_25px_6.Position = UDim2.new(0.5, 0, 0.5, 0)
+TextButton_Roundify_25px_6.Selectable = true
+TextButton_Roundify_25px_6.Size = UDim2.new(1, 0, 1, 0)
+TextButton_Roundify_25px_6.Image = "rbxassetid://3570695787"
+TextButton_Roundify_25px_6.ImageColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_Roundify_25px_6.ScaleType = Enum.ScaleType.Slice
+TextButton_Roundify_25px_6.SliceCenter = Rect.new(100, 100, 100, 100)
+TextButton_Roundify_25px_6.SliceScale = 0.250
+
+voltar.Name = "voltar"
+voltar.Parent = OUTROS
+voltar.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+voltar.BackgroundTransparency = 1.000
+voltar.BorderSizePixel = 0
+voltar.Position = UDim2.new(0.6171875, 0, 0.87234062, 0)
+voltar.Size = UDim2.new(0, 36, 0, 12)
+voltar.ZIndex = 3
+voltar.Font = Enum.Font.FredokaOne
+voltar.Text = "Voltar"
+voltar.TextColor3 = Color3.fromRGB(255, 255, 255)
+voltar.TextSize = 12.000
+
+TextLabel_2.Parent = ScreenGui
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.Position = UDim2.new(0.781935513, 0, -1.87731164e-08, 0)
+TextLabel_2.Size = UDim2.new(0.0929032266, 0, 0.053149607, 0)
+TextLabel_2.Visible = false
+TextLabel_2.Font = Enum.Font.FredokaOne
+TextLabel_2.Text = "FPS: 0"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextSize = 14.000
+TextLabel_2.TextWrapped = true
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(51, 254, 5)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 255, 255))}
+UIGradient.Parent = TextLabel_2
+
+local function ZEEDJJ_fake_script() -- MENU.visible menu 2 
+	local script = Instance.new('LocalScript', MENU)
+
+	script.Parent.safe.MouseButton1Click:Connect(function()
+		script.Parent.Parent["MENU 2"].Visible = true
+	end)
+end
+coroutine.wrap(ZEEDJJ_fake_script)()
+local function KOVQD_fake_script() -- MENU.LocalScript 
+	local script = Instance.new('LocalScript', MENU)
+
+	script.Parent.Creditos.MouseButton1Click:Connect(function()
+		game:GetService("StarterGui"):SetCore("SendNotification", {
+			Title = "Creditos:"; -- Titulo da sua notificacao
+			Text = "By ヘンリケ#0002"; -- Texto da sua notificacao
+			Duration = 30; -- Tempo que sua notificacao vai ficar na tela;
+			Icon = "rbxassetid://8982365769"; -- Icon do seu menu, coloque assim "rbxassetid://12345"
+		})
+	end)
+end
+coroutine.wrap(KOVQD_fake_script)()
+local function ELTAE_fake_script() -- MENU2.MENU 2 VISIBLE 1 
+	local script = Instance.new('LocalScript', MENU2)
+
+	for i,v in pairs(script.Parent:GetChildren()) do
+		if not v:IsA('LocalScript') then
+			v.MouseButton1Click:Connect(function()
+				local menu1 = script.Parent.Parent.MENU
+				local menu2 = script.Parent.Parent["MENU 2"]
+	
+				menu2:TweenSize(UDim2.new(0,0,0,0))
+				local pos
+				if i == 1 then
+					pos = Vector3.new(-5102.04443359375, 316.5068054199219, -3165.216796875)
+				elseif i == 2  then
+					pos = Vector3.new(-12458.611328125, 376.3316955566406, -7566.18017578125)
+				elseif i == 3 then
+					pos = Vector3.new(-5094.828125, 316.5068054199219, -3145.579345703125)
+				
+				end
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(pos)
+			end)
+		end
+	end
+end
+coroutine.wrap(ELTAE_fake_script)()
+local function NJQI_fake_script() -- ScreenGui.LocalScript 
+	local script = Instance.new('LocalScript', ScreenGui)
+
+	local menu1 = script.Parent.MENU
+	local menu2 = script.Parent["MENU 2"]
+	
+	do
+		menu1.Size = UDim2.new(0,0,0,0)
+		menu2.Size = UDim2.new(0,0,0,0)
+	end
+	wait(2)
+	do
+		menu1:TweenSize(UDim2.new(0, 128, 0, 141))
+		
+	
+	end
+	local opened = true
+	menu1.safe.MouseButton1Click:Connect(function()
+		opened = not opened
+		if not opened then
+			menu2:TweenSize(UDim2.new(0, 128, 0, 129), "Out", "Quart", true)
+		else
+			menu2:TweenSize(UDim2.new(0,0,0,0), "In", "Quart", true)
+		end
+	end)
+	
+	for i,v in pairs(script.Parent:GetChildren()) do
+		if v ~= script and v ~= script.Parent.TextLabel then
+			v.Active =true 
+			v.Draggable = true
+		end
+	end
+end
+coroutine.wrap(NJQI_fake_script)()
+local function ILNLW_fake_script() -- OUTROS.123 
+	local script = Instance.new('LocalScript', OUTROS)
+
+	
+	script.Parent.Parent.MENU.Outros.MouseButton1Click:Connect(function()
+		script.Parent.Parent.MENU:TweenSize(UDim2.new(0,0,0,0))
+		wait(1)
+		script.Parent:TweenSize(UDim2.new(0,128,0, 141))
+	
+	end)
+	
+	script.Parent.voltar.MouseButton1Click:Connect(function()
+		script.Parent:TweenSize(UDim2.new(0,0,0,0))
+		wait(1)
+		script.Parent.Parent.MENU:TweenSize(UDim2.new(0,128,0,141))
+		wait(1)
+		
+	
+	end)
+	
+	
+	
+	script.Parent["VER FPS"].MouseButton1Click:Connect(function()
+		local fps = script.Parent.Parent.TextLabel
+		
+		fps.Visible = not fps.Visible
+	end)
+	
+	script.Parent.FPS.MouseButton1Click:Connect(function()
+		local Terrain = workspace:FindFirstChildOfClass('Terrain')
+		local Lighting = game.Lighting
+		local Terrain = workspace.Terrain
+		local RunService = game:GetService("RunService")
+		Terrain.WaterWaveSize = 0
+		Terrain.WaterWaveSpeed = 0
+		Terrain.WaterReflectance = 0
+		Terrain.WaterTransparency = 0
+		Lighting.GlobalShadows = false
+		Lighting.FogEnd = 9e9
+		settings().Rendering.QualityLevel = 1
+		for i,v in pairs(game:GetDescendants()) do
+			if v:IsA("Part") or v:IsA("UnionOperation") or v:IsA("MeshPart") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
+				v.Material = "Plastic"
+				v.Reflectance = 0
+			elseif v:IsA("Decal") then
+				v.Transparency = 1
+			elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+				v.Lifetime = NumberRange.new(0)
+			elseif v:IsA("Explosion") then
+				v.BlastPressure = 1
+				v.BlastRadius = 1
+			end
+		end
+		for i,v in pairs(Lighting:GetDescendants()) do
+			if v:IsA("BlurEffect") or v:IsA("SunRaysEffect") or v:IsA("ColorCorrectionEffect") or v:IsA("BloomEffect") or v:IsA("DepthOfFieldEffect") then
+				v.Enabled = false
+			end
+		end
+		workspace.DescendantAdded:Connect(function(child)
+			coroutine.wrap(function()
+				if child:IsA('ForceField') then
+					RunService.Heartbeat:Wait()
+					child:Destroy()
+				elseif child:IsA('Sparkles') then
+					RunService.Heartbeat:Wait()
+					child:Destroy()
+				elseif child:IsA('Smoke') or child:IsA('Fire') then
+					RunService.Heartbeat:Wait()
+					child:Destroy()
+				end
+			end)()
+		end)
+	end)
+	
+	script.Parent["TROCAR SERVE"].MouseButton1Click:Connect(function()
+		local id = game.PlaceId 
+		local servico = game:GetService("TeleportService")
+		
+		servico:Teleport(id)
+	end)
+end
+coroutine.wrap(ILNLW_fake_script)()
+local function JDJWP_fake_script() -- TextLabel_2.LocalScript 
+	local script = Instance.new('LocalScript', TextLabel_2)
+
+	local FPS = 0
+	
+	game:GetService("RunService").RenderStepped:Connect(function()
+		FPS+=1
+	end)
+	
+	while wait(1) do
+		script.Parent.Text = string.format("FPS: %s", FPS)
+		FPS = 0 
+	end
+end
+coroutine.wrap(JDJWP_fake_script)()
