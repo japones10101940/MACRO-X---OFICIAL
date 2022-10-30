@@ -26,8 +26,8 @@ local voltar = Instance.new("TextButton")
 local TextLabel_2 = Instance.new("TextLabel")
 local UIGradient = Instance.new("UIGradient")
 
-SCRIPT.Name = "SCRIPT"
-SCRIPT.Parent = game.CoreGui
+ScreenGui.Name = "ScreenGui"
+ScreenGui.Parent = game.CoreGui
 
 MENU.Name = "MENU"
 MENU.Parent = ScreenGui
