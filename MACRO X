@@ -787,7 +787,7 @@ local function QOUJ_fake_script()
 	wait(1)
 	game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "VIPER X HUB "; 
-		Text = "Prefixo (F2) "; 
+		Text = "Prefixo (ALT) "; 
 		Duration = 9; 
 		Icon = "rbxassetid://11092615099"; 
 	})
@@ -830,7 +830,7 @@ coroutine.wrap(WDUGH_fake_script)()
 
 local aberto = true
 game:GetService("UserInputService").InputBegan:Connect(function(input)
-	if input.KeyCode == Enum.KeyCode.F2 then
+	if input.KeyCode == Enum.KeyCode.ALT then
 		if aberto then
 			aberto = false
 			MENU:TweenSize(UDim2.new(0,0,0,0), "Out", "Quart", 1, true)
