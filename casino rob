@@ -1,0 +1,344 @@
+print("mim mama")
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Hack" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Disable Vault Security" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+	
+	for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Hack" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Disable Vault Security" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+	
+	for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Hack" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Disable Vault Security" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+	
+	for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Hack" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Disable Vault Security" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+	
+	for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Hack" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Disable Vault Security" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+	
+	for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Hack" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Disable Vault Security" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+	
+	for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Hack" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Disable Vault Security" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+	
+	for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Hack" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Disable Vault Security" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+	
+	for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Hack" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Disable Vault Security" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+	
+	for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Hack" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Disable Vault Security" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+	
+	for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Hack" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Disable Vault Security" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+	
+	for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Hack" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Disable Vault Security" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+	
+	for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Hack" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Disable Vault Security" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+	
+	for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Hack" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Disable Vault Security" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+	
+	for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Hack" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Disable Vault Security" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+	
+	for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Hack" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Disable Vault Security" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+	
+	for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Hack" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Disable Vault Security" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+	
+	for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Hack" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Disable Vault Security" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+	
+	for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Hack" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+end
+
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Disable Vault Security" then
+				pcall(function()
+					v.Duration = 0
+					v:Callback(true)
+				end)
+			end
+		end
+    
+   
