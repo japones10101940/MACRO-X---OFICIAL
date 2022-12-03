@@ -756,7 +756,6 @@ local function QOUJ_fake_script() -- MENU.NOTIFICACÃO MACRO
 		Icon = "rbxassetid://11092615099"; 
 	})
 end
-end
 coroutine.wrap(QOUJ_fake_script)()
 local function ZPKD_fake_script() -- MENU.LocalScript 
 	local script = Instance.new('LocalScript', MENU)
