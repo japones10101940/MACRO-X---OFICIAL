@@ -747,13 +747,6 @@ local function QOUJ_fake_script() -- MENU.NOTIFICACÃO MACRO
 		Duration = 6; 
 		Icon = "rbxassetid://11092615099"; 
 	})
-	wait(1)
-	game:GetService("StarterGui"):SetCore("SendNotification", {
-	Title = "VIPER X HUB "; 
-		Text = "Prefixo (F2) "; 
-		Duration = 9; 
-		Icon = "rbxassetid://11092615099"; 
-	})
 end
 coroutine.wrap(QOUJ_fake_script)()
 local function ZPKD_fake_script() -- MENU.LocalScript 
