@@ -798,16 +798,3 @@ local function WDUGH_fake_script() -- SCRIPT.MACRO X INICIO
 	script.Parent.MENU:TweenSize(UDim2.new(0, 389,0, 234), "InOut","Quart", 1, true)
 end
 coroutine.wrap(WDUGH_fake_script)()
-
-local aberto = true
-game:GetService("UserInputService").InputBegan:Connect(function(input)
-	if input.KeyCode == Enum.KeyCode.F2 then
-		if aberto then
-			aberto = false
-			MENU:TweenSize(UDim2.new(0,0,0,0), "Out", "Quart", 1, true)
-		else
-			aberto = true
-			MENU:TweenSize(UDim2.new(0, 389,0, 234), "Out", "Quart", 1, true)
-		end
-	end
-end)
