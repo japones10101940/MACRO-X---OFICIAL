@@ -1,0 +1,208 @@
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Collect" then
+				pcall(function()
+					v.Duration = 1
+					v:Callback(true)
+				end)
+			end
+		end
+    for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Collect" then
+				pcall(function()
+					v.Duration = 1
+					v:Callback(true)
+				end)
+			end
+		end
+    for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Collect" then
+				pcall(function()
+					v.Duration = 1
+					v:Callback(true)
+				end)
+			end
+		end
+    for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Collect" then
+				pcall(function()
+					v.Duration = 1
+					v:Callback(true)
+				end)
+			end
+		end
+    for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Collect" then
+				pcall(function()
+					v.Duration = 1
+					v:Callback(true)
+				end)
+			end
+		end
+    for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Collect" then
+				pcall(function()
+					v.Duration = 1
+					v:Callback(true)
+				end)
+			end
+		end
+    for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Collect" then
+				pcall(function()
+					v.Duration = 1
+					v:Callback(true)
+				end)
+			end
+		end
+    for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Collect" then
+				pcall(function()
+					v.Duration = 1
+					v:Callback(true)
+				end)
+			end
+		end
+    for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Collect" then
+				pcall(function()
+					v.Duration = 1
+					v:Callback(true)
+				end)
+			end
+		end
+    for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Collect" then
+				pcall(function()
+					v.Duration = 1
+					v:Callback(true)
+				end)
+			end
+		end
+    for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Collect" then
+				pcall(function()
+					v.Duration = 1
+					v:Callback(true)
+				end)
+			end
+		end
+    for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Collect" then
+				pcall(function()
+					v.Duration = 1
+					v:Callback(true)
+				end)
+			end
+		end
+    for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Collect" then
+				pcall(function()
+					v.Duration = 1
+					v:Callback(true)
+				end)
+			end
+		end
+    for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Collect" then
+				pcall(function()
+					v.Duration = 1
+					v:Callback(true)
+				end)
+			end
+		end
+    for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Collect" then
+				pcall(function()
+					v.Duration = 1
+					v:Callback(true)
+				end)
+			end
+		end
+    for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Collect" then
+				pcall(function()
+					v.Duration = 1
+					v:Callback(true)
+				end)
+			end
+		end
+    for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Collect" then
+				pcall(function()
+					v.Duration = 1
+					v:Callback(true)
+				end)
+			end
+		end
+    for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Collect" then
+				pcall(function()
+					v.Duration = 1
+					v:Callback(true)
+				end)
+			end
+		end
+    for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Collect" then
+				pcall(function()
+					v.Duration = 1
+					v:Callback(true)
+				end)
+			end
+		end
+    for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Collect" then
+				pcall(function()
+					v.Duration = 1
+					v:Callback(true)
+				end)
+			end
+		end
+    for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Collect" then
+				pcall(function()
+					v.Duration = 1
+					v:Callback(true)
+				end)
+			end
+		end
+    for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Collect" then
+				pcall(function()
+					v.Duration = 1
+					v:Callback(true)
+				end)
+			end
+		end
+    for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Collect" then
+				pcall(function()
+					v.Duration = 1
+					v:Callback(true)
+				end)
+			end
+		end
+    for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Collect" then
+				pcall(function()
+					v.Duration = 1
+					v:Callback(true)
+				end)
+			end
+		end
+    for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Collect" then
+				pcall(function()
+					v.Duration = 1
+					v:Callback(true)
+				end)
+			end
+		end
+    for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Collect" then
+				pcall(function()
+					v.Duration = 1
+					v:Callback(true)
+				end)
+			end
+		end
