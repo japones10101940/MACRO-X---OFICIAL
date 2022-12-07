@@ -1,0 +1,513 @@
+loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/MACRO%20X'))()
+
+repeat wait() until getgenv().newtab
+
+Tab = getgenv().newtab 
+
+if --[[Jailbreak]]game.PlaceId == 606849621 then
+    function SairDoCarro()
+        loadstring("\\103\\97\\109\\101\\58\\71\\101\\116\\83\\101\\114\\118\\105\\99\\101\\40\\34\\86\\105\\114\\116\\117\\97\\108\\73\\110\\112\\117\\116\\77\\97\\110\\97\\103\\101\\114\\34\\41\\58\\83\\101\\110\\100\\75\\101\\121\\69\\118\\101\\110\\116\\40\\116\\114\\117\\101\\44\\32\\69\\110\\117\\109\\46\\75\\101\\121\\67\\111\\100\\101\\46\\83\\112\\97\\99\\101\\44\\32\\102\\97\\108\\115\\101\\44\\32\\103\\97\\109\\101\\41\\10\\32\\32\\32\\32\\32\\32\\32\\32\\115\\112\\97\\119\\110\\40\\102\\117\\110\\99\\116\\105\\111\\110\\40\\41\\10\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\112\\99\\97\\108\\108\\40\\102\\117\\110\\99\\116\\105\\111\\110\\40\\41\\10\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\114\\101\\112\\101\\97\\116\\32\\119\\97\\105\\116\\40\\41\\32\\117\\110\\116\\105\\108\\32\\103\\97\\109\\101\\46\\80\\108\\97\\121\\101\\114\\115\\46\\76\\111\\99\\97\\108\\80\\108\\97\\121\\101\\114\\46\\67\\104\\97\\114\\97\\99\\116\\101\\114\\46\\72\\117\\109\\97\\110\\111\\105\\100\\46\\74\\117\\109\\112\\32\\61\\61\\32\\116\\114\\117\\101\\10\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\103\\97\\109\\101\\58\\71\\101\\116\\83\\101\\114\\118\\105\\99\\101\\40\\34\\86\\105\\114\\116\\117\\97\\108\\73\\110\\112\\117\\116\\77\\97\\110\\97\\103\\101\\114\\34\\41\\58\\83\\101\\110\\100\\75\\101\\121\\69\\118\\101\\110\\116\\40\\102\\97\\108\\115\\101\\44\\32\\69\\110\\117\\109\\46\\75\\101\\121\\67\\111\\100\\101\\46\\83\\112\\97\\99\\101\\44\\32\\102\\97\\108\\115\\101\\44\\32\\103\\97\\109\\101\\41\\10\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\101\\110\\100\\41\\10\\32\\32\\32\\32\\32\\32\\32\\32\\101\\110\\100\\41\\10")()
+    end
+	local Farm = Tab('Farm')
+	
+	local Teleportes = Tab('Teleportes')
+	
+	local Loja = Tab('Loja')
+	
+	local Esp = Tab('Esp')
+	
+	local Outros = Tab('Outros')
+	
+	local Credits = Tab('Credits')
+
+
+	local Tp1,Tp2 = loadstring(game:HttpGet('https://pastebin.com/raw/7WnNB5ux'))()
+	repeat 
+		wait()
+	until Tp1 ~= nil and Tp2 ~= nil
+	function Tp(Vector)
+		Tp1(Vector)
+	end
+
+    Credits:CriarBotao("Discord", function()
+
+        setclipboard("by ヘンリケ#0002")
+        
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "Discord";
+            Text = "by ヘンリケ#0002";
+        })
+        wait(0.5)
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "Discord";
+            Text = "Créditos no clipboard!";
+        })
+    end)
+        Credits:CriarBotao("Viper X #85k", function()
+    
+            setclipboard("https://discord.gg/viperx")
+            wait(0.6)
+            game:GetService("StarterGui"):SetCore("SendNotification", {
+                Title = "Viper X #85k";
+                Text = "Link de convite no clipboard!";
+            })
+    end)
+
+	Farm:CriarBotao("Auto Power Pont", function()
+		Tp2(Vector3.new(46.77196502685547, 20.40790367126465, 2358.94482421875))
+		wait()
+		Tp1(Vector3.new(88.1910400390625, 21.591264724731445, 2322.888671875))
+		wait()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/MACRO%20X%20NOTI'))()
+		wait()
+		Tp1(Vector3.new(78.70573425292969, 21.265657424926758, 2329.04443359375))
+		wait()
+		Tp1(Vector3.new(85.81525421142578, 21.265657424926758, 2341.94677734375))
+		wait()
+		Tp1(Vector3.new(113.89276123046875, 30.92215347290039, 2320.52197265625))
+		wait()
+		Tp1(Vector3.new(212.05099487304688, 16.133291244506836, 2245.52001953125))
+		wait()
+		Tp1(Vector3.new(145.4097442626953, -8.469225883483887, 2092.705322265625))
+		wait()
+		Tp1(Vector3.new(122.96280670166016, -11.275989532470703, 2104.885009765625))
+		wait()
+		Tp1(Vector3.new(120.27031707763672, -10.84254264831543, 2100.096923828125))
+		wait()
+		local callback = function(text)
+			if text == "Continuar" then
+				c=true
+			end
+		end
+		local BindableFunction = Instance.new('BindableFunction')
+		BindableFunction.OnInvoke = callback
+		game:GetService("StarterGui"):SetCore("SendNotification", {
+			Title = "Esperando..."; 
+			Text = "Complete sua Quest!"; 
+			Duration = 30; 
+			Icon = nil; 
+			Button1 = "Continuar";
+			Button2 = "Parar";
+			Callback = BindableFunction
+		})
+		repeat wait()until c
+		wait()
+		Tp1(Vector3.new(101.39856719970703, -12.582113265991211, 2110.28759765625))
+		wait()
+        Tp1(Vector3.new(39.45298767089844, -10.985179901123047, 2089.020263671875))
+		wait()
+		Tp1(Vector3.new(-12.095657348632812, -10.24955940246582, 2121.708984375))
+		wait()
+		Tp1(Vector3.new(28.224660873413086, -10.179061889648438, 2174.039794921875))
+		wait()
+		Tp1(Vector3.new(50.906742095947266, -7.715537071228027, 2201.260986328125))
+		wait()
+		Tp1(Vector3.new(90.307861328125, 14.392991065979004, 2252.265869140625))
+		wait()
+		Tp1(Vector3.new(106.85881042480469, 25.050369262695312, 2263.40673828125))
+		wait()
+		Tp1(Vector3.new(72.67574310302734, 21.991212844848633, 2289.010498046875))
+		wait(1)
+		Tp1(Vector3.new(48.4694709777832, 21.265655517578125, 2306.91259765625))
+
+	end)
+
+	Teleportes:CriarBotao("TP Safe Zone", function()
+		Tp2(Vector3.new(-1445.2222900390625, 57.58409118652344, -1775.975830078125))
+	end)
+
+	Outros:CriarBotao("Abrir Porta (Casino)", function()
+
+		local function code()
+		local code = ""
+		for i,v in pairs(game:GetService("Workspace").Casino.RobberyDoor.Codes:GetDescendants()) do
+			if v:IsA("TextLabel") and v.Text ~= "" then
+				code = code .. v.Text
+			end
+		end
+		return code
+		end
+
+
+		game:GetService("Workspace").Casino.RobberyDoor.Keypad.Pad.CasinoKeypadSubmit:FireServer(code())
+
+	end)
+	Outros:CriarBotao("E (SEM DELAY)", function(value)
+
+		local func;
+		for i,v in pairs(getgc()) do
+			if type(v) == "function" and debug.getinfo(v).name == "UpdateCircleActions" then
+				func = v
+			end
+		end
+		local goalTable = getupvalues(func)[2]
+		for i,v in pairs(goalTable.CircleAction.Specs) do
+			local old = v.Duration
+			v.Duration = 0
+		end
+
+	end) 
+	Farm:CriarBotao("Auto Rosquinha", function()
+		Tp2(Vector3.new(93.25601959228516, 19.21782684326172, -1522.2998046875))
+		wait(0.6)
+		Tp1(Vector3.new(97.2082748413086, 19.517820358276367, -1530.1361083984375))
+		wait(1)
+		Tp1(Vector3.new(96.95466613769531, 19.517820358276367, -1528.409912109375))
+		wait()
+		Tp1(Vector3.new(113.69667053222656, 19.717845916748047, -1578.6995849609375))
+		wait()
+		Tp1(Vector3.new(76.89389038085938, 19.717849731445312, -1589.548828125))
+		wait(3)
+
+		for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Rob" then
+				pcall(function()
+					v.Duration = 1
+					v:Callback(true)
+				end)
+			end
+		end
+
+	end)
+
+	Outros:CriarBotao("Delete Lasers", function()
+
+		
+		for i,v in pairs(workspace:GetDescendants()) do
+			if v.Name == 'BarbedWire' or v.Name == 'Shadow' or v.Name == 'Lasers' or v.Name == 'LasersMoving' or v.Name == 'Shadow' or v.Name == 'Light' or (v:IsA('Part') and tostring(v.BrickColor) == 'Dusty Rose') or (v.Name == 'InnerModel' and v.Parent.Name == 'Camera')  then
+				local oldParent = v.Parent
+				v.Parent = game:GetService('ReplicatedStorage')
+			end
+		end
+
+
+
+	end)
+
+	Loja:CriarBotao("Key Card", function()
+		for i, v in pairs(getgc(true)) do
+			if type(v) == "function" and debug.getinfo(v).name == "hasKey" then
+				hookfunction(v, function(...)
+					return true     
+				end)
+			end
+		end
+	end)
+
+	Farm:CriarBotao("Auto Posto de Gasolina", function()
+		Tp2(Vector3.new(-1571.728515625, 18.398113250732422, 708.75732421875))
+		wait()
+		Tp1(Vector3.new(-1578.464599609375, 18.69811248779297, 706.9764404296875))
+		wait(1)
+		Tp1(Vector3.new(-1596.7197265625, 18.49811363220215, 708.4967041015625))
+		wait()
+		Tp1(Vector3.new(-1600.7578125, 18.49811363220215, 685.6148071289062))
+		wait(3)
+
+		for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+			if v.Name == "Rob" then
+				pcall(function()
+					v.Duration = 1
+					v:Callback(true)
+				end)
+			end
+		end
+
+	end)
+
+	Farm:CriarBotao("Auto Tomb", function()
+		-- funcao
+	end)
+
+	Farm:CriarBotao("Auto Vender (Vulcao)", function()
+		Tp2(Vector3.new(2277.160888671875, 18.90064239501953, -2055.906494140625))
+		wait(1.2)
+		Tp1(Vector3.new(2270.21435546875, 19.57038688659668, -2155.13525390625))
+		wait(0.6)
+		Tp1(Vector3.new(2211.60791015625, 19.384634017944336, -2482.86328125))
+		wait(0.6)
+		Tp1(Vector3.new(2290.28515625, 19.807117462158203, -2590.0693359375))
+	end)
+
+	Farm:CriarBotao("Auto Vender (Base Cidade)", function()
+		Tp2(Vector3.new(-246.013916015625, 17.881628036499023, 1616.1649169921875))
+	end)
+
+	Teleportes:CriarBotao("TP Museu", function()
+		Tp2(Vector3.new(1113.5445556640625, 139.10427856445312, 1297.2264404296875))
+	end)
+
+	Teleportes:CriarBotao("TP Joaleria", function()
+		Tp2(Vector3.new(143.66824340820312, 17.883831024169922, 1379.358154296875))
+	end)	
+
+	Teleportes:CriarBotao("TP Bank", function()
+		Tp2(Vector3.new(43.04151153564453, 17.872217178344727, 764.78759765625))
+	end)
+
+	Teleportes:CriarBotao("TP Power Plant", function()
+		Tp2(Vector3.new(46.77196502685547, 20.40790367126465, 2358.94482421875))
+	end)	
+
+	Teleportes:CriarBotao("TP Casino", function()
+		Tp2(Vector3.new(-194.64422607421875, 19.190465927124023, -4584.3720703125))
+	end)	
+
+	Teleportes:CriarBotao("TP Posto de Gasolina", function()
+		Tp2(Vector3.new(-1534.64453125, 18.461469650268555, 701.8700561523438))
+	end)
+
+	Teleportes:CriarBotao("TP Loja de Rosquinha", function()
+		Tp2(Vector3.new(62.23844528198242, 18.963422775268555, -1517.5889892578125))
+	end)	
+
+	Teleportes:CriarBotao("TP Vulcao(Dentro)", function()
+		Tp2(Vector3.new(2277.160888671875, 18.90064239501953, -2055.906494140625))
+		wait(1.2)
+		Tp1(Vector3.new(2270.21435546875, 19.57038688659668, -2155.13525390625))
+		wait(0.6)
+		Tp1(Vector3.new(2211.60791015625, 19.384634017944336, -2482.86328125))
+
+	end)
+
+	Teleportes:CriarBotao("TP Vulcao(Fora)", function()
+		Tp2(Vector3.new(2277.160888671875, 18.90064239501953, -2055.906494140625))
+	end)	
+
+	Teleportes:CriarBotao("TP Base cidade", function()
+		Tp2(Vector3.new(-246.013916015625, 17.881628036499023, 1616.1649169921875))
+	end)	
+
+	Teleportes:CriarBotao("TP prisao(Dentro)", function()
+		Tp2(Vector3.new(-1219.6141357421875, 18.449987411499023, -1759.02490234375))
+	end)
+
+	Teleportes:CriarBotao("TP prisao(Fora)", function()
+		Tp2(Vector3.new(-1138.365234375, 18.39781951904297, -1389.2274169921875))
+	end)
+
+	Outros:CriarBotao("FLY(X)", function()
+		pcall(function()
+		FLYSPEED = 20
+		game:GetService('UserInputService').InputBegan:Connect(function(a,b)
+		if b then return end
+		if a.KeyCode == Enum.KeyCode.LeftShift then
+		FLYSPEED = FLYSPEED + 50
+		end
+		end)
+		game:GetService('UserInputService').InputEnded:Connect(function(a,b)
+		if b then return end
+		if a.KeyCode == Enum.KeyCode.LeftShift then
+		FLYSPEED = FLYSPEED - 50
+		end
+		end)
+
+			repeat wait() until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:findFirstChild("Head") and game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid") local mouse = game.Players.LocalPlayer:GetMouse() repeat wait() until mouse local plr = game.Players.LocalPlayer local torso = plr.Character.Head local flying = false local deb = true local ctrl = {f = 0, b = 0, l = 0, r = 0} local lastctrl = {f = 0, b = 0, l = 0, r = 0} local maxspeed = 5000 local speed = 5000 function Fly() local bg = Instance.new("BodyGyro", torso) bg.P = 10000 bg.maxTorque = Vector3.new(9e9, 9e9, 9e9) bg.cframe = torso.CFrame local bv = Instance.new("BodyVelocity", torso) bv.velocity = Vector3.new(0,0.1,0) bv.maxForce = Vector3.new(9e9, 9e9, 9e9) repeat wait() plr.Character:FindFirstChildWhichIsA('Humanoid').PlatformStand = false if ctrl.l + ctrl.r ~= 100000 or ctrl.f + ctrl.b ~= 10000 then speed = speed+.0+(speed/maxspeed) if speed > maxspeed then speed = maxspeed end elseif not (ctrl.l + ctrl.r ~= 5 or ctrl.f + ctrl.b ~= 5) and speed ~= 5 then speed = speed-5 if speed > 5 then speed = -2 end end if (ctrl.l + ctrl.r) ~= 5 or (ctrl.f + ctrl.b) ~= 5 then bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r} elseif (ctrl.l + ctrl.r) == 5 and (ctrl.f + ctrl.b) == 5 and speed ~= 5 then bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed else bv.velocity = Vector3.new(0,0.1,0) end bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0) until not flying ctrl = {f = 0, b = 0, l = 0, r = 0} lastctrl = {f = 0, b = 0, l = 0, r = 0} speed = 5 bg:Destroy() bv:Destroy() plr.Character:FindFirstChildWhichIsA('Humanoid').PlatformStand = false end mouse.KeyDown:connect(function(key) if key:lower() == "x" then if flying then flying = false else flying = true Fly() end elseif key:lower() == "w" then ctrl.f = FLYSPEED elseif key:lower() == "s" then ctrl.b = -FLYSPEED elseif key:lower() == "a" then ctrl.l = -FLYSPEED elseif key:lower() == "d" then ctrl.r = FLYSPEED end end) mouse.KeyUp:connect(function(key) if key:lower() == "w" then ctrl.f = 0 elseif key:lower() == "s" then ctrl.b = 0 elseif key:lower() == "a" then ctrl.l = 0 elseif key:lower() == "d" then ctrl.r = 0 end end) Fly()    
+		end);
+		speaker.CharacterAdded:Connect(function(c)
+		c:WaitForChild("HumanoidRootPart")
+		wait(0.5)
+		pcall(function()
+		FLYSPEED = 20
+		game:GetService('UserInputService').InputBegan:Connect(function(a,b)
+		if b then return end
+		if a.KeyCode == Enum.KeyCode.LeftShift then
+		FLYSPEED = FLYSPEED + 50
+		end
+		end)
+		game:GetService('UserInputService').InputEnded:Connect(function(a,b)
+		if b then return end
+		if a.KeyCode == Enum.KeyCode.LeftShift then
+		FLYSPEED = FLYSPEED - 50
+		end
+		end)
+
+		repeat wait() until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:findFirstChild("Head") and game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid") local mouse = game.Players.LocalPlayer:GetMouse() repeat wait() until mouse local plr = game.Players.LocalPlayer local torso = plr.Character.Head local flying = false local deb = true local ctrl = {f = 0, b = 0, l = 0, r = 0} local lastctrl = {f = 0, b = 0, l = 0, r = 0} local maxspeed = 5000 local speed = 5000 function Fly() local bg = Instance.new("BodyGyro", torso) bg.P = 10000 bg.maxTorque = Vector3.new(9e9, 9e9, 9e9) bg.cframe = torso.CFrame local bv = Instance.new("BodyVelocity", torso) bv.velocity = Vector3.new(0,0.1,0) bv.maxForce = Vector3.new(9e9, 9e9, 9e9) repeat wait() plr.Character:FindFirstChildWhichIsA('Humanoid').PlatformStand = false if ctrl.l + ctrl.r ~= 100000 or ctrl.f + ctrl.b ~= 10000 then speed = speed+.0+(speed/maxspeed) if speed > maxspeed then speed = maxspeed end elseif not (ctrl.l + ctrl.r ~= 5 or ctrl.f + ctrl.b ~= 5) and speed ~= 5 then speed = speed-5 if speed > 5 then speed = -2 end end if (ctrl.l + ctrl.r) ~= 5 or (ctrl.f + ctrl.b) ~= 5 then bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r} elseif (ctrl.l + ctrl.r) == 5 and (ctrl.f + ctrl.b) == 5 and speed ~= 5 then bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed else bv.velocity = Vector3.new(0,0.1,0) end bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0) until not flying ctrl = {f = 0, b = 0, l = 0, r = 0} lastctrl = {f = 0, b = 0, l = 0, r = 0} speed = 5 bg:Destroy() bv:Destroy() plr.Character:FindFirstChildWhichIsA('Humanoid').PlatformStand = false end mouse.KeyDown:connect(function(key) if key:lower() == "x" then if flying then flying = false else flying = true Fly() end elseif key:lower() == "w" then ctrl.f = FLYSPEED elseif key:lower() == "s" then ctrl.b = -FLYSPEED elseif key:lower() == "a" then ctrl.l = -FLYSPEED elseif key:lower() == "d" then ctrl.r = FLYSPEED end end) mouse.KeyUp:connect(function(key) if key:lower() == "w" then ctrl.f = 0 elseif key:lower() == "s" then ctrl.b = 0 elseif key:lower() == "a" then ctrl.l = 0 elseif key:lower() == "d" then ctrl.r = 0 end end) Fly()    
+		end);
+		end)
+	end)
+
+	Outros:CriarBotao("Iniciar Queda Livre", function(value)
+
+		local startSky
+		for i,v in pairs(getgc()) do
+			if type(v) == 'function' and getinfo(v).name == 'StartSkydiving' then
+				startSky = v
+			end
+		end
+		startSky()
+
+	end)
+
+	Outros:CriarToggle("Anti dano de queda", function(value)
+
+
+		local item = require(game:GetService("ReplicatedStorage").Module.AlexRagdoll)
+		local oldfunction = item.Ragdoll
+		item.Ragdoll = function()
+
+		return wait(9e9)
+
+		end
+	end)
+
+    Esp:CriarBotao("ESP Player", function()
+	local color = BrickColor.new(50,0,250)
+	local transparency = .8
+	
+	local Players = game:GetService("Players")
+	local function _ESP(c)
+	  repeat wait() until c.PrimaryPart ~= nil
+	  for i,p in pairs(c:GetChildren()) do
+		if p.ClassName == "Part" or p.ClassName == "MeshPart" then
+		  if p:FindFirstChild("shit") then p.shit:Destroy() end
+		  local a = Instance.new("BoxHandleAdornment",p)
+		  a.Name = "shit"
+		  a.Size = p.Size
+		  a.Color = color
+		  a.Transparency = transparency
+		  a.AlwaysOnTop = true    
+		  a.Visible = true    
+		  a.Adornee = p
+		  a.ZIndex = true    
+	
+		end
+	  end
+	end
+	local function ESP()
+	  for i,v in pairs(Players:GetChildren()) do
+		if v ~= game.Players.LocalPlayer then
+		  if v.Character then
+			_ESP(v.Character)
+		  end
+		  v.CharacterAdded:Connect(function(chr)
+			_ESP(chr)
+		  end)
+		end
+	  end
+	  Players.PlayerAdded:Connect(function(player)
+		player.CharacterAdded:Connect(function(chr)
+		  _ESP(chr)
+		end)  
+	  end)
+	end
+	ESP()
+end)
+
+     Farm:CriarBotao("Auto sair joaleira(BETA)", function()
+		Tp1(Vector3.new(134.99070739746094, 18.599071502685547, 1343.144287109375))
+		wait()	
+     local pos = Vector3.new(134.8778076171875, 18.575607299804688, 1345.2486572265625) -- posicao
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(pos)
+    end)
+
+    Farm:CriarBotao("Auto Sair Museu", function()
+
+        local pos = Vector3.new(1093.6910400390625, 105.71947479248047, 1277.6243896484375) -- posicao
+        --Teleport instantanio
+      
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(pos)
+    
+    end)
+
+
+    Outros:CriarBotao("Inf nitro", function()
+
+        for i,v in pairs(getgc(true)) do
+            if typeof(v) == "table" then
+                    for _,b in pairs(v) do
+                    if tostring(_) == "Nitro" then
+                    while true do
+                    v[tostring(_)] = 90
+                    wait()
+                    end
+                    end
+                end
+            end
+        end
+    end)
+
+
+	Outros:CriarBotao("FPS+", function()
+
+
+		local Terrain = workspace:FindFirstChildOfClass('Terrain')
+			local Lighting = game.Lighting
+			local RunService = game:GetService("RunService")
+			Terrain.WaterWaveSize = 0
+			Terrain.WaterWaveSpeed = 0
+			Terrain.WaterReflectance = 0
+			Terrain.WaterTransparency = 0
+			Lighting.GlobalShadows = false
+			Lighting.FogEnd = 9e9
+			settings().Rendering.QualityLevel = 1
+			for i,v in pairs(game:GetDescendants()) do
+				if v:IsA("Part") or v:IsA("UnionOperation") or v:IsA("MeshPart") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
+					v.Material = "Plastic"
+					v.Reflectance = 0
+				elseif v:IsA("Decal") then
+					v.Transparency = 1
+				elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+					v.Lifetime = NumberRange.new(0)
+				elseif v:IsA("Explosion") then
+					v.BlastPressure = 1
+					v.BlastRadius = 1
+				end
+			end
+			for i,v in pairs(Lighting:GetDescendants()) do
+				if v:IsA("BlurEffect") or v:IsA("SunRaysEffect") or v:IsA("ColorCorrectionEffect") or v:IsA("BloomEffect") or v:IsA("DepthOfFieldEffect") then
+					v.Enabled = false
+				end
+			end
+			workspace.DescendantAdded:Connect(function(child)
+				coroutine.wrap(function()
+					if child:IsA('ForceField') then
+						RunService.Heartbeat:Wait()
+						child:Destroy()
+					elseif child:IsA('Sparkles') then
+						RunService.Heartbeat:Wait()
+						child:Destroy()
+					elseif child:IsA('Smoke') or child:IsA('Fire') then
+						RunService.Heartbeat:Wait()
+						child:Destroy()
+					end
+				end)()
+			end)
+		end)
+  Outros:CriarBotao("Auto Quest Casino", function()
+    local Led = game:GetService("Workspace").Casino.HackableVaults.VaultDoorMain.InnerModel.Model.UnlockedLED
+
+    local function Fire(name)
+        for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+            if v.Name == name then
+                pcall(function()
+                    v.Duration = 0
+                    v:Callback(true)
+                end)
+            end
+        end
+    end
+    
+    game:GetService("Workspace").Casino.HackableVaults.VaultDoorMain.InnerModel.Puzzle.RequestHack:FireServer()
+    
+    
+    for i = 1,3 do
+    
+        local time = 1
+    
+        repeat task.wait() time+=0.01 until time > 3 or Led.BrickColor == BrickColor.new("Lime green")
+        if time > 3 then return end
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "VIPER X HUB";
+            Text = "SUCESSO!!!"
+        })
+        game:GetService("Workspace").Casino.HackableVaults.VaultDoorMain.InnerModel.Puzzle.UpdateDirection:FireServer()
+        repeat task.wait() until  Led.BrickColor == BrickColor.new("Really red")
+        
+    end
+        end)	
+        
+
+        
+
+ end
