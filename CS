@@ -1,0 +1,141 @@
+Farm:CriarBotao("Auto Casino", function()
+		
+		Tp2(Vector3.new(-73.93269348144531, 155.28050231933594, -4714.79833984375))
+		for i,v in pairs(workspace:GetDescendants()) do
+			if v.Name == 'BarbedWire' or v.Name == 'Shadow' or v.Name == 'Lasers' or v.Name == 'LasersMoving' or v.Name == 'Shadow' or (v:IsA('Part') and tostring(v.BrickColor) == 'Dusty Rose') or (v.Name == 'InnerModel' and v.Parent.Name == 'Camera')  then
+				local oldParent = v.Parent
+				v.Parent = game:GetService('ReplicatedStorage')
+			end
+		end
+		wait()
+		Tp1(Vector3.new(-12.582771301269531, 155.28053283691406, -4734.11865234375))
+		wait()
+		Tp1(Vector3.new(-16.19143295288086, 155.32080078125, -4746.25537109375))
+		wait()
+		local pos = Vector3.new(-14.686151504516602, 155.30926513671875, -4750.18994140625) -- posicao
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(pos)
+		wait()
+		local item = require(game:GetService("ReplicatedStorage").Module.AlexRagdoll)
+		local oldfunction = item.Ragdoll
+		item.Ragdoll = function()																  
+			return wait(9e9)  
+		end
+		wait(2.1)
+		local pos = Vector3.new(-20.571578979492188, 28.92701530456543, -4756.8232421875) -- posicao
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(pos)
+		wait(1)
+		local Call = game:GetService("Workspace").Casino.Elevator.Car.InnerModel.Calls['3']
+		fireclickdetector(Call.ClickDetector)
+        wait(2.9)
+		Tp1(Vector3.new(-14.013900756835938, 71.48004150390625, -4736.6650390625))
+loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+wait()
+Tp1(Vector3.new(66.30123901367188, 69.58157348632812, -4702.05810546875))
+loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+wait()
+Tp1(Vector3.new(59.13119888305664, 73.08425903320312, -4662.07373046875))
+loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+wait()
+Tp1(Vector3.new(28.01329231262207, 73.08425903320312, -4652.1484375))
+loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+wait()
+Tp1(Vector3.new(22.27621841430664, 73.10338592529297, -4679.47314453125))
+loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+wait()
+Tp1(Vector3.new(-14.785689353942871, 73.08352661132812, -4667.76025390625))
+loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+wait()
+Tp1(Vector3.new(-0.04245381057262421, 73.08425903320312, -4643.23681640625))
+loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+wait()
+Tp1(Vector3.new(-23.657981872558594, 73.11416625976562, -4636.005859375))
+loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+wait()
+Tp1(Vector3.new(-53.55033493041992, 73.08426666259766, -4630.20166015625))
+loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+wait()
+Tp1(Vector3.new(-79.71204376220703, 73.08425903320312, -4621.2412109375))
+loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+wait()
+Tp1(Vector3.new(-111.75055694580078, 73.08425903320312, -4612.2138671875))
+loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+wait()
+Tp1(Vector3.new(-82.11653137207031, 81.34656524658203, -4649.365234375))
+wait()
+Tp1(Vector3.new(-16.072145462036133, 71.52082061767578, -4746.28955078125))
+wait()
+local pos = Vector3.new(-17.89362907409668, 71.49137878417969, -4750.1083984375) -- posicao
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(pos)
+wait(1.6)
+local pos = Vector3.new(-18.78749656677246, 28.731122970581055, -4754.3154296875) -- posicao
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(pos)
+wait()
+local Call = game:GetService("Workspace").Casino.Elevator.Car.InnerModel.Calls['1']
+		fireclickdetector(Call.ClickDetector)
+ wait(3)
+ Tp1(Vector3.new(-7.5441484451293945, -77.02445983886719, -4715.873046875))
+wait()       
+Tp1(Vector3.new(16.682323455810547, -77.02445983886719, -4722.1015625))
+wait(1.5)
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+    if v.Name == "Break" then
+        pcall(function()
+            v.Duration = 0
+            v:Callback(true)
+        end)
+    end
+end
+wait()
+Tp1(Vector3.new(34.04362487792969, -77.26969909667969, -4727.18603515625))
+wait()       
+Tp1(Vector3.new(49.96100997924805, -77.26969909667969, -4667.8203125))
+wait()
+Tp1(Vector3.new(26.1173038482666, -77.26969909667969, -4662.6728515625))
+wait(1)
+Tp1(Vector3.new(7.94412088394165, -77.26969909667969, -4654.79931640625))
+wait()
+Tp1(Vector3.new(33.69564437866211, -77.02262878417969, -4583.1396484375))
+wait()
+Tp1(Vector3.new(63.65641403198242, -77.07304382324219, -4549.95556640625))
+wait()
+Tp1(Vector3.new(95.20052337646484, -77.02481842041016, -4534.49462890625))
+wait()
+Tp1(Vector3.new(124.50833892822266, -77.07303619384766, -4528.50732421875))
+wait()
+local Led = game:GetService("Workspace").Casino.HackableVaults.VaultDoorMain.InnerModel.Model.UnlockedLED
+
+local function Fire(name)
+    for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == name then
+            pcall(function()
+                v.Duration = 0
+                v:Callback(true)
+            end)
+        end
+    end
+end
+
+game:GetService("Workspace").Casino.HackableVaults.VaultDoorMain.InnerModel.Puzzle.RequestHack:FireServer()
+
+
+for i = 1,3 do
+
+    local time = 1
+
+    repeat task.wait() time+=0.01 until time > 3 or Led.BrickColor == BrickColor.new("Lime green")
+    if time > 3 then return end
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "MACRO X";
+        Text = "SUCESSO!!!"
+    })
+    game:GetService("Workspace").Casino.HackableVaults.VaultDoorMain.InnerModel.Puzzle.UpdateDirection:FireServer()
+    repeat task.wait() until  Led.BrickColor == BrickColor.new("Really red")
+    
+end
+
+game:GetService("StarterGui"):SetCore("SendNotification", {
+	Title = "MACRO X";
+	Text = "Feito!";
+})	
+
+end)	
