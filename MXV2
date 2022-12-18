@@ -741,7 +741,7 @@ coroutine.wrap(ZPKD_fake_script)()
 local function WDUGH_fake_script() 
 	local script = Instance.new('LocalScript', SCRIPT)
 
-	local Texto = "VIPER X"
+	local Texto = "MACRO X"
 	local TextLabel = script.Parent["INICIO MACRO X "]
 	
 	for i = 1,#Texto do
