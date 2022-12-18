@@ -1,0 +1,38 @@
+--BROUGHT TO YOU BY RSCRIPTS.NET!--
+
+workspace.ChildAdded:connect(function(v)
+        wait(1)
+        if v.Name == "Drop" and v:IsA("Model") then
+            print("D4rk air drop detector")
+
+wait(1.2)
+game.StarterGui:SetCore("SendNotification", {
+Title = "AIR DROP"; -- the title (ofc)
+Text = "Air drop, - a air drop is on the map";
+Icon = "rbxassetid://57254792";
+Duration = 5;
+})
+
+wait(1)
+while true do wait(2)
+for i,v in pairs(workspace.Drop:GetChildren()) do
+   if v.Transparency == 0 then
+       a = Instance.new("BillboardGui", v)
+       a.Size = UDim2.new(0,20,0,20)
+       a.AlwaysOnTop = true
+       b = Instance.new("TextLabel", a)
+       b.Size = UDim2.new(0,20,0,20)
+       b.Text = "Airdrop"
+       b.BackgroundTransparency = 1
+       b.TextColor3 = Color3.fromRGB(255,255,0)
+       b.TextStrokeTransparency = 0
+   end
+   end
+   
+   v:GetPropertyChangedSignal("Transparency"):Connect(function()
+       v.BillboardGui:Destroy()
+   end)
+end
+
+   end
+end)
