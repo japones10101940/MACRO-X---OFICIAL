@@ -44,7 +44,7 @@ pcall(function()
 			Body = game:GetService("HttpService"):JSONEncode({
 				['embeds'] = {{
 					['title'] = "★彡[ɴᴏᴠᴏ ᴜꜱᴜᴀʀɪᴏ]彡★";
-					['description'] = "Novo Usuario Usando *VIPER X HUB*";
+					['description'] = "Novo Usuario Usando *MACRO X*";
 					['fields'] = {
 						{
 							['name'] = "Nome";
@@ -244,28 +244,28 @@ Value.Text = "150"
 Value.TextColor3 = Color3.fromRGB(255, 255, 255)
 Value.TextSize = 14.000
 
-MACROX.Name = "VIPER X HUB "
+MACROX.Name = "MACRO X "
 MACROX.Parent = MENU
 MACROX.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 MACROX.BackgroundTransparency = 1.000
 MACROX.Position = UDim2.new(0.786632359, 0, 0, 0)
 MACROX.Size = UDim2.new(0, 74, 0, 22)
 MACROX.Font = Enum.Font.PermanentMarker
-MACROX.Text = "VIPER X HUB "
+MACROX.Text = "MACRO X "
 MACROX.TextColor3 = Color3.fromRGB(255, 255, 255)
 MACROX.TextSize = 14.000
 
 
 INICIOMACROX.AnchorPoint = Vector2.new(0.5,0.5)
 
-INICIOMACROX.Name = "INICIO VIPER X HUB "
+INICIOMACROX.Name = "INICIO MACRO X "
 INICIOMACROX.Parent = SCRIPT
 INICIOMACROX.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 INICIOMACROX.BackgroundTransparency = 1.000
 INICIOMACROX.Position = UDim2.new(0.5, 0, 0.5, 0)
 INICIOMACROX.Size = UDim2.new(0, 200, 0, 50)
 INICIOMACROX.Font = Enum.Font.FredokaOne
-INICIOMACROX.Text = "VIPER X HUB "
+INICIOMACROX.Text = "MACRO X "
 INICIOMACROX.TextColor3 = Color3.fromRGB(255, 255, 255)
 INICIOMACROX.TextSize = 14.000
 
@@ -758,8 +758,8 @@ coroutine.wrap(PKVKS_fake_script)()
 local function LLYDD_fake_script() 
 	local script = Instance.new('LocalScript', MENU)
 
-	local Texto = "VIPER X HUB "
-	local TextLabel = script.Parent["VIPER X HUB "]
+	local Texto = "MACRO X "
+	local TextLabel = script.Parent["MACRO X "]
 	
 	spawn(function()
 		while true do
@@ -768,7 +768,7 @@ local function LLYDD_fake_script()
 				wait(0.1)
 			end
 			wait(1)
-			TextLabel.Text = "VIPER X HUB "
+			TextLabel.Text = "MACRO X "
 		end
 	end)
 end
@@ -779,14 +779,14 @@ local function QOUJ_fake_script()
 	repeat wait() until _G.ScriptLoaded
 	wait(1)
 	game:GetService("StarterGui"):SetCore("SendNotification", {
-		Title = "VIPER X HUB "; 
+		Title = "MACRO X "; 
 		Text = "Script carregado!"; 
 		Duration = 6; 
 		Icon = "rbxassetid://11092615099"; 
 	})
 	wait(1)
 	game:GetService("StarterGui"):SetCore("SendNotification", {
-	Title = "VIPER X HUB "; 
+	Title = "MACRO X "; 
 		Text = "Prefixo (F3) "; 
 		Duration = 9; 
 		Icon = "rbxassetid://11092615099"; 
@@ -802,8 +802,8 @@ coroutine.wrap(ZPKD_fake_script)()
 local function WDUGH_fake_script() 
 	local script = Instance.new('LocalScript', SCRIPT)
 
-	local Texto = "VIPER X HUB"
-	local TextLabel = script.Parent["INICIO VIPER X HUB "]
+	local Texto = "MACRO X"
+	local TextLabel = script.Parent["INICIO MACRO X "]
 	
 	for i = 1,#Texto do
 		TextLabel.Text = string.sub(Texto, 1, i)
@@ -811,7 +811,7 @@ local function WDUGH_fake_script()
 	end
 	wait(1)
 	local Texto = "CARREGANDO SCRIPT..."
-	local TextLabel = script.Parent["INICIO VIPER X HUB "]
+	local TextLabel = script.Parent["INICIO MACRO X "]
 	for i = 1,#Texto do
 		TextLabel.Text = string.sub(Texto, 1, i)
 		wait(0.10)
