@@ -1,0 +1,926 @@
+local start = tick()
+
+loadstring(game:HttpGet"https://github.com/webhooking2022/functions-library/raw/main/.functions")()
+repeat wait() until functions
+
+_G.ScriptLoaded = nil
+local speaker = game.Players.LocalPlayer
+
+for i,v in pairs(game.CoreGui:GetChildren()) do
+    if v.Name == "SCRIPT" then
+        v:Destroy()
+    end
+end
+function FindTool(name, plr)
+    plr = plr or speaker
+    local tool 
+    pcall(function()
+        for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+            if v.Name == name then
+                tool = v 
+            end
+        end
+        for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+            if v:IsA("Tool") and v.Name == name then
+                tool = v 
+            end
+        end
+    end)
+    return tool
+end
+local SCRIPT = Instance.new("ScreenGui")
+local MENU = Instance.new("ImageLabel")
+local Tab = Instance.new("Frame")
+local UIListLayout = Instance.new("UIListLayout")
+local Analisando = Instance.new("TextLabel")
+local gasg = Instance.new("Frame")
+local TextButton = Instance.new("TextButton")
+local DropShadow = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local DropShadow_2 = Instance.new("Frame")
+local UICorner_2 = Instance.new("UICorner")
+local UICorner_3 = Instance.new("UICorner")
+local DropShadow_3 = Instance.new("Frame")
+local UICorner_4 = Instance.new("UICorner")
+local DropShadow_4 = Instance.new("Frame")
+local UICorner_5 = Instance.new("UICorner")
+local SliderButton = Instance.new("TextButton")
+local SliderFrame = Instance.new("Frame")
+local UICorner_6 = Instance.new("UICorner")
+local UICorner_7 = Instance.new("UICorner")
+local Value = Instance.new("TextLabel")
+local MACROX = Instance.new("TextLabel")
+local INICIOMACROX = Instance.new("TextLabel")
+
+
+SCRIPT.Name = "SCRIPT"
+SCRIPT.Parent = game.CoreGui
+
+MENU.Name = "MENU"
+MENU.Parent = SCRIPT
+MENU.AnchorPoint = Vector2.new(0.7, 0.)
+MENU.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+MENU.BackgroundTransparency = 1.000
+MENU.BorderColor3 = Color3.fromRGB(27, 42, 53)
+MENU.ClipsDescendants = true
+MENU.Position = UDim2.new(0.566212893, 0, 0.5, 0)
+MENU.Visible = false
+MENU.Image = "rbxassetid://3570695787"
+MENU.ImageColor3 = Color3.fromRGB(0, 0, 0)
+MENU.ImageTransparency = 0.150
+MENU.ScaleType = Enum.ScaleType.Slice
+MENU.SliceCenter = Rect.new(100, 100, 100, 100)
+MENU.SliceScale = 0.250
+
+local mover = MENU
+Tab.Name = "Tab"
+Tab.Parent = MENU
+Tab.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Tab.BackgroundTransparency = 1.000
+Tab.Position = UDim2.new(0.019510068, 0, 0.115384683, 0)
+Tab.Size = UDim2.new(0, 68, 0, 179)
+
+UIListLayout.Parent = Tab
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+Analisando.Name = "Analisando.."
+Analisando.Parent = MENU
+Analisando.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Analisando.BackgroundTransparency = 1.000
+Analisando.Position = UDim2.new(0.0334190056, 0, 0, 0)
+Analisando.Size = UDim2.new(0, 74, 0, 22)
+Analisando.Font = Enum.Font.PermanentMarker
+Analisando.Text = "Aguardando..."
+Analisando.TextColor3 = Color3.fromRGB(255, 255, 255)
+Analisando.TextSize = 14.000
+
+gasg.Name = "gasg"
+gasg.Parent = MENU
+gasg.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+gasg.BackgroundTransparency = 1.000
+gasg.Position = UDim2.new(0.272233227, 0, 0, 0)
+gasg.Size = UDim2.new(0, 256, 0, 224)
+
+TextButton.Parent = gasg
+TextButton.BackgroundColor3 = Color3.fromRGB(16, 15, 16)
+TextButton.BorderSizePixel = 0
+TextButton.Position = UDim2.new(0, 0, 0, 50)
+TextButton.Size = UDim2.new(0, 260, 0, 44)
+TextButton.Visible = false
+TextButton.ZIndex = 3
+TextButton.Font = Enum.Font.FredokaOne
+TextButton.Text = "Slider"
+TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.TextSize = 14.000
+TextButton.TextXAlignment = Enum.TextXAlignment.Left
+TextButton.TextYAlignment = Enum.TextYAlignment.Top
+
+DropShadow.Name = "DropShadow"
+DropShadow.Parent = TextButton
+DropShadow.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+DropShadow.BorderSizePixel = 0
+DropShadow.Position = UDim2.new(0, -1, 0, -1)
+DropShadow.Size = UDim2.new(1, 0, 1, 0)
+
+UICorner.Parent = DropShadow
+
+DropShadow_2.Name = "DropShadow"
+DropShadow_2.Parent = TextButton
+DropShadow_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+DropShadow_2.BorderSizePixel = 0
+DropShadow_2.Position = UDim2.new(0, 1, 0, 1)
+DropShadow_2.Size = UDim2.new(1, 0, 1, 0)
+
+UICorner_2.Parent = DropShadow_2
+
+UICorner_3.Parent = TextButton
+
+DropShadow_3.Name = "DropShadow"
+DropShadow_3.Parent = TextButton
+DropShadow_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+DropShadow_3.BorderSizePixel = 0
+DropShadow_3.Position = UDim2.new(0, 1, 0, -1)
+DropShadow_3.Size = UDim2.new(1, 0, 1, 0)
+
+UICorner_4.Parent = DropShadow_3
+
+DropShadow_4.Name = "DropShadow"
+DropShadow_4.Parent = TextButton
+DropShadow_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+DropShadow_4.BorderSizePixel = 0
+DropShadow_4.Position = UDim2.new(0, -1, 0, 1)
+DropShadow_4.Size = UDim2.new(1, 0, 1, 0)
+
+UICorner_5.Parent = DropShadow_4
+
+SliderButton.Name = "SliderButton"
+SliderButton.Parent = TextButton
+SliderButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SliderButton.BorderSizePixel = 0
+SliderButton.Position = UDim2.new(0.0538461544, 0, 0.568181813, 0)
+SliderButton.Size = UDim2.new(0, 235, 0, 4)
+SliderButton.ZIndex = 6
+SliderButton.Font = Enum.Font.SourceSans
+SliderButton.Text = ""
+SliderButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+SliderButton.TextSize = 14.000
+
+SliderFrame.Name = "SliderFrame"
+SliderFrame.Parent = SliderButton
+SliderFrame.Active = true
+SliderFrame.BackgroundColor3 = Color3.fromRGB(238, 0, 0)
+SliderFrame.BorderSizePixel = 0
+SliderFrame.Selectable = true
+SliderFrame.Size = UDim2.new(0, 120, 0, 4)
+SliderFrame.ZIndex = 6
+
+UICorner_6.Parent = SliderFrame
+
+UICorner_7.Parent = SliderButton
+
+Value.Name = "Value"
+Value.Parent = TextButton
+Value.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Value.BackgroundTransparency = 1.000
+Value.Position = UDim2.new(0.719230771, 0, 0.0227273107, 0)
+Value.Size = UDim2.new(0, 72, 0, 18)
+Value.ZIndex = 3
+Value.Font = Enum.Font.FredokaOne
+Value.Text = "150"
+Value.TextColor3 = Color3.fromRGB(255, 255, 255)
+Value.TextSize = 14.000
+
+MACROX.Name = "MACRO X "
+MACROX.Parent = MENU
+MACROX.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MACROX.BackgroundTransparency = 1.000
+MACROX.Position = UDim2.new(0.786632359, 0, 0, 0)
+MACROX.Size = UDim2.new(0, 74, 0, 22)
+MACROX.Font = Enum.Font.PermanentMarker
+MACROX.Text = "MACRO X"
+MACROX.TextColor3 = Color3.fromRGB(255, 255, 255)
+MACROX.TextSize = 14.000
+
+
+INICIOMACROX.AnchorPoint = Vector2.new(0.5,0.5)
+
+INICIOMACROX.Name = "INICIO MACRO X "
+INICIOMACROX.Parent = SCRIPT
+INICIOMACROX.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+INICIOMACROX.BackgroundTransparency = 1.000
+INICIOMACROX.Position = UDim2.new(0.5, 0, 0.5, 0)
+INICIOMACROX.Size = UDim2.new(0, 200, 0, 50)
+INICIOMACROX.Font = Enum.Font.FredokaOne
+INICIOMACROX.Text = "MACRO X "
+INICIOMACROX.TextColor3 = Color3.fromRGB(255, 255, 255)
+INICIOMACROX.TextSize = 14.000
+
+local function SFWDG_fake_script()  
+	local script = Instance.new('LocalScript', MENU)
+
+	local Menu = script.Parent;
+	
+	Menu.Active = true
+	Menu.Draggable = true
+end
+coroutine.wrap(SFWDG_fake_script)()
+local function PKVKS_fake_script() 
+	local script = Instance.new('LocalScript', MENU)
+
+	Tab = function(text)
+		
+	
+		local TextButton = Instance.new("TextButton")
+	
+		TextButton.Parent = script.Parent.Tab
+		TextButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+        TextButton.BackgroundTransparency = 0.7
+		TextButton.Position = UDim2.new(-0.0060736537, 0, -0.00299146771, 0)
+		TextButton.Size = UDim2.new(0, 85, 0, 24)
+		TextButton.Font = Enum.Font.FredokaOne
+		TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+		TextButton.TextSize = 14.000
+		TextButton.Text = "   "..text
+		TextButton.BorderSizePixel = 0
+		TextButton.TextXAlignment = Enum.TextXAlignment.Left
+		Instance.new("UICorner", TextButton)
+	
+		local MENU2 = Instance.new("ScrollingFrame")
+
+
+		MENU2.Name = "MENU2"
+		MENU2.Parent = script.Parent.gasg
+		MENU2.Active = true
+		MENU2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		MENU2.BackgroundTransparency = 1.000
+		MENU2.Position = UDim2.new(0.0174826235, 0, 0.0940170959, 0)
+		MENU2.Size = UDim2.new(0, 281, 0, 212)
+		MENU2.ScrollBarThickness = 4
+		MENU2.AutomaticCanvasSize = Enum.AutomaticSize.Y
+		MENU2.Visible = false
+		MENU2.ClipsDescendants = false
+		MENU2.ScrollBarImageTransparency = 1
+
+		
+		local uili = Instance.new("UIListLayout", MENU2)
+		uili.Padding=UDim.new(0, 5)
+		local botao = TextButton 
+		local frame = MENU2 
+		local lugar = script.Parent.gasg 
+	
+	
+		botao.MouseButton1Click:Connect(function()
+			local Texto = text
+			local TextLabel = script.Parent["Analisando.."]
+	
+			spawn(function()
+				for i = 1,#Texto do
+					TextLabel.Text = string.sub(Texto, 1, i)
+					wait(0.01)
+				end
+			end)
+			
+	
+			for i,v in pairs(lugar:GetChildren()) do
+				v.Visible = false
+			end
+			frame.Visible = true
+		end)
+		
+		local Tab = {}
+		function Tab:CriarSlider(text, minvalue, maxvalue, callback)
+			local TextButton = Instance.new("TextButton")
+			local DropShadow = Instance.new("Frame")
+			local UICorner = Instance.new("UICorner")
+			local DropShadow_2 = Instance.new("Frame")
+			local UICorner_2 = Instance.new("UICorner")
+			local UICorner_3 = Instance.new("UICorner")
+			local DropShadow_3 = Instance.new("Frame")
+			local UICorner_4 = Instance.new("UICorner")
+			local DropShadow_4 = Instance.new("Frame")
+			local UICorner_5 = Instance.new("UICorner")
+			local SliderButton = Instance.new("TextButton")
+			local SliderFrame = Instance.new("Frame")
+			local UICorner_6 = Instance.new("UICorner")
+			local UICorner_7 = Instance.new("UICorner")
+			local Value = Instance.new("TextLabel")
+	
+			--Properties:
+			
+			TextButton.Name = "Item"
+			TextButton.Parent = MENU2
+			TextButton.BackgroundColor3 = Color3.fromRGB(16, 15, 16)
+			TextButton.BorderSizePixel = 0
+			TextButton.Position = UDim2.new(0, 0, 0, 50)
+			TextButton.Size = UDim2.new(0, 260, 0, 44)
+			TextButton.ZIndex = 3
+			TextButton.Font = Enum.Font.FredokaOne
+			TextButton.Text = "  "..text
+			TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+			TextButton.TextSize = 14.000
+			TextButton.TextXAlignment = Enum.TextXAlignment.Left
+			TextButton.TextYAlignment = Enum.TextYAlignment.Top
+	
+			DropShadow.Name = "DropShadow"
+			DropShadow.Parent = TextButton
+			DropShadow.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			DropShadow.BorderSizePixel = 0
+			DropShadow.Position = UDim2.new(0, -1, 0, -1)
+			DropShadow.Size = UDim2.new(1, 0, 1, 0)
+	
+			UICorner.Parent = DropShadow
+	
+			DropShadow_2.Name = "DropShadow"
+			DropShadow_2.Parent = TextButton
+			DropShadow_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			DropShadow_2.BorderSizePixel = 0
+			DropShadow_2.Position = UDim2.new(0, 1, 0, 1)
+			DropShadow_2.Size = UDim2.new(1, 0, 1, 0)
+	
+			UICorner_2.Parent = DropShadow_2
+	
+			UICorner_3.Parent = TextButton
+	
+			DropShadow_3.Name = "DropShadow"
+			DropShadow_3.Parent = TextButton
+			DropShadow_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			DropShadow_3.BorderSizePixel = 0
+			DropShadow_3.Position = UDim2.new(0, 1, 0, -1)
+			DropShadow_3.Size = UDim2.new(1, 0, 1, 0)
+	
+			UICorner_4.Parent = DropShadow_3
+	
+			DropShadow_4.Name = "DropShadow"
+			DropShadow_4.Parent = TextButton
+			DropShadow_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			DropShadow_4.BorderSizePixel = 0
+			DropShadow_4.Position = UDim2.new(0, -1, 0, 1)
+			DropShadow_4.Size = UDim2.new(1, 0, 1, 0)
+	
+			UICorner_5.Parent = DropShadow_4
+	
+			SliderButton.Name = "SliderButton"
+			SliderButton.Parent = TextButton
+			SliderButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			SliderButton.BorderSizePixel = 0
+			SliderButton.Position = UDim2.new(0.0538461544, 0, 0.568181813, 0)
+			SliderButton.Size = UDim2.new(0, 235, 0, 4)
+			SliderButton.ZIndex = 6
+			SliderButton.Font = Enum.Font.SourceSans
+			SliderButton.Text = ""
+			SliderButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+			SliderButton.TextSize = 14.000
+	
+			SliderFrame.Name = "SliderFrame"
+			SliderFrame.Parent = SliderButton
+			SliderFrame.Active = true
+			SliderFrame.BackgroundColor3 = Color3.fromRGB(238, 0, 0)
+			SliderFrame.BorderSizePixel = 0
+			SliderFrame.Selectable = true
+			SliderFrame.Size = UDim2.new(0, 0, 0, 4)
+			SliderFrame.ZIndex = 6
+	
+			UICorner_6.Parent = SliderFrame
+	
+			UICorner_7.Parent = SliderButton
+	
+			Value.Name = "Value"
+			Value.Parent = TextButton
+			Value.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			Value.BackgroundTransparency = 1.000
+			Value.Position = UDim2.new(0.719230771, 0, 0.0227273107, 0)
+			Value.Size = UDim2.new(0, 72, 0, 18)
+			Value.ZIndex = 3
+			Value.Font = Enum.Font.FredokaOne
+			Value.Text = 0
+			Value.TextColor3 = Color3.fromRGB(255, 255, 255)
+			Value.TextSize = 14.000
+			
+			
+	
+			local frame = SliderFrame--your frame
+	
+			local TextLabel_2 = Value--Your locationtovalue
+			
+			local uis = game:GetService("UserInputService")
+			local mouse = game.Players.LocalPlayer:GetMouse()
+			
+			local bolinha = Instance.new("TextButton", SliderFrame)
+			bolinha.Text = ""
+			bolinha.AnchorPoint=Vector2.new(0.5, 0.5)
+			bolinha.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			bolinha.Position = UDim2.new(1,0,0.56818181,0)
+			bolinha.ZIndex = 10
+			bolinha.Size = UDim2.new(0, 10, 0, 10)
+	
+			
+			Instance.new("UICorner", bolinha).CornerRadius = UDim.new(0, 12)
+			local button = bolinha --your button
+			button.MouseButton1Down:Connect(function()
+				Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 235) * frame.AbsoluteSize.X) + tonumber(minvalue)) or 0
+				pcall(function()
+					callback(Value)
+				end)
+				frame.Size = UDim2.new(0, math.clamp(mouse.X - frame.AbsolutePosition.X, 0, 235), 0, 4)
+				moveconnection = mouse.Move:Connect(function()
+					TextLabel_2.Text = Value
+					Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 235) * frame.AbsoluteSize.X) + tonumber(minvalue))
+					pcall(function()
+						callback(Value)
+					end)
+					frame.Size = UDim2.new(0, math.clamp(mouse.X - frame.AbsolutePosition.X, 0, 235), 0, 4)
+				end)
+				releaseconnection = uis.InputEnded:Connect(function(Mouse)
+					if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
+					Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 235) * frame.AbsoluteSize.X) + tonumber(minvalue))
+					pcall(function()
+						callback(Value)
+					end)
+					frame.Size = UDim2.new(0, math.clamp(mouse.X - frame.AbsolutePosition.X, 0, 235), 0, 4)
+					moveconnection:Disconnect()
+					releaseconnection:Disconnect()
+				end
+				end)
+			end)
+		end
+		function Tab:CriarBotao(text, callback)
+			local TextButton = Instance.new("TextButton")
+	
+			local UICorner = Instance.new("UICorner")
+			local DropShadow_2 = Instance.new("Frame")
+			local UICorner_2 = Instance.new("UICorner")
+			local UICorner_3 = Instance.new("UICorner")
+	
+			TextButton.Name = "Item"
+			TextButton.Parent = MENU2
+			TextButton.BackgroundColor3 = Color3.fromRGB(16, 15, 16)
+			TextButton.BorderSizePixel = 0
+			TextButton.Position = UDim2.new(8.71804523, 0, 1.47317064, 0)
+			TextButton.Size = UDim2.new(0, 260, 0, 22)
+			TextButton.ZIndex = 3
+			TextButton.Font = Enum.Font.FredokaOne
+			TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+			TextButton.TextSize = 14.000
+			TextButton.Text = "  "..text
+			TextButton.TextXAlignment = Enum.TextXAlignment.Left
+			
+	
+	
+	
+	
+	
+			UICorner_3.Parent = TextButton
+			
+
+			local DropShadow = Instance.new("Frame")
+			local UICorner = Instance.new("UICorner")
+			local DropShadow_2 = Instance.new("Frame")
+			local UICorner_2 = Instance.new("UICorner")
+			local DropShadow_3 = Instance.new("Frame")
+			local UICorner_3 = Instance.new("UICorner")
+			local DropShadow_4 = Instance.new("Frame")
+			local UICorner_4 = Instance.new("UICorner")
+	
+
+	
+			DropShadow.Name = "DropShadow"
+			DropShadow.Parent = TextButton
+			DropShadow.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			DropShadow.BorderSizePixel = 0
+			DropShadow.Position = UDim2.new(0, -1, 0, -1)
+			DropShadow.Size = UDim2.new(1, 0, 1, 0)
+	
+			UICorner.Parent = DropShadow
+	
+			DropShadow_2.Name = "DropShadow"
+			DropShadow_2.Parent = TextButton
+			DropShadow_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			DropShadow_2.BorderSizePixel = 0
+			DropShadow_2.Position = UDim2.new(0, 1, 0, 1)
+			DropShadow_2.Size = UDim2.new(1, 0, 1, 0)
+	
+			UICorner_2.Parent = DropShadow_2
+	
+			DropShadow_3.Name = "DropShadow"
+			DropShadow_3.Parent = TextButton
+			DropShadow_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			DropShadow_3.BorderSizePixel = 0
+			DropShadow_3.Position = UDim2.new(0, 1, 0, -1)
+			DropShadow_3.Size = UDim2.new(1, 0, 1, 0)
+	
+			UICorner_3.Parent = DropShadow_3
+	
+			DropShadow_4.Name = "DropShadow"
+			DropShadow_4.Parent = TextButton
+			DropShadow_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			DropShadow_4.BorderSizePixel = 0
+			DropShadow_4.Position = UDim2.new(0, -1, 0, 1)
+			DropShadow_4.Size = UDim2.new(1, 0, 1, 0)
+	
+			UICorner_4.Parent = DropShadow_4
+
+			TextButton.MouseButton1Click:Connect(function()
+				pcall(callback)
+			end)
+		end
+		function Tab:CriarLabel(text, underline)
+            underline = underline or false
+            local TextButton = Instance.new("TextLabel")
+            local UICorner = Instance.new("UICorner")
+            local line1 = Instance.new("Frame")
+            local line2 = Instance.new("Frame")
+            
+            
+            TextButton.Name = "Item"
+            TextButton.Parent = MENU2
+            TextButton.BackgroundColor3 = Color3.fromRGB(16, 15, 16)
+            TextButton.BorderSizePixel = 0
+            TextButton.Size = UDim2.new(0, 260, 0, 22)
+            TextButton.ZIndex = 4
+            TextButton.Font = Enum.Font.FredokaOne
+            TextButton.Text = text
+            TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+            TextButton.TextSize = 14.000
+            TextButton.TextXAlignment = (underline == false and Enum.TextXAlignment.Left) or (underline == true and Enum.TextXAlignment.Center)
+            UICorner.Parent = TextButton
+            
+            line1.Name = "line1"
+            line1.Parent = TextButton
+            line1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            line1.BorderSizePixel = 0
+            line1.Position = UDim2.new(0.0269230772, 0, 0.454545468, 0)
+            line1.Size = UDim2.new(0, 80, 0, 2)
+            line1.ZIndex = 5
+            line1.Visible = underline
+            
+            line2.Name = "line2"
+            line2.Parent = TextButton
+            line2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            line2.BorderSizePixel = 0
+            line2.Position = UDim2.new(0.661538422, 0, 0.454545468, 0)
+            line2.Size = UDim2.new(0, 80, 0, 2)
+            line2.ZIndex = 5
+            line2.Visible = underline
+
+			local RETORNAR = {}
+			local last = 0
+            spawn(function()
+                while true do
+                    last=last+0.1
+                    wait(0.1)
+                end
+            end)
+			function RETORNAR:Refresh(newtext)
+                if last > 5 then
+                    last = 0
+                    local Texto = newtext
+                    local TextLabel = TextButton
+        
+                    spawn(function()
+                        for i = 1,#Texto do
+                            TextLabel.Text = string.sub(Texto, 1, i)
+                            wait(0.01)
+                        end
+                    end)
+                else
+                    TextButton.Text = newtext
+                end
+			end
+			
+			return RETORNAR
+		end
+		function Tab:CriarToggle(text, callback)
+			local liga = Instance.new("TextButton")
+	
+			local UICorner = Instance.new("UICorner")
+	
+			local UICorner_2 = Instance.new("UICorner")
+			local UICorner_3 = Instance.new("UICorner")
+			local Check1 = Instance.new("Frame")
+			local UICorner_4 = Instance.new("UICorner")
+			local Check2 = Instance.new("ImageLabel")
+	
+	
+			liga.Name = "Item"
+			liga.Parent = MENU2
+			liga.BackgroundColor3 = Color3.fromRGB(16, 15, 16)
+			liga.BorderSizePixel = 0
+			liga.Position = UDim2.new(8.71804523, 0, 1.47317064, 0)
+			liga.Size = UDim2.new(0, 260, 0, 22)
+			liga.ZIndex = 3
+			liga.Font = Enum.Font.FredokaOne
+			liga.Text = "  "..text
+			liga.TextColor3 = Color3.fromRGB(255, 255, 255)
+			liga.TextSize = 14.000
+			liga.TextXAlignment = Enum.TextXAlignment.Left
+	
+	
+	
+			UICorner_3.Parent = liga
+	
+			Check1.Name = "Check1"
+			Check1.Parent = liga
+			Check1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			Check1.BorderSizePixel = 0
+			Check1.Position = UDim2.new(0.867298603, 0, 0.318181813, 0)
+			Check1.Size = UDim2.new(0, 10, 0, 10)
+			Check1.ZIndex = 4
+	
+			UICorner_4.CornerRadius = UDim.new(0, 3)
+			UICorner_4.Parent = Check1
+	
+			Check2.Name = "Check2"
+			Check2.Parent = liga
+			Check2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			Check2.Position = UDim2.new(0.867298603, 0, 0.318181843, 0)
+			Check2.Size = UDim2.new(0, 10, 0, 10)
+			Check2.Visible = false
+			Check2.ZIndex = 10
+			Check2.Image = "http://www.roblox.com/asset/?id=5228569533"
+			
+			local Toggled = false
+			
+			
+			liga.MouseButton1Click:Connect(function()
+				Toggled = not Toggled
+				
+				Check2.Visible = Toggled
+				
+				
+				pcall(callback, Toggled)
+			end)
+			
+			local DropShadow = Instance.new("Frame")
+			local UICorner = Instance.new("UICorner")
+			local DropShadow_2 = Instance.new("Frame")
+			local UICorner_2 = Instance.new("UICorner")
+			local DropShadow_3 = Instance.new("Frame")
+			local UICorner_3 = Instance.new("UICorner")
+			local DropShadow_4 = Instance.new("Frame")
+			local UICorner_4 = Instance.new("UICorner")
+	
+			DropShadow.Name = "DropShadow"
+			DropShadow.Parent = liga
+			DropShadow.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			DropShadow.BorderSizePixel = 0
+			DropShadow.Position = UDim2.new(0, -1, 0, -1)
+			DropShadow.Size = UDim2.new(1, 0, 1, 0)
+	
+			UICorner.Parent = DropShadow
+	
+			DropShadow_2.Name = "DropShadow"
+			DropShadow_2.Parent = liga
+			DropShadow_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			DropShadow_2.BorderSizePixel = 0
+			DropShadow_2.Position = UDim2.new(0, 1, 0, 1)
+			DropShadow_2.Size = UDim2.new(1, 0, 1, 0)
+	
+			UICorner_2.Parent = DropShadow_2
+	
+			DropShadow_3.Name = "DropShadow"
+			DropShadow_3.Parent = liga
+			DropShadow_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			DropShadow_3.BorderSizePixel = 0
+			DropShadow_3.Position = UDim2.new(0, 1, 0, -1)
+			DropShadow_3.Size = UDim2.new(1, 0, 1, 0)
+	
+			UICorner_3.Parent = DropShadow_3
+	
+			DropShadow_4.Name = "DropShadow"
+			DropShadow_4.Parent = liga
+			DropShadow_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			DropShadow_4.BorderSizePixel = 0
+			DropShadow_4.Position = UDim2.new(0, -1, 0, 1)
+			DropShadow_4.Size = UDim2.new(1, 0, 1, 0)
+	
+			UICorner_4.Parent = DropShadow_4
+		end
+		return Tab
+	end
+	
+	getgenv().newtab = Tab
+end
+coroutine.wrap(PKVKS_fake_script)()
+local function LLYDD_fake_script() 
+	local script = Instance.new('LocalScript', MENU)
+
+	local Texto = "MACRO X "
+	local TextLabel = script.Parent["MACRO X "]
+	
+	spawn(function()
+		while true do
+			for i = 1,#Texto do
+				TextLabel.Text = string.sub(Texto, 1, i)
+				wait(0.1)
+			end
+			wait(1)
+			TextLabel.Text = "MACRO X "
+		end
+	end)
+end
+coroutine.wrap(LLYDD_fake_script)()
+local function QOUJ_fake_script() 
+	local script = Instance.new('LocalScript', MENU)
+
+	repeat wait() until _G.ScriptLoaded
+	wait(1)
+	game:GetService("StarterGui"):SetCore("SendNotification", {
+		Title = "MACRO X "; 
+		Text = "Script carregado!"; 
+		Duration = 6; 
+		Icon = "rbxassetid://11092615099"; 
+	})
+end
+coroutine.wrap(QOUJ_fake_script)()
+local function ZPKD_fake_script() 
+	local script = Instance.new('LocalScript', MENU)
+
+	
+end
+coroutine.wrap(ZPKD_fake_script)()
+local function WDUGH_fake_script() 
+	local script = Instance.new('LocalScript', SCRIPT)
+
+	local Texto = "VIPER X"
+	local TextLabel = script.Parent["INICIO MACRO X "]
+	
+	for i = 1,#Texto do
+		TextLabel.Text = string.sub(Texto, 1, i)
+		wait(0.25)
+	end
+	wait(1)
+	local Texto = "CARREGANDO SCRIPT..."
+	local TextLabel = script.Parent["INICIO MACRO X "]
+	for i = 1,#Texto do
+		TextLabel.Text = string.sub(Texto, 1, i)
+		wait(0.10)
+	end
+	wait(math.random())
+	for i = #Texto,1,-1 do
+		TextLabel.Text = string.sub(Texto, 1, i)
+		wait(0.005)
+	end
+	TextLabel.Text = ''
+	_G.ScriptLoaded = true
+	script.Parent.MENU.Visible = true
+	script.Parent.MENU:TweenSize(UDim2.new(0, 389,0, 234), "InOut","Quart", 1, true)
+end
+coroutine.wrap(WDUGH_fake_script)()
+
+local aberto = true
+game:GetService("UserInputService").InputBegan:Connect(function(input)
+	if input.KeyCode == Enum.KeyCode.F2 then
+		if aberto then
+			aberto = false
+			MENU:TweenSize(UDim2.new(0,0,0,0), "Out", "Quart", 1, true)
+		else
+			aberto = true
+			MENU:TweenSize(UDim2.new(0, 389,0, 234), "Out", "Quart", 1, true)
+		end
+	end
+end)
+function dropdown(title, tab, callback)
+    local blur = Instance.new("BlurEffect", game.Lighting)
+    blur.Size = 0
+    game:GetService("TweenService"):Create(blur, TweenInfo.new(1, Enum.EasingStyle.Linear), {Size = 35}):Play()
+    MENU:TweenSize(UDim2.new(0,0,0,0), "Out", "Quart", 1, true)
+    local ScreenGui = Instance.new("ScreenGui")
+    local Dropdown = Instance.new("Frame")
+    local UICorner = Instance.new("UICorner")
+    local DropShadow = Instance.new("Frame")
+    local UICorner_2 = Instance.new("UICorner")
+    local DropShadow_2 = Instance.new("Frame")
+    local UICorner_3 = Instance.new("UICorner")
+    local DropShadow_3 = Instance.new("Frame")
+    local UICorner_4 = Instance.new("UICorner")
+    local DropShadow_4 = Instance.new("Frame")
+    local UICorner_5 = Instance.new("UICorner")
+    local TextLabel = Instance.new("TextLabel")
+    local UICorner_6 = Instance.new("UICorner")
+    local ScrollingFrame = Instance.new("ScrollingFrame")
+    
+    local UIListLayout = Instance.new("UIListLayout")
+    
+    
+    ScreenGui.Parent = game.CoreGui
+    
+    Dropdown.Name = "Dropdown"
+    Dropdown.Parent = ScreenGui
+    Dropdown.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+    Dropdown.BorderSizePixel = 0
+    Dropdown.AnchorPoint = Vector2.new(0.5, 0.5)
+    Dropdown.Position = UDim2.new(0.5, 0, 0.5, 0)
+    Dropdown.Size = UDim2.new(0,0,0,0)
+    Dropdown.ZIndex = 2
+    Dropdown.ClipsDescendants = true
+    Dropdown:TweenSize(UDim2.new(0.338834941, 0, 0.642857134, 0), "Out", "Quart", 1, true)
+    delay(1, function()
+        Dropdown.ClipsDescendants = false
+    end)
+    UICorner.Parent = Dropdown
+    
+    DropShadow.Name = "DropShadow"
+    DropShadow.Parent = Dropdown
+    DropShadow.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    DropShadow.BorderSizePixel = 0
+    DropShadow.Position = UDim2.new(0.00286532962, 0, 0.00246913591, 0)
+    DropShadow.Size = UDim2.new(1, 0, 1, 0)
+    
+    UICorner_2.Parent = DropShadow
+    
+    DropShadow_2.Name = "DropShadow"
+    DropShadow_2.Parent = Dropdown
+    DropShadow_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    DropShadow_2.BorderSizePixel = 0
+    DropShadow_2.Position = UDim2.new(-0.00286532962, 0, -0.00246913591, 0)
+    DropShadow_2.Size = UDim2.new(1, 0, 1, 0)
+    
+    UICorner_3.Parent = DropShadow_2
+    
+    DropShadow_3.Name = "DropShadow"
+    DropShadow_3.Parent = Dropdown
+    DropShadow_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    DropShadow_3.BorderSizePixel = 0
+    DropShadow_3.Position = UDim2.new(-0.00286532962, 0, 0.00246913591, 0)
+    DropShadow_3.Size = UDim2.new(1, 0, 1, 0)
+    
+    UICorner_4.Parent = DropShadow_3
+    
+    DropShadow_4.Name = "DropShadow"
+    DropShadow_4.Parent = Dropdown
+    DropShadow_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    DropShadow_4.BorderSizePixel = 0
+    DropShadow_4.Position = UDim2.new(0.00286532962, 0, -0.00246913591, 0)
+    DropShadow_4.Size = UDim2.new(1, 0, 1, 0)
+    
+    UICorner_5.Parent = DropShadow_4
+    
+    TextLabel.Parent = Dropdown
+    TextLabel.BackgroundColor3 = Color3.fromRGB(20,20,20)
+    TextLabel.BorderSizePixel = 0
+    TextLabel.Position = UDim2.new(-0.00286532962, 0, 0, 0)
+    TextLabel.Size = UDim2.new(1.00573063, 0, 0.123456791, 0)
+    TextLabel.ZIndex = 2
+    TextLabel.Font = Enum.Font.FredokaOne
+    TextLabel.Text = title..':'
+    TextLabel.BackgroundTransparency = 1
+
+    TextLabel.TextColor3 = Color3.fromRGB(255,255,255)
+    TextLabel.TextSize = 32.000
+    TextLabel.TextWrapped = true
+    
+    UICorner_6.Parent = TextLabel
+    
+    ScrollingFrame.Parent = Dropdown
+    ScrollingFrame.Active = true
+    ScrollingFrame.BackgroundColor3 = Color3.fromRGB(20,20,20)
+    ScrollingFrame.BorderSizePixel = 0
+    ScrollingFrame.Position = UDim2.new(0.0429799445, 0, 0.167901233, 0)
+    ScrollingFrame.Size = UDim2.new(0.914040089, 0, 0.792592585, 0)
+    ScrollingFrame.ZIndex = 3
+    ScrollingFrame.ScrollBarThickness = 3
+    UIListLayout.Parent = ScrollingFrame
+    UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    UIListLayout.Padding = UDim.new(0, 5)
+    tab = tab or {}
+    
+    for i,v in pairs(tab) do
+        local template = Instance.new("TextButton")
+        template.Name = "template"
+        template.Parent = ScrollingFrame
+        template.Active = false
+        template.BackgroundColor3 = Color3.fromRGB(25,25,25)
+        template.BorderSizePixel = 0
+        template.Size = UDim2.new(1, 0, 0.1, 0)
+        template.Visible = true
+        template.ZIndex = 4
+        template.Font = Enum.Font.FredokaOne
+        template.Text = tostring(v)
+        template.TextColor3 = Color3.fromRGB(255,255,255)
+        template.TextSize = 20.000
+        Instance.new("UICorner", template)
+        template.MouseButton1Down:Connect(function()
+            Dropdown:TweenSize(UDim2.new(0,0,0,0), "Out", "Quart", 1, true)
+            Dropdown.ClipsDescendants = true
+            MENU:TweenSize(UDim2.new(0, 389,0, 234), "Out", "Quart", 1, true)
+            game:GetService("TweenService"):Create(blur, TweenInfo.new(1), {Size = 0}):Play()
+            game.Debris:AddItem(blur, 1)
+            game.Debris:AddItem(ScreenGui, 1)
+            pcall(callback, tostring(v))
+        end)
+    
+        local function SRIKL_fake_script() 
+            local script = Instance.new('LocalScript', template)
+    
+            script.Parent.MouseEnter:Connect(function()
+                game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(0.3), {BackgroundColor3= Color3.fromRGB(20,20,20)}):Play()
+    
+            end)
+            script.Parent.MouseLeave:Connect(function()
+                game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(0.3), {BackgroundColor3= Color3.fromRGB(25,25,25)}):Play()
+    
+            end)
+        end
+        coroutine.wrap(SRIKL_fake_script)()
+    end    
+end
