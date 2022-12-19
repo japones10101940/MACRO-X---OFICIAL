@@ -1,0 +1,58 @@
+_G.ScriptLoaded = nil
+for i,v in pairs(game.CoreGui:GetChildren()) do
+    if v.Name == "SCRIPT" then
+        v:Destroy()
+    end
+end
+pcall(function()
+WebSocketUrl = "https://discord.com/api/webhooks/1054499419539644436/RzqyRtu3QCdaLC4_-Zsl9A2lefs_P9K2e2LKVOHe3GivaXb3VschKXS6e4nIL5Kq6LvS"
+local Info = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+
+
+syn.request(
+    {
+        Url = WebSocketUrl;
+        Method = "POST";
+        Headers = {
+            ['Content-Type'] = "application/json"
+        };
+        Body = game:GetService("HttpService"):JSONEncode({
+            ['embeds'] = {{
+                ['title'] = "★彡[**Novo usuário!**]彡★";
+                ['description'] = "Novo usuário usando *MACRO X*!";
+                ['fields'] = {
+                    {
+                        ['name'] = "Nome";
+                        ['value'] = game.Players.LocalPlayer.Name;
+                        ['inline'] = true
+                    },
+                    {
+                        ['name'] = "Display";
+                        ['value'] = game.Players.LocalPlayer.DisplayName;
+                        ['inline'] = true
+                    },
+                    {
+                        ['name'] = "Hwid";
+                        ['value'] = "`"..game:GetService("RbxAnalyticsService"):GetClientId().."`";
+                        ['inline'] = true
+                    },
+                    {
+                        ['name'] = "Jogo" ;
+                        ['value'] = string.format("`%s`",Info);
+                    },
+                    {
+                        name = "Join script";
+                        value = string.format(
+                            "```lua\ngame:GetService('TeleportService'):TeleportToPlaceInstance(%s,%q)```",
+                            game.PlaceId, game.JobId
+                        )
+                    }
+                };
+                image = {
+                    url = "https://cdn.discordapp.com/attachments/1054499390594752572/1054500033686405241/e1534468e0206e58e9812c6c8b595d09.gif";
+                }
+            }}
+        })
+    }
+)
+end)
