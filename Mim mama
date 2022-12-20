@@ -572,7 +572,7 @@ Outros:CriarBotao('Iniciar Queda Livre', function(value)
 
 end)
 
-Outros:CriarBotao('Buff Velocidade', fuction()
+Outros:CriarBotao('Buff Velocidade', function()
 getgenv().WalkSpeedValue = 100; --set your desired walkspeed here
 local Player = game:service'Players'.LocalPlayer;
 Player.Character.Humanoid:GetPropertyChangedSignal'WalkSpeed':Connect(function()
