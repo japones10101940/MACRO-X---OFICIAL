@@ -287,6 +287,12 @@ Farm:CriarBotao("Auto Vender (Base Cidade)", function()
     Tp2(Vector3.new(-246.013916015625, 17.881628036499023, 1616.1649169921875))
 end)
 
+Farm:CriarBotao("Auto Vender All", function()
+    for i = 1, 50 do
+        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2287.028564453125, 19.75743865966797, -2598.23486328125))
+        task.wait(0.01)
+    end
+end)
 Farm:CriarLabel('AUTO SAIDAS:', true)
 
 
