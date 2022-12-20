@@ -36,14 +36,12 @@ Farm:CriarLabel('AUTO FARM:', true)
 
 Farm:CriarBotao("Auto Museu", function()
     Tp1(Vector3.new(1082.1981201171875, 139.10658264160156, 1313.1494140625))
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/RBMS'))()
     wait()
     Tp1(Vector3.new(1093.51904296875, 123.77039337158203, 1316.7611083984375))
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/RBMS'))()
     wait()
     Tp1(Vector3.new(1132.98193359375, 108.28163146972656, 1305.2200927734375))
     loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/RBMS'))()
-    wait()
+    wait(1)
     Tp1(Vector3.new(1136.6129150390625, 106.14830780029297, 1343.761962890625))
     loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/RBMS'))()
     wait()
@@ -53,14 +51,10 @@ Farm:CriarBotao("Auto Museu", function()
     Tp1(Vector3.new(1130.6337890625, 106.20960998535156, 1264.425537109375))
     loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/RBMS'))()
     wait()
-    Tp1(Vector3.new(1096.9019775390625, 106.05891418457031, 1279.9913330078125))
-        local pos = Vector3.new(1093.6910400390625, 105.71947479248047, 1277.6243896484375) -- posicao
-        --Teleport instantanio
-      
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(pos)
+    Tp1(Vector3.new(1132.0833740234375, 106.4283218383789, 1344.97412109375))
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/RBMS'))()
     
-    end)   
-
+end)
 Farm:CriarBotao("Auto Casino", function()
 		Tp2(Vector3.new(-73.93269348144531, 155.28050231933594, -4714.79833984375))
 		for i,v in pairs(workspace:GetDescendants()) do
@@ -202,6 +196,36 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 
 end)	
 
+Farm:CriarBotao("Auto Joaleria", function()
+    Tp2(Vector3.new(146.6413116455078, 18.470495223999023, 1382.012939453125))
+    wait(1)
+    Tp1(Vector3.new(135.2918701171875, 18.565601348876953, 1344.5325927734375))
+    wait(2)
+    Tp1(Vector3.new(134.8686981201172, 20.14926528930664, 1323.551513671875))
+    wait(0.5)
+    Tp1(Vector3.new(115.23924255371094, 19.429262161254883, 1325.8182373046875))
+    wait(0.5)
+    Tp1(Vector3.new(113.89500427246094, 19.429279327392578, 1317.6966552734375))
+    wait(0.5)
+    Tp1(Vector3.new(132.2891387939453, 19.973371505737305, 1310.81103515625))
+    wait(0.5)
+    Tp1(Vector3.new(112.64570617675781, 18.607437133789062, 1306.6597900390625))
+    wait(0.5)
+    Tp1(Vector3.new(130.2633056640625, 19.607452392578125, 1301.0753173828125))
+    wait(0.5)
+    Tp1(Vector3.new(104.8873062133789, 19.229232788085938, 1283.0836181640625))
+    wait(0.5)
+    Tp1(Vector3.new(116.01789093017578, 19.013343811035156, 1281.2811279296875))
+    wait(0.5)
+    Tp1(Vector3.new(125.56848907470703, 19.229263305664062, 1279.4287109375))
+    wait(0.5)
+    Tp1(Vector3.new(136.9573211669922, 19.419282913208008, 1277.334716796875))
+    wait(0.5)
+    Tp1(Vector3.new(151.00961303710938, 18.607437133789062, 1295.0020751953125))
+    wait(0.5)
+    Tp1(Vector3.new(153.2281494140625, 18.80743980407715, 1305.6490478515625))
+    wait(0.5)
+end)       
 Farm:CriarBotao("Auto Rosquinha", function()
     Tp2(Vector3.new(93.25601959228516, 19.21782684326172, -1522.2998046875))
     wait(0.6)
@@ -281,7 +305,24 @@ Tp1(Vector3.new(1096.9019775390625, 106.05891418457031, 1279.9913330078125))
 
 end)
 
-Farm:CriarBotao("Auto sair joaleira", function()
+Farm:CriarBotao("Auto Sair Power Plant", function()
+ 
+    Tp1(Vector3.new(101.30716705322266, -9.45310115814209, 2116.82177734375))
+wait()
+Tp1(Vector3.new(51.2113037109375, -11.6262788772583, 2084.80810546875))
+wait()
+Tp1(Vector3.new(28.298912048339844, -11.379730224609375, 2126.66162109375))
+wait()
+Tp1(Vector3.new(32.89760971069336, -15.409835815429688, 2140.35400390625))
+wait()
+Tp1(Vector3.new(63.517333984375, 0.7412600517272949, 2210.197021484375))
+wait()
+Tp1(Vector3.new(110.30799102783203, 23.12737464904785, 2275.71435546875))
+wait()
+Tp1(Vector3.new(55.548553466796875, 23.519893646240234, 2268.636474609375))
+wait()
+end)
+Farm:CriarBotao("Auto Sair Joaleira(BETA)", function()
     game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = "AVISO!!!";
         Text = "SÓ FUNCIONA SE TIVER + DE 1 PESSOA NA JOALERIA!";
@@ -572,15 +613,6 @@ Outros:CriarBotao('Iniciar Queda Livre', function(value)
 
 end)
 
-Outros:CriarBotao('Buff Velocidade', function()
-getgenv().WalkSpeedValue = 100; --set your desired walkspeed here
-local Player = game:service'Players'.LocalPlayer;
-Player.Character.Humanoid:GetPropertyChangedSignal'WalkSpeed':Connect(function()
-Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
-Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue
-end)
-end)
-
 Outros:CriarBotao('FPS+', function()
 
 
@@ -633,7 +665,7 @@ Credits:CriarLabel('DISCORD', true)
 
 Credits:CriarBotao('MACRO X', function()
 
-    setclipboard("https://discord.gg/ud3FT2pwRk")
+    setclipboard("https://discord.gg/PgBmguUNBb")
     wait(0.6)
     game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = "MACRO X";
