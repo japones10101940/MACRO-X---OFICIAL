@@ -1,0 +1,1056 @@
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Bone" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Dino Egg" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Grab Mask" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
