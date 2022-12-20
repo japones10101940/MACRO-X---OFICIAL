@@ -1,0 +1,48 @@
+  for i = 1, 50 do
+        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2287.028564453125, 19.75743865966797, -2598.23486328125))
+        task.wait(0.01)
+    end
+    for i = 1, 50 do
+        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2290.28515625, 19.807117462158203, -2590.0693359375))
+        task.wait(0.01)
+    end
+      for i = 1, 50 do
+        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2287.028564453125, 19.75743865966797, -2598.23486328125))
+        task.wait(0.01)
+    end
+    for i = 1, 50 do
+        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2290.28515625, 19.807117462158203, -2590.0693359375))
+        task.wait(0.01)
+    end
+      for i = 1, 50 do
+        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2287.028564453125, 19.75743865966797, -2598.23486328125))
+        task.wait(0.01)
+    end
+    for i = 1, 50 do
+        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2290.28515625, 19.807117462158203, -2590.0693359375))
+        task.wait(0.01)
+    end
+      for i = 1, 50 do
+        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2287.028564453125, 19.75743865966797, -2598.23486328125))
+        task.wait(0.01)
+    end
+    for i = 1, 50 do
+        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2290.28515625, 19.807117462158203, -2590.0693359375))
+        task.wait(0.01)
+    end
+      for i = 1, 50 do
+        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2287.028564453125, 19.75743865966797, -2598.23486328125))
+        task.wait(0.01)
+    end
+    for i = 1, 50 do
+        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2290.28515625, 19.807117462158203, -2590.0693359375))
+        task.wait(0.01)
+    end
+      for i = 1, 50 do
+        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2287.028564453125, 19.75743865966797, -2598.23486328125))
+        task.wait(0.01)
+    end
+    for i = 1, 50 do
+        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2290.28515625, 19.807117462158203, -2590.0693359375))
+        task.wait(0.01)
+    end
