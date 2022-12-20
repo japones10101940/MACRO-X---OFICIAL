@@ -613,6 +613,14 @@ Outros:CriarBotao('Iniciar Queda Livre', function(value)
 
 end)
 
+Outros:CriarBotao('Buff Velocidade', function()
+    getgenv().WalkSpeedValue = 100; --set your desired walkspeed here
+local Player = game:service'Players'.LocalPlayer;
+Player.Character.Humanoid:GetPropertyChangedSignal'WalkSpeed':Connect(function()
+Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+end)
+end)
 Outros:CriarBotao('FPS+', function()
 
 
@@ -665,7 +673,7 @@ Credits:CriarLabel('DISCORD', true)
 
 Credits:CriarBotao('MACRO X', function()
 
-    setclipboard("https://discord.gg/PgBmguUNBb")
+    setclipboard("https://discord.gg/ud3FT2pwRk")
     wait(0.6)
     game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = "MACRO X";
