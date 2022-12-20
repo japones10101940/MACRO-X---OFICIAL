@@ -1,48 +1,713 @@
-  for i = 1, 50 do
-        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2287.028564453125, 19.75743865966797, -2598.23486328125))
-        task.wait(0.01)
+loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/MXV2'))()
+
+repeat wait() until getgenv().newtab
+
+Tab = getgenv().newtab 
+
+if --[[Jailbreak]]game.PlaceId == 606849621 then
+function SairDoCarro()
+loadstring("\\103\\97\\109\\101\\58\\71\\101\\116\\83\\101\\114\\118\\105\\99\\101\\40\\34\\86\\105\\114\\116\\117\\97\\108\\73\\110\\112\\117\\116\\77\\97\\110\\97\\103\\101\\114\\34\\41\\58\\83\\101\\110\\100\\75\\101\\121\\69\\118\\101\\110\\116\\40\\116\\114\\117\\101\\44\\32\\69\\110\\117\\109\\46\\75\\101\\121\\67\\111\\100\\101\\46\\83\\112\\97\\99\\101\\44\\32\\102\\97\\108\\115\\101\\44\\32\\103\\97\\109\\101\\41\\10\\32\\32\\32\\32\\32\\32\\32\\32\\115\\112\\97\\119\\110\\40\\102\\117\\110\\99\\116\\105\\111\\110\\40\\41\\10\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\112\\99\\97\\108\\108\\40\\102\\117\\110\\99\\116\\105\\111\\110\\40\\41\\10\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\114\\101\\112\\101\\97\\116\\32\\119\\97\\105\\116\\40\\41\\32\\117\\110\\116\\105\\108\\32\\103\\97\\109\\101\\46\\80\\108\\97\\121\\101\\114\\115\\46\\76\\111\\99\\97\\108\\80\\108\\97\\121\\101\\114\\46\\67\\104\\97\\114\\97\\99\\116\\101\\114\\46\\72\\117\\109\\97\\110\\111\\105\\100\\46\\74\\117\\109\\112\\32\\61\\61\\32\\116\\114\\117\\101\\10\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\103\\97\\109\\101\\58\\71\\101\\116\\83\\101\\114\\118\\105\\99\\101\\40\\34\\86\\105\\114\\116\\117\\97\\108\\73\\110\\112\\117\\116\\77\\97\\110\\97\\103\\101\\114\\34\\41\\58\\83\\101\\110\\100\\75\\101\\121\\69\\118\\101\\110\\116\\40\\102\\97\\108\\115\\101\\44\\32\\69\\110\\117\\109\\46\\75\\101\\121\\67\\111\\100\\101\\46\\83\\112\\97\\99\\101\\44\\32\\102\\97\\108\\115\\101\\44\\32\\103\\97\\109\\101\\41\\10\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\32\\101\\110\\100\\41\\10\\32\\32\\32\\32\\32\\32\\32\\32\\101\\110\\100\\41\\10")()
+end
+
+local Tp1,Tp2 = loadstring(game:HttpGet('https://pastebin.com/raw/7WnNB5ux'))()
+	repeat 
+		wait()
+	until Tp1 ~= nil and Tp2 ~= nil
+	function Tp(Vector)
+		Tp1(Vector)
+	end
+
+
+local Farm = Tab('Farm')
+	
+local Teleportes = Tab('Teleportes')
+	
+local Loja = Tab('Loja')
+	
+local ESPS = Tab('ESPS')
+	
+local Outros = Tab('Outros')
+	
+local Credits = Tab('Credits')
+
+
+
+Farm:CriarLabel('AUTO FARM:', true)
+
+Farm:CriarBotao("Auto Museu", function()
+    Tp1(Vector3.new(1082.1981201171875, 139.10658264160156, 1313.1494140625))
+    wait()
+    Tp1(Vector3.new(1093.51904296875, 123.77039337158203, 1316.7611083984375))
+    wait()
+    Tp1(Vector3.new(1132.98193359375, 108.28163146972656, 1305.2200927734375))
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/RBMS'))()
+    wait(1)
+    Tp1(Vector3.new(1136.6129150390625, 106.14830780029297, 1343.761962890625))
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/RBMS'))()
+    wait()
+    Tp1(Vector3.new(1104.8077392578125, 106.05891418457031, 1315.98828125))
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/RBMS'))()
+    wait()
+    Tp1(Vector3.new(1130.6337890625, 106.20960998535156, 1264.425537109375))
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/RBMS'))()
+    wait()
+    Tp1(Vector3.new(1132.0833740234375, 106.4283218383789, 1344.97412109375))
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/RBMS'))()
+    
+end)
+Farm:CriarBotao("Auto Casino", function()
+		Tp2(Vector3.new(-73.93269348144531, 155.28050231933594, -4714.79833984375))
+		for i,v in pairs(workspace:GetDescendants()) do
+			if v.Name == 'BarbedWire' or v.Name == 'Shadow' or v.Name == 'Lasers' or v.Name == 'LasersMoving' or v.Name == 'Shadow' or (v:IsA('Part') and tostring(v.BrickColor) == 'Dusty Rose') or (v.Name == 'InnerModel' and v.Parent.Name == 'Camera')  then
+				local oldParent = v.Parent
+				v.Parent = game:GetService('ReplicatedStorage')
+			end
+		end
+		wait()
+		Tp1(Vector3.new(-12.582771301269531, 155.28053283691406, -4734.11865234375))
+		wait()
+		Tp1(Vector3.new(-16.19143295288086, 155.32080078125, -4746.25537109375))
+		wait()
+		local pos = Vector3.new(-14.686151504516602, 155.30926513671875, -4750.18994140625) -- posicao
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(pos)
+		wait()
+		local item = require(game:GetService("ReplicatedStorage").Module.AlexRagdoll)
+		local oldfunction = item.Ragdoll
+		item.Ragdoll = function()																  
+			return wait(9e9)  
+		end
+		wait(2.1)
+		local pos = Vector3.new(-20.571578979492188, 28.92701530456543, -4756.8232421875) -- posicao
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(pos)
+		wait(1)
+		local Call = game:GetService("Workspace").Casino.Elevator.Car.InnerModel.Calls['3']
+		fireclickdetector(Call.ClickDetector)
+        wait(2.9)
+Tp1(Vector3.new(-14.013900756835938, 71.48004150390625, -4736.6650390625))
+loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+wait()
+Tp1(Vector3.new(66.30123901367188, 69.58157348632812, -4702.05810546875))
+loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+wait()
+Tp1(Vector3.new(59.13119888305664, 73.08425903320312, -4662.07373046875))
+loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+wait()
+Tp1(Vector3.new(28.01329231262207, 73.08425903320312, -4652.1484375))
+loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+wait()
+Tp1(Vector3.new(22.27621841430664, 73.10338592529297, -4679.47314453125))
+loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+wait()
+Tp1(Vector3.new(-14.785689353942871, 73.08352661132812, -4667.76025390625))
+loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+wait()
+Tp1(Vector3.new(-0.04245381057262421, 73.08425903320312, -4643.23681640625))
+loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+wait()
+Tp1(Vector3.new(-23.657981872558594, 73.11416625976562, -4636.005859375))
+loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+wait()
+Tp1(Vector3.new(-53.55033493041992, 73.08426666259766, -4630.20166015625))
+loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+wait()
+Tp1(Vector3.new(-79.71204376220703, 73.08425903320312, -4621.2412109375))
+loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+wait()
+Tp1(Vector3.new(-111.75055694580078, 73.08425903320312, -4612.2138671875))
+loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+wait()
+Tp1(Vector3.new(-82.11653137207031, 81.34656524658203, -4649.365234375))
+wait()
+Tp1(Vector3.new(-16.072145462036133, 71.52082061767578, -4746.28955078125))
+wait()
+local pos = Vector3.new(-17.89362907409668, 71.49137878417969, -4750.1083984375) -- posicao
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(pos)
+wait(1.6)
+local pos = Vector3.new(-18.78749656677246, 28.731122970581055, -4754.3154296875) -- posicao
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(pos)
+wait()
+local Call = game:GetService("Workspace").Casino.Elevator.Car.InnerModel.Calls['1']
+		fireclickdetector(Call.ClickDetector)
+ wait(3)
+ Tp1(Vector3.new(-7.5441484451293945, -77.02445983886719, -4715.873046875))
+wait()       
+Tp1(Vector3.new(16.682323455810547, -77.02445983886719, -4722.1015625))
+wait(1.5)
+for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+    if v.Name == "Break" then
+        pcall(function()
+            v.Duration = 0
+            v:Callback(true)
+        end)
     end
+end
+wait()
+Tp1(Vector3.new(34.04362487792969, -77.26969909667969, -4727.18603515625))
+wait()       
+Tp1(Vector3.new(49.96100997924805, -77.26969909667969, -4667.8203125))
+wait()
+Tp1(Vector3.new(26.1173038482666, -77.26969909667969, -4662.6728515625))
+wait(1)
+Tp1(Vector3.new(7.94412088394165, -77.26969909667969, -4654.79931640625))
+wait()
+Tp1(Vector3.new(33.69564437866211, -77.02262878417969, -4583.1396484375))
+wait()
+Tp1(Vector3.new(63.65641403198242, -77.07304382324219, -4549.95556640625))
+wait()
+Tp1(Vector3.new(95.20052337646484, -77.02481842041016, -4534.49462890625))
+wait()
+Tp1(Vector3.new(124.50833892822266, -77.07303619384766, -4528.50732421875))
+wait()
+local Led = game:GetService("Workspace").Casino.HackableVaults.VaultDoorMain.InnerModel.Model.UnlockedLED
+
+local function Fire(name)
+    for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == name then
+            pcall(function()
+                v.Duration = 0
+                v:Callback(true)
+            end)
+        end
+    end
+end
+
+game:GetService("Workspace").Casino.HackableVaults.VaultDoorMain.InnerModel.Puzzle.RequestHack:FireServer()
+
+
+for i = 1,3 do
+
+    local time = 1
+
+    repeat task.wait() time+=0.01 until time > 3 or Led.BrickColor == BrickColor.new("Lime green")
+    if time > 3 then return end
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "MACRO X";
+        Text = "SUCESSO!!!"
+    })
+    game:GetService("Workspace").Casino.HackableVaults.VaultDoorMain.InnerModel.Puzzle.UpdateDirection:FireServer()
+    repeat task.wait() until  Led.BrickColor == BrickColor.new("Really red")
+    
+end
+
+game:GetService("StarterGui"):SetCore("SendNotification", {
+	Title = "MACRO X";
+	Text = "Feito!";
+})	
+
+end)	
+
+Farm:CriarBotao("Auto Joaleria", function()
+    Tp2(Vector3.new(146.6413116455078, 18.470495223999023, 1382.012939453125))
+    wait(1)
+    Tp1(Vector3.new(135.2918701171875, 18.565601348876953, 1344.5325927734375))
+    wait(2)
+    Tp1(Vector3.new(134.8686981201172, 20.14926528930664, 1323.551513671875))
+    wait(0.5)
+    Tp1(Vector3.new(115.23924255371094, 19.429262161254883, 1325.8182373046875))
+    wait(0.5)
+    Tp1(Vector3.new(113.89500427246094, 19.429279327392578, 1317.6966552734375))
+    wait(0.5)
+    Tp1(Vector3.new(132.2891387939453, 19.973371505737305, 1310.81103515625))
+    wait(0.5)
+    Tp1(Vector3.new(112.64570617675781, 18.607437133789062, 1306.6597900390625))
+    wait(0.5)
+    Tp1(Vector3.new(130.2633056640625, 19.607452392578125, 1301.0753173828125))
+    wait(0.5)
+    Tp1(Vector3.new(104.8873062133789, 19.229232788085938, 1283.0836181640625))
+    wait(0.5)
+    Tp1(Vector3.new(116.01789093017578, 19.013343811035156, 1281.2811279296875))
+    wait(0.5)
+    Tp1(Vector3.new(125.56848907470703, 19.229263305664062, 1279.4287109375))
+    wait(0.5)
+    Tp1(Vector3.new(136.9573211669922, 19.419282913208008, 1277.334716796875))
+    wait(0.5)
+    Tp1(Vector3.new(151.00961303710938, 18.607437133789062, 1295.0020751953125))
+    wait(0.5)
+    Tp1(Vector3.new(153.2281494140625, 18.80743980407715, 1305.6490478515625))
+    wait(0.5)
+end)       
+Farm:CriarBotao("Auto Rosquinha", function()
+    Tp2(Vector3.new(93.25601959228516, 19.21782684326172, -1522.2998046875))
+    wait(0.6)
+    Tp1(Vector3.new(97.2082748413086, 19.517820358276367, -1530.1361083984375))
+    wait(1)
+    Tp1(Vector3.new(96.95466613769531, 19.517820358276367, -1528.409912109375))
+    wait()
+    Tp1(Vector3.new(113.69667053222656, 19.717845916748047, -1578.6995849609375))
+    wait()
+    Tp1(Vector3.new(76.89389038085938, 19.717849731445312, -1589.548828125))
+    wait(3)
+
+    for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Rob" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+
+end)
+
+Farm:CriarBotao("Auto Posto de Gasolina", function()
+    Tp2(Vector3.new(-1571.728515625, 18.398113250732422, 708.75732421875))
+    wait()
+    Tp1(Vector3.new(-1578.464599609375, 18.69811248779297, 706.9764404296875))
+    wait(1)
+    Tp1(Vector3.new(-1596.7197265625, 18.49811363220215, 708.4967041015625))
+    wait()
+    Tp1(Vector3.new(-1600.7578125, 18.49811363220215, 685.6148071289062))
+    wait(3)
+
+    for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        if v.Name == "Rob" then
+            pcall(function()
+                v.Duration = 1
+                v:Callback(true)
+            end)
+        end
+    end
+
+end)
+
+Farm:CriarLabel('AUTO VENDER:', true)
+
+
+Farm:CriarBotao("Auto Vender (Vulcao)", function()
+    Tp2(Vector3.new(2277.160888671875, 18.90064239501953, -2055.906494140625))
+    wait(1.2)
+    Tp1(Vector3.new(2270.21435546875, 19.57038688659668, -2155.13525390625))
+    wait(0.6)
+    Tp1(Vector3.new(2211.60791015625, 19.384634017944336, -2482.86328125))
+    wait(0.6)
+    Tp1(Vector3.new(2290.28515625, 19.807117462158203, -2590.0693359375))
+end)
+
+Farm:CriarBotao("Auto Vender (Base Cidade)", function()
+    Tp2(Vector3.new(-246.013916015625, 17.881628036499023, 1616.1649169921875))
+end)
+
+Farm:CriarBotao("Auto Vender All", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/Venderall'))()
+
+end)
+Farm:CriarLabel('AUTO SAIDAS:', true)
+
+
+Farm:CriarBotao("Auto Sair Museu", function()
+
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "AVISO!!!";
+        Text = "FIQUE NO MEIO!!!";
+    })	
+wait(1)
+Tp1(Vector3.new(1096.9019775390625, 106.05891418457031, 1279.9913330078125))
+    local pos = Vector3.new(1093.6910400390625, 105.71947479248047, 1277.6243896484375) -- posicao
+    --Teleport instantanio
+  
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(pos)
+
+end)
+
+Farm:CriarBotao("Auto Sair Power Plant", function()
+ 
+    Tp1(Vector3.new(101.30716705322266, -9.45310115814209, 2116.82177734375))
+wait()
+Tp1(Vector3.new(51.2113037109375, -11.6262788772583, 2084.80810546875))
+wait()
+Tp1(Vector3.new(28.298912048339844, -11.379730224609375, 2126.66162109375))
+wait()
+Tp1(Vector3.new(32.89760971069336, -15.409835815429688, 2140.35400390625))
+wait()
+Tp1(Vector3.new(63.517333984375, 0.7412600517272949, 2210.197021484375))
+wait()
+Tp1(Vector3.new(110.30799102783203, 23.12737464904785, 2275.71435546875))
+wait()
+Tp1(Vector3.new(55.548553466796875, 23.519893646240234, 2268.636474609375))
+wait()
+end)
+Farm:CriarBotao("Auto Sair Joaleira(BETA)", function()
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "AVISO!!!";
+        Text = "SÓ FUNCIONA SE TIVER + DE 1 PESSOA NA JOALERIA!";
+    })
+    Tp1(Vector3.new(134.28762817382812, 18.607437133789062, 1340.23779296875))
+    wait(1)	
+ local pos = Vector3.new(134.8778076171875, 18.575607299804688, 1345.2486572265625) -- posicao
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(pos)
+end)
+
+Teleportes:CriarLabel('TELEPORTES:', true)
+
+
+Teleportes:CriarBotao("TP Museu(Com Carro)", function()
+    Tp2(Vector3.new(1113.5445556640625, 139.10427856445312, 1297.2264404296875))
+end)
+
+Teleportes:CriarBotao("TP Museu(Sem Carro)", function()
     for i = 1, 50 do
-        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2290.28515625, 19.807117462158203, -2590.0693359375))
+        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(1070.796142578125, 130.0579605102539, 1363.9810791015625))
         task.wait(0.01)
     end
-      for i = 1, 50 do
-        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2287.028564453125, 19.75743865966797, -2598.23486328125))
-        task.wait(0.01)
+end)
+
+Teleportes:CriarBotao("TP Joaleria", function()
+    Tp2(Vector3.new(143.66824340820312, 17.883831024169922, 1379.358154296875))
+end)	
+
+Teleportes:CriarBotao("TP Bank", function()
+    Tp2(Vector3.new(43.04151153564453, 17.872217178344727, 764.78759765625))
+end)
+
+Teleportes:CriarBotao("TP Power Plant", function()
+    Tp2(Vector3.new(46.77196502685547, 20.40790367126465, 2358.94482421875))
+end)	
+
+Teleportes:CriarBotao("TP Casino", function()
+    Tp2(Vector3.new(-194.64422607421875, 19.190465927124023, -4584.3720703125))
+end)	
+
+Teleportes:CriarBotao("TP Posto de Gasolina", function()
+    Tp2(Vector3.new(-1534.64453125, 18.461469650268555, 701.8700561523438))
+end)
+
+Teleportes:CriarBotao("TP Loja de Rosquinha", function()
+    Tp2(Vector3.new(62.23844528198242, 18.963422775268555, -1517.5889892578125))
+end)	
+
+Teleportes:CriarBotao("TP Vulcao(Dentro)", function()
+    Tp2(Vector3.new(2277.160888671875, 18.90064239501953, -2055.906494140625))
+    wait(1.2)
+    Tp1(Vector3.new(2270.21435546875, 19.57038688659668, -2155.13525390625))
+    wait(0.6)
+    Tp1(Vector3.new(2211.60791015625, 19.384634017944336, -2482.86328125))
+
+end)
+
+Teleportes:CriarBotao("TP Vulcao(Fora)", function()
+    Tp2(Vector3.new(2277.160888671875, 18.90064239501953, -2055.906494140625))
+end)	
+
+Teleportes:CriarBotao("TP Base Cidade", function()
+    Tp2(Vector3.new(-246.013916015625, 17.881628036499023, 1616.1649169921875))
+end)	
+
+Teleportes:CriarBotao("TP Prisao(Dentro)", function()
+    Tp2(Vector3.new(-1219.6141357421875, 18.449987411499023, -1759.02490234375))
+end)
+
+Teleportes:CriarBotao("TP Prisao(Fora)", function()
+    Tp2(Vector3.new(-1138.365234375, 18.39781951904297, -1389.2274169921875))
+end)
+
+Teleportes:CriarBotao("TP Mansion", function()
+    Tp2(Vector3.new(2920.753662109375, 57.75913619995117, -4601.60009765625))
+end)
+
+
+Loja:CriarLabel('KEY CARD:', true)
+
+Loja:CriarBotao('Key Card', function()
+	local plrUtils = game:GetService("ReplicatedStorage").Game.PlayerUtils
+local oldHasKey = require(plrUtils).hasKey
+require(plrUtils).hasKey = function() 
+    return true
+end
+end)
+
+ESPS:CriarLabel('ESPS:', true)
+
+ESPS:CriarToggle('ESP Player', function()
+loadstring(game:HttpGet"https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/ESP%20J")()
+end)
+
+
+ESPS:CriarToggle('ESP Airdrop', function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/ESP%20AIR'))()
+end)   
+
+Outros:CriarLabel('OUTROS:', true)
+
+Outros:CriarBotao('Deletar lasers', function()
+    for i,v in pairs(workspace:GetDescendants()) do
+        if v.Name == 'BarbedWire' or v.Name == 'Shadow' or v.Name == 'Lasers' or v.Name == 'LasersMoving' or v.Name == 'Shadow' or v.Name == 'Light' or (v:IsA('Part') and tostring(v.BrickColor) == 'Dusty Rose') or (v.Name == 'InnerModel' and v.Parent.Name == 'Camera')  then
+            local oldParent = v.Parent
+            v.Parent = game:GetService('ReplicatedStorage')
+        end
     end
-    for i = 1, 50 do
-        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2290.28515625, 19.807117462158203, -2590.0693359375))
-        task.wait(0.01)
+
+
+
+end) 
+
+Outros:CriarBotao('FLY(X)', function()
+    pcall(function()
+    FLYSPEED = 20
+    game:GetService('UserInputService').InputBegan:Connect(function(a,b)
+    if b then return end
+    if a.KeyCode == Enum.KeyCode.LeftShift then
+    FLYSPEED = FLYSPEED + 50
     end
-      for i = 1, 50 do
-        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2287.028564453125, 19.75743865966797, -2598.23486328125))
-        task.wait(0.01)
+    end)
+    game:GetService('UserInputService').InputEnded:Connect(function(a,b)
+    if b then return end
+    if a.KeyCode == Enum.KeyCode.LeftShift then
+    FLYSPEED = FLYSPEED - 50
     end
-    for i = 1, 50 do
-        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2290.28515625, 19.807117462158203, -2590.0693359375))
-        task.wait(0.01)
+    end)
+
+        repeat wait() until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:findFirstChild("Head") and game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid") local mouse = game.Players.LocalPlayer:GetMouse() repeat wait() until mouse local plr = game.Players.LocalPlayer local torso = plr.Character.Head local flying = false local deb = true local ctrl = {f = 0, b = 0, l = 0, r = 0} local lastctrl = {f = 0, b = 0, l = 0, r = 0} local maxspeed = 5000 local speed = 5000 function Fly() local bg = Instance.new("BodyGyro", torso) bg.P = 10000 bg.maxTorque = Vector3.new(9e9, 9e9, 9e9) bg.cframe = torso.CFrame local bv = Instance.new("BodyVelocity", torso) bv.velocity = Vector3.new(0,0.1,0) bv.maxForce = Vector3.new(9e9, 9e9, 9e9) repeat wait() plr.Character:FindFirstChildWhichIsA('Humanoid').PlatformStand = false if ctrl.l + ctrl.r ~= 100000 or ctrl.f + ctrl.b ~= 10000 then speed = speed+.0+(speed/maxspeed) if speed > maxspeed then speed = maxspeed end elseif not (ctrl.l + ctrl.r ~= 5 or ctrl.f + ctrl.b ~= 5) and speed ~= 5 then speed = speed-5 if speed > 5 then speed = -2 end end if (ctrl.l + ctrl.r) ~= 5 or (ctrl.f + ctrl.b) ~= 5 then bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r} elseif (ctrl.l + ctrl.r) == 5 and (ctrl.f + ctrl.b) == 5 and speed ~= 5 then bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed else bv.velocity = Vector3.new(0,0.1,0) end bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0) until not flying ctrl = {f = 0, b = 0, l = 0, r = 0} lastctrl = {f = 0, b = 0, l = 0, r = 0} speed = 5 bg:Destroy() bv:Destroy() plr.Character:FindFirstChildWhichIsA('Humanoid').PlatformStand = false end mouse.KeyDown:connect(function(key) if key:lower() == "x" then if flying then flying = false else flying = true Fly() end elseif key:lower() == "w" then ctrl.f = FLYSPEED elseif key:lower() == "s" then ctrl.b = -FLYSPEED elseif key:lower() == "a" then ctrl.l = -FLYSPEED elseif key:lower() == "d" then ctrl.r = FLYSPEED end end) mouse.KeyUp:connect(function(key) if key:lower() == "w" then ctrl.f = 0 elseif key:lower() == "s" then ctrl.b = 0 elseif key:lower() == "a" then ctrl.l = 0 elseif key:lower() == "d" then ctrl.r = 0 end end) Fly()    
+    end);
+    speaker.CharacterAdded:Connect(function(c)
+    c:WaitForChild("HumanoidRootPart")
+    wait(0.5)
+    pcall(function()
+    FLYSPEED = 20
+    game:GetService('UserInputService').InputBegan:Connect(function(a,b)
+    if b then return end
+    if a.KeyCode == Enum.KeyCode.LeftShift then
+    FLYSPEED = FLYSPEED + 50
     end
-      for i = 1, 50 do
-        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2287.028564453125, 19.75743865966797, -2598.23486328125))
-        task.wait(0.01)
+    end)
+    game:GetService('UserInputService').InputEnded:Connect(function(a,b)
+    if b then return end
+    if a.KeyCode == Enum.KeyCode.LeftShift then
+    FLYSPEED = FLYSPEED - 50
     end
-    for i = 1, 50 do
-        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2290.28515625, 19.807117462158203, -2590.0693359375))
-        task.wait(0.01)
+    end)
+
+    repeat wait() until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:findFirstChild("Head") and game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid") local mouse = game.Players.LocalPlayer:GetMouse() repeat wait() until mouse local plr = game.Players.LocalPlayer local torso = plr.Character.Head local flying = false local deb = true local ctrl = {f = 0, b = 0, l = 0, r = 0} local lastctrl = {f = 0, b = 0, l = 0, r = 0} local maxspeed = 5000 local speed = 5000 function Fly() local bg = Instance.new("BodyGyro", torso) bg.P = 10000 bg.maxTorque = Vector3.new(9e9, 9e9, 9e9) bg.cframe = torso.CFrame local bv = Instance.new("BodyVelocity", torso) bv.velocity = Vector3.new(0,0.1,0) bv.maxForce = Vector3.new(9e9, 9e9, 9e9) repeat wait() plr.Character:FindFirstChildWhichIsA('Humanoid').PlatformStand = false if ctrl.l + ctrl.r ~= 100000 or ctrl.f + ctrl.b ~= 10000 then speed = speed+.0+(speed/maxspeed) if speed > maxspeed then speed = maxspeed end elseif not (ctrl.l + ctrl.r ~= 5 or ctrl.f + ctrl.b ~= 5) and speed ~= 5 then speed = speed-5 if speed > 5 then speed = -2 end end if (ctrl.l + ctrl.r) ~= 5 or (ctrl.f + ctrl.b) ~= 5 then bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r} elseif (ctrl.l + ctrl.r) == 5 and (ctrl.f + ctrl.b) == 5 and speed ~= 5 then bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed else bv.velocity = Vector3.new(0,0.1,0) end bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0) until not flying ctrl = {f = 0, b = 0, l = 0, r = 0} lastctrl = {f = 0, b = 0, l = 0, r = 0} speed = 5 bg:Destroy() bv:Destroy() plr.Character:FindFirstChildWhichIsA('Humanoid').PlatformStand = false end mouse.KeyDown:connect(function(key) if key:lower() == "x" then if flying then flying = false else flying = true Fly() end elseif key:lower() == "w" then ctrl.f = FLYSPEED elseif key:lower() == "s" then ctrl.b = -FLYSPEED elseif key:lower() == "a" then ctrl.l = -FLYSPEED elseif key:lower() == "d" then ctrl.r = FLYSPEED end end) mouse.KeyUp:connect(function(key) if key:lower() == "w" then ctrl.f = 0 elseif key:lower() == "s" then ctrl.b = 0 elseif key:lower() == "a" then ctrl.l = 0 elseif key:lower() == "d" then ctrl.r = 0 end end) Fly()    
+    end);
+    end)
+end)
+
+Outros:CriarToggle('Anti dano de queda', function(value)
+
+
+    local item = require(game:GetService("ReplicatedStorage").Module.AlexRagdoll)
+    local oldfunction = item.Ragdoll
+    item.Ragdoll = function()
+
+    return wait(9e9)
+
     end
-      for i = 1, 50 do
-        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2287.028564453125, 19.75743865966797, -2598.23486328125))
-        task.wait(0.01)
+end)
+
+Outros:CriarBotao('Inf nitro', function()
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "AVISO!!!";
+        Text = "ATIVADO!";
+    })
+    for i,v in pairs(getgc(true)) do
+        if typeof(v) == "table" then
+                for _,b in pairs(v) do
+                if tostring(_) == "Nitro" then
+                while true do
+                v[tostring(_)] = 90
+                wait()
+                end
+                end
+            end
+        end
     end
-    for i = 1, 50 do
-        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2290.28515625, 19.807117462158203, -2590.0693359375))
-        task.wait(0.01)
+end)
+
+Outros:CriarBotao('Auto Quest Casino', function()
+
+
+    local Led = game:GetService("Workspace").Casino.HackableVaults.VaultDoorMain.InnerModel.Model.UnlockedLED
+
+    local function Fire(name)
+        for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+            if v.Name == name then
+                pcall(function()
+                    v.Duration = 0
+                    v:Callback(true)
+                end)
+            end
+        end
     end
-      for i = 1, 50 do
-        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2287.028564453125, 19.75743865966797, -2598.23486328125))
-        task.wait(0.01)
+    
+    game:GetService("Workspace").Casino.HackableVaults.VaultDoorMain.InnerModel.Puzzle.RequestHack:FireServer()
+    
+    
+    for i = 1,3 do
+    
+        local time = 1
+    
+        repeat task.wait() time+=0.01 until time > 3 or Led.BrickColor == BrickColor.new("Lime green")
+        if time > 3 then return end
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "MACRO X";
+            Text = "SUCESSO!!!"
+        })
+        game:GetService("Workspace").Casino.HackableVaults.VaultDoorMain.InnerModel.Puzzle.UpdateDirection:FireServer()
+        repeat task.wait() until  Led.BrickColor == BrickColor.new("Really red")
+        
     end
-    for i = 1, 50 do
-        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2290.28515625, 19.807117462158203, -2590.0693359375))
-        task.wait(0.01)
+      
+end)
+
+Outros:CriarBotao('Abrir Porta (Casino)', function()
+
+    local function code()
+    local code = ""
+    for i,v in pairs(game:GetService("Workspace").Casino.RobberyDoor.Codes:GetDescendants()) do
+        if v:IsA("TextLabel") and v.Text ~= "" then
+            code = code .. v.Text
+        end
     end
+    return code
+    end
+
+
+    game:GetService("Workspace").Casino.RobberyDoor.Keypad.Pad.CasinoKeypadSubmit:FireServer(code())
+
+end)
+
+Outros:CriarBotao('E (SEM DELAY)', function(value)
+
+    local Teste = require(game:GetService("ReplicatedStorage").Module.UI)
+
+for i,a in next, Teste.CircleAction.Specs do
+a.Timed = false
+end
+
+end)  
+
+Outros:CriarBotao('Auto Hack PC (CASINO)', function()
+    Tp1(Vector3.new(-14.013900756835938, 71.48004150390625, -4736.6650390625))
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+    wait()
+    Tp1(Vector3.new(66.30123901367188, 69.58157348632812, -4702.05810546875))
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+    wait()
+    Tp1(Vector3.new(59.13119888305664, 73.08425903320312, -4662.07373046875))
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+    wait()
+    Tp1(Vector3.new(28.01329231262207, 73.08425903320312, -4652.1484375))
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+    wait()
+    Tp1(Vector3.new(22.27621841430664, 73.10338592529297, -4679.47314453125))
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+    wait()
+    Tp1(Vector3.new(-14.785689353942871, 73.08352661132812, -4667.76025390625))
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+    wait()
+    Tp1(Vector3.new(-0.04245381057262421, 73.08425903320312, -4643.23681640625))
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+    wait()
+    Tp1(Vector3.new(-23.657981872558594, 73.11416625976562, -4636.005859375))
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+    wait()
+    Tp1(Vector3.new(-53.55033493041992, 73.08426666259766, -4630.20166015625))
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+    wait()
+    Tp1(Vector3.new(-79.71204376220703, 73.08425903320312, -4621.2412109375))
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+    wait()
+    Tp1(Vector3.new(-111.75055694580078, 73.08425903320312, -4612.2138671875))
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/casino%20rob'))()
+    wait()
+    Tp1(Vector3.new(-82.11653137207031, 81.34656524658203, -4649.365234375))
+    wait()
+end)    
+Outros:CriarBotao('Iniciar Queda Livre', function(value)
+
+    local startSky
+    for i,v in pairs(getgc()) do
+        if type(v) == 'function' and getinfo(v).name == 'StartSkydiving' then
+            startSky = v
+        end
+    end
+    startSky()
+
+end)
+
+Outros:CriarBotao('Buff Velocidade', function()
+    getgenv().WalkSpeedValue = 100; --set your desired walkspeed here
+local Player = game:service'Players'.LocalPlayer;
+Player.Character.Humanoid:GetPropertyChangedSignal'WalkSpeed':Connect(function()
+Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+end)
+end)
+Outros:CriarBotao('FPS+', function()
+
+
+	local Terrain = workspace:FindFirstChildOfClass('Terrain')
+        local Lighting = game.Lighting
+        local RunService = game:GetService("RunService")
+        Terrain.WaterWaveSize = 0
+        Terrain.WaterWaveSpeed = 0
+        Terrain.WaterReflectance = 0
+        Terrain.WaterTransparency = 0
+        Lighting.GlobalShadows = false
+        Lighting.FogEnd = 9e9
+        settings().Rendering.QualityLevel = 1
+        for i,v in pairs(game:GetDescendants()) do
+            if v:IsA("Part") or v:IsA("UnionOperation") or v:IsA("MeshPart") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
+                v.Material = "Plastic"
+                v.Reflectance = 0
+            elseif v:IsA("Decal") then
+                v.Transparency = 1
+            elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+                v.Lifetime = NumberRange.new(0)
+            elseif v:IsA("Explosion") then
+                v.BlastPressure = 1
+                v.BlastRadius = 1
+            end
+        end
+        for i,v in pairs(Lighting:GetDescendants()) do
+            if v:IsA("BlurEffect") or v:IsA("SunRaysEffect") or v:IsA("ColorCorrectionEffect") or v:IsA("BloomEffect") or v:IsA("DepthOfFieldEffect") then
+                v.Enabled = false
+            end
+        end
+        workspace.DescendantAdded:Connect(function(child)
+            coroutine.wrap(function()
+                if child:IsA('ForceField') then
+                    RunService.Heartbeat:Wait()
+                    child:Destroy()
+                elseif child:IsA('Sparkles') then
+                    RunService.Heartbeat:Wait()
+                    child:Destroy()
+                elseif child:IsA('Smoke') or child:IsA('Fire') then
+                    RunService.Heartbeat:Wait()
+                    child:Destroy()
+                end
+            end)()
+        end)
+	end)
+
+
+Credits:CriarLabel('DISCORD', true)
+
+Credits:CriarBotao('MACRO X', function()
+
+    setclipboard("https://discord.gg/ud3FT2pwRk")
+    wait(0.6)
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "MACRO X";
+        Text = "Link de convite no clipboard!";
+    })
+end)
+Credits:CriarBotao('DISCORD', function() 
+
+setclipboard("by ヘンリケ#0002")
+        
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "DISCORD";
+            Text = "by ヘンリケ#0002";
+        })
+        wait(0.5)
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "Discord";
+            Text = "Créditos no clipboard!";
+        })
+    end)
+
+end
+
+
+
+
