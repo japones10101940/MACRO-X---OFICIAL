@@ -292,6 +292,30 @@ Farm:CriarBotao("Auto Vender All", function()
         game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2287.028564453125, 19.75743865966797, -2598.23486328125))
         task.wait(0.01)
     end
+    for i = 1, 50 do
+        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2287.028564453125, 19.75743865966797, -2598.23486328125))
+        task.wait(0.01)
+    end
+    for i = 1, 50 do
+        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2287.028564453125, 19.75743865966797, -2598.23486328125))
+        task.wait(0.01)
+    end
+    for i = 1, 50 do
+        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2287.028564453125, 19.75743865966797, -2598.23486328125))
+        task.wait(0.01)
+    end
+    for i = 1, 50 do
+        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2287.028564453125, 19.75743865966797, -2598.23486328125))
+        task.wait(0.01)
+    end
+    for i = 1, 50 do
+        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2287.028564453125, 19.75743865966797, -2598.23486328125))
+        task.wait(0.01)
+    end
+    for i = 1, 50 do
+        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2287.028564453125, 19.75743865966797, -2598.23486328125))
+        task.wait(0.01)
+    end
 end)
 Farm:CriarLabel('AUTO SAIDAS:', true)
 
