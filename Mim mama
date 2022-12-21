@@ -55,7 +55,7 @@ Farm:CriarBotao("Auto Museu", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/japones10101940/MACRO-X---OFICIAL/main/RBMS'))()
     
 end)
-Farm:CriarBotao("Auto Casino", function()
+Farm:CriarBotao("Auto Casino[Entrar]", function()
 		Tp2(Vector3.new(-73.93269348144531, 155.28050231933594, -4714.79833984375))
 		for i,v in pairs(workspace:GetDescendants()) do
 			if v.Name == 'BarbedWire' or v.Name == 'Shadow' or v.Name == 'Lasers' or v.Name == 'LasersMoving' or v.Name == 'Shadow' or (v:IsA('Part') and tostring(v.BrickColor) == 'Dusty Rose') or (v.Name == 'InnerModel' and v.Parent.Name == 'Camera')  then
@@ -141,6 +141,11 @@ for i,v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleA
         end)
     end
 end
+wait(2.1)
+for i = 1, 50 do
+    game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(24.50497817993164, -77.26969909667969, -4726.0634765625))
+    task.wait(0.01)
+end
 wait()
 Tp1(Vector3.new(34.04362487792969, -77.26969909667969, -4727.18603515625))
 wait()       
@@ -195,37 +200,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 })	
 
 end)	
-
-Farm:CriarBotao("Auto Joaleria", function()
-    Tp2(Vector3.new(146.6413116455078, 18.470495223999023, 1382.012939453125))
-    wait(1)
-    Tp1(Vector3.new(135.2918701171875, 18.565601348876953, 1344.5325927734375))
-    wait(2)
-    Tp1(Vector3.new(134.8686981201172, 20.14926528930664, 1323.551513671875))
-    wait(0.5)
-    Tp1(Vector3.new(115.23924255371094, 19.429262161254883, 1325.8182373046875))
-    wait(0.5)
-    Tp1(Vector3.new(113.89500427246094, 19.429279327392578, 1317.6966552734375))
-    wait(0.5)
-    Tp1(Vector3.new(132.2891387939453, 19.973371505737305, 1310.81103515625))
-    wait(0.5)
-    Tp1(Vector3.new(112.64570617675781, 18.607437133789062, 1306.6597900390625))
-    wait(0.5)
-    Tp1(Vector3.new(130.2633056640625, 19.607452392578125, 1301.0753173828125))
-    wait(0.5)
-    Tp1(Vector3.new(104.8873062133789, 19.229232788085938, 1283.0836181640625))
-    wait(0.5)
-    Tp1(Vector3.new(116.01789093017578, 19.013343811035156, 1281.2811279296875))
-    wait(0.5)
-    Tp1(Vector3.new(125.56848907470703, 19.229263305664062, 1279.4287109375))
-    wait(0.5)
-    Tp1(Vector3.new(136.9573211669922, 19.419282913208008, 1277.334716796875))
-    wait(0.5)
-    Tp1(Vector3.new(151.00961303710938, 18.607437133789062, 1295.0020751953125))
-    wait(0.5)
-    Tp1(Vector3.new(153.2281494140625, 18.80743980407715, 1305.6490478515625))
-    wait(0.5)
-end)       
+   
 Farm:CriarBotao("Auto Rosquinha", function()
     Tp2(Vector3.new(93.25601959228516, 19.21782684326172, -1522.2998046875))
     wait(0.6)
@@ -275,48 +250,20 @@ Farm:CriarLabel('AUTO VENDER:', true)
 
 Farm:CriarBotao("Auto Vender (Vulcao)", function()
     Tp2(Vector3.new(2277.160888671875, 18.90064239501953, -2055.906494140625))
-    wait(1.2)
-    Tp1(Vector3.new(2270.21435546875, 19.57038688659668, -2155.13525390625))
-    wait(0.6)
+    wait()
+    Tp1(Vector3.new(2269.772705078125, 19.570302963256836, -2137.802001953125))
+    wait(1)
     Tp1(Vector3.new(2211.60791015625, 19.384634017944336, -2482.86328125))
-    wait(0.6)
-    Tp1(Vector3.new(2290.28515625, 19.807117462158203, -2590.0693359375))
+    wait()
+    Tp1(Vector3.new(2285.163330078125, 19.381248474121094, -2524.7333984375))
+    wait()
+    Tp1(Vector3.new(2283.166259765625, 19.679611206054688, -2587.36962890625))
 end)
 
 Farm:CriarBotao("Auto Vender (Base Cidade)", function()
     Tp2(Vector3.new(-246.013916015625, 17.881628036499023, 1616.1649169921875))
 end)
 
-Farm:CriarBotao("Auto Vender All", function()
-    for i = 1, 50 do
-        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2287.028564453125, 19.75743865966797, -2598.23486328125))
-        task.wait(0.01)
-    end
-    for i = 1, 50 do
-        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2287.028564453125, 19.75743865966797, -2598.23486328125))
-        task.wait(0.01)
-    end
-    for i = 1, 50 do
-        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2287.028564453125, 19.75743865966797, -2598.23486328125))
-        task.wait(0.01)
-    end
-    for i = 1, 50 do
-        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2287.028564453125, 19.75743865966797, -2598.23486328125))
-        task.wait(0.01)
-    end
-    for i = 1, 50 do
-        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2287.028564453125, 19.75743865966797, -2598.23486328125))
-        task.wait(0.01)
-    end
-    for i = 1, 50 do
-        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2287.028564453125, 19.75743865966797, -2598.23486328125))
-        task.wait(0.01)
-    end
-    for i = 1, 50 do
-        game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(2287.028564453125, 19.75743865966797, -2598.23486328125))
-        task.wait(0.01)
-    end
-end)
 Farm:CriarLabel('AUTO SAIDAS:', true)
 
 
@@ -352,17 +299,18 @@ wait()
 Tp1(Vector3.new(55.548553466796875, 23.519893646240234, 2268.636474609375))
 wait()
 end)
-Farm:CriarBotao("Auto Sair Joaleira(BETA)", function()
-    game:GetService("StarterGui"):SetCore("SendNotification", {
-        Title = "AVISO!!!";
-        Text = "SÓ FUNCIONA SE TIVER + DE 1 PESSOA NA JOALERIA!";
-    })
-    Tp1(Vector3.new(134.28762817382812, 18.607437133789062, 1340.23779296875))
-    wait(1)	
- local pos = Vector3.new(134.8778076171875, 18.575607299804688, 1345.2486572265625) -- posicao
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(pos)
-end)
 
+Farm:CriarBotao("Auto Sair Vulcao", function()
+    wait(1)
+    Tp1(Vector3.new(2278.69287109375, 19.557952880859375, -2568.705322265625))
+    wait()
+    Tp1(Vector3.new(2213.49267578125, 19.38447380065918, -2455.599853515625))
+    wait()
+    Tp1(Vector3.new(2264.697021484375, 19.570281982421875, -2190.585693359375))
+    wait(1)
+    Tp1(Vector3.new(2295.36669921875, 19.218746185302734, -2028.7171630859375))
+    wait()
+end)   
 Teleportes:CriarLabel('TELEPORTES:', true)
 
 
@@ -393,12 +341,28 @@ Teleportes:CriarBotao("TP Casino", function()
     Tp2(Vector3.new(-194.64422607421875, 19.190465927124023, -4584.3720703125))
 end)	
 
+Teleportes:CriarBotao("TP Tomb", function()
+    Tp2(Vector3.new(591.31396484375, 20.999998092651367, -464.5907897949219))
+end)
+
 Teleportes:CriarBotao("TP Posto de Gasolina", function()
     Tp2(Vector3.new(-1534.64453125, 18.461469650268555, 701.8700561523438))
 end)
 
 Teleportes:CriarBotao("TP Loja de Rosquinha", function()
     Tp2(Vector3.new(62.23844528198242, 18.963422775268555, -1517.5889892578125))
+end)	
+
+Teleportes:CriarBotao("TP Loja De Armas", function()
+    Tp2(Vector3.new(2.6897289752960205, 18.932687759399414, -1766.05126953125))
+end)	
+
+Teleportes:CriarBotao("TP Loja De 1M", function()
+    Tp2(Vector3.new(506.02325439453125, 18.79497718811035, -1563.6539306640625))
+end)	
+
+Teleportes:CriarBotao("TP Garagem", function()
+    Tp2(Vector3.new(117.43395233154297, 18.825359344482422, -1390.5526123046875))
 end)	
 
 Teleportes:CriarBotao("TP Vulcao(Dentro)", function()
