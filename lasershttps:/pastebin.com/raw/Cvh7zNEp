@@ -1,0 +1,6 @@
+for i,v in pairs(workspace:GetDescendants()) do
+        if v.Name == 'BarbedWire' or v.Name == 'Shadow' or v.Name == 'Lasers' or v.Name == 'LasersMoving' or v.Name == 'Shadow' or v.Name == 'Light' or (v:IsA('Part') and tostring(v.BrickColor) == 'Dusty Rose') or v.Name == 'LaserCarousel' or (v.Name == 'InnerModel' and v.Parent.Name == 'Camera')  then
+            local oldParent = v.Parent
+            v.Parent = game:GetService('ReplicatedStorage')
+        end
+    end
