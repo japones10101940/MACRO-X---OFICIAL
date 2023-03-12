@@ -1,0 +1,9 @@
+   game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "DISCORD";
+            Text = "by ヘンリケ#1111";
+        })
+        wait(0.5)
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "Discord";
+            Text = "Créditos no clipboard!";
+        })
