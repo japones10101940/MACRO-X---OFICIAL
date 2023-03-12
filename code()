@@ -1,0 +1,15 @@
+local function code()
+        local code = ""
+        for i,v in pairs(game:GetService("Workspace").Casino.RobberyDoor.Codes:GetDescendants()) do
+            if v:IsA("TextLabel") and v.Text ~= "" then
+                code = code .. v.Text
+            end
+        end
+        return code
+    end
+    
+    game.StarterGui:SetCore('SendNotification', {
+        Title = 'Casino';
+        Text = 'Code: '..code();
+    })
+    workspace.Casino.RobberyDoor.Keypad.Pad.CasinoKeypadSubmit:FireServer(code
