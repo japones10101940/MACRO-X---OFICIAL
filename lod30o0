@@ -1606,7 +1606,7 @@ function sairjoa()
         else
             local continuar2 = false
             repeat 
-                for i = 2, 100 do 
+                for i = 1, 100 do 
                     task.wait()
                     game.Players.LocalPlayer.Character:PivotTo(CFrame.new(1088.0675048828125, 122.03177642822266, 1358.5916748046875))
                 end
@@ -2467,21 +2467,21 @@ carro()
         Tp1(Vector3.new(-7.5441484451293945, -77.02445983886719, -4715.873046875))
         wait()
         Tp1(Vector3.new(16.682323455810547, -77.02445983886719, -4722.1015625))
-        for i, v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        for _3, v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
             if v.Name == 'Break' then
                 pcall(
                     function()
-                        v.Duration = 0
+                        v.Duration = 1
                         v:Callback(true)
                     end
                 )
             end
         end
-        for i, v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+        for _3, v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
             if v.Name == 'Break' then
                 pcall(
                     function()
-                        v.Duration = 0
+                        v.Duration = 0.5
                         v:Callback(true)
                     end
                 )
@@ -2496,7 +2496,7 @@ carro()
         Tp1(Vector3.new(36.85694885253906, -77.04486083984375, -4664.44921875))
 
         Tp1(Vector3.new(25.933727264404297, -77.04486083984375, -4662.2353515625))
-        wait(0.1)
+        wait()
         Tp1(Vector3.new(18.700714111328125, -77.04486083984375, -4660.14990234375))
 
         Tp1(Vector3.new(10.92686939239502, -77.04486846923828, -4630.470703125))
@@ -2507,7 +2507,7 @@ carro()
 
         Tp1(Vector3.new(164.20474243164062, -76.8016357421875, -4526.8642578125))
         --abrir
-        wait(1.5)
+        wait(1)
         Tp1(Vector3.new(174.0567169189453, -76.8016357421875, -4518.5625))
         wait(1)
         for i = 1, 50 do
