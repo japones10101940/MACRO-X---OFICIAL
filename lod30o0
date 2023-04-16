@@ -1310,7 +1310,6 @@ repeat
     wait()
 until Tp1 ~= nil and Tp2 ~= nil
 
-
 -- FUNÇÕES:
 
 function robrosca()
@@ -2592,9 +2591,10 @@ end
         end
         wait(1)
         no_clip(true)
+        wait(1)
         Tp1(Vector3.new(98.52640533447266, 18.343517303466797, 1310.1895751953125))
         no_clip(false)
-        wait(1)
+        wait(0.2)
         Tp1(Vector3.new(102.5126953125, 18.343517303466797, 1287.6202392578125))
         wait()
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
@@ -4638,4 +4638,5 @@ end)
             end
         end
     )
+   notificar("Att (16/04/23)", 2, 5)
 end
