@@ -1310,7 +1310,80 @@ repeat
     wait()
 until Tp1 ~= nil and Tp2 ~= nil
 
+
 -- FUNÇÕES:
+
+function proteger()
+    pcall(function()
+    
+        local old = require(game:GetService("ReplicatedStorage").Module.RayCast).RayIgnoreNonCollideWithIgnoreList
+    
+        local function getNearestEnemy()
+            local nearestDistance, nearestEnemy = 1000, nil
+            local myTeam = tostring(game:GetService("Players").LocalPlayer.Team)
+            for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+                local theirTeam = tostring(v.Team)
+                if ((myTeam == "Police" and theirTeam == "Criminal") or theirTeam == "Police") and theirTeam ~= myTeam and v.Character and v.Character:FindFirstChild("HumanoidRootPart") then
+                    if (v.Character.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < nearestDistance then
+                        nearestDistance, nearestEnemy = (v.Character.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude, v
+                    end
+                end
+            end
+            return nearestEnemy
+        end
+
+        local function shoot()
+            local currentGun = require(game:GetService("ReplicatedStorage").Game:WaitForChild("ItemSystem"):WaitForChild("ItemSystem")).GetLocalEquipped()
+            if not currentGun then return end
+            require(game:GetService("ReplicatedStorage").Game:WaitForChild("Item"):WaitForChild("Gun"))._attemptShoot(currentGun)
+        end
+        
+        spawn(function()
+            while true do 
+                pcall(function()
+                    if kill_aura_on then 
+                        local nearestEnemy = getNearestEnemy()
+                        if nearestEnemy then
+                            require(game:GetService("ReplicatedStorage").Module.RayCast).RayIgnoreNonCollideWithIgnoreList = function(...)
+                                local arg = {old(...)}
+                                if (tostring(getfenv(2).script) == "BulletEmitter" or tostring(getfenv(2).script) == "Taser") and nearestEnemy and nearestEnemy.Character and nearestEnemy.Character:FindFirstChild("HumanoidRootPart") and nearestEnemy.Character:FindFirstChild("Humanoid") and (nearestEnemy.Character.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 600 and nearestEnemy.Character.Humanoid.Health > 0 then
+                                      arg[1] = nearestEnemy.Character.HumanoidRootPart
+                                      arg[2] = nearestEnemy.Character.HumanoidRootPart.Position
+                                  end
+                                return unpack(arg)
+                            end
+                            if not game:GetService("Players").LocalPlayer.Folder:FindFirstChild("Pistol") then
+                                for i,v in pairs(workspace.Givers:GetChildren()) do 
+                                    if v:FindFirstChild("Item") and v:FindFirstChild("ClickDetector") and v.Item.Value == "Pistol" then 
+                                        fireclickdetector(v.ClickDetector)
+                                    end
+                                end
+                            end
+                            if game:GetService("Players").LocalPlayer.Folder:FindFirstChild("Pistol") then
+                                while game:GetService("Players").LocalPlayer.Folder:FindFirstChild("Pistol") and nearestEnemy and nearestEnemy.Character and nearestEnemy.Character:FindFirstChild("HumanoidRootPart") and nearestEnemy.Character:FindFirstChild("Humanoid") and (nearestEnemy.Character.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 600 and nearestEnemy.Character.Humanoid.Health > 0 do
+                                    if auto_equip_killaura then 
+                                        game:GetService("Players").LocalPlayer.Folder.Pistol.InventoryEquipRemote:FireServer(true)
+                                    
+                                    end
+                                    task.wait()
+                                    shoot()
+                                end
+                            end
+                            if game:GetService("Players").LocalPlayer.Folder:FindFirstChild("Pistol") then
+                                if auto_equip_killaura then 
+                                    game:GetService("Players").LocalPlayer.Folder.Pistol.InventoryEquipRemote:FireServer(false)
+                                end
+                            end
+                        else
+                            require(game:GetService("ReplicatedStorage").Module.RayCast).RayIgnoreNonCollideWithIgnoreList = old
+                        end
+                    end
+                end)
+                task.wait()
+            end
+        end)
+    end)
+end
 
 function robrosca()
     Tp2(Vector3.new(93.49116516113281, 18.863420486450195, -1491.834228515625), true)
@@ -1421,9 +1494,10 @@ function voltar()
 end
 
 function venderjoa()
+    wait(0.5)
     carro()
-    Tp2(Vector3.new(-246.013916015625, 17.881628036499023, 1616.1649169921875))
     wait(1)
+    Tp2(Vector3.new(-246.013916015625, 17.881628036499023, 1616.1649169921875))
 end
 
 function quest()
@@ -1510,20 +1584,36 @@ function casinomoney()
     end
 end
 function sairjoa_encontrar()
-    teleport_path_find(Vector3.new(133.10208129882812, 118.63140869140625, 1294.787109375), 2.5)
+    teleport_path_find(Vector3.new(133.10208129882812, 118.63140869140625, 1294.787109375), 1.5)
+    wait(1)
+    Tp1(Vector3.new(138.2877960205078, 118.63140869140625, 1308.9710693359375))
+    wait(0.6)
+    for i = 1,50 do 
+        task.wait()
+        game.Players.LocalPlayer.Character:PivotTo(CFrame.new(140.01565551757812, 118.63140869140625, 1314.7674560546875))
+    end
+    wait(0.5)
+    for i = 1,50 do 
+        task.wait()
+        game.Players.LocalPlayer.Character:PivotTo(CFrame.new(141.88523864746094, 118.63142395019531, 1319.94140625))
+    end
 end
 
 
 function sairjoa()
-    repeat 
-        for i = 1,40 do 
-            task.wait()
-            game.Players.LocalPlayer.Character:PivotTo(CFrame.new(1088.0675048828125, 122.03177642822266, 1358.5916748046875))
+    if is_opened("Museum") == "roubando" then
+        sairjoa_encontrar()
+        else
+            local continuar2 = false
+            repeat 
+                for i = 1,50 do 
+                    task.wait()
+                    game.Players.LocalPlayer.Character:PivotTo(CFrame.new(1088.0675048828125, 122.03177642822266, 1358.5916748046875))
+                end
+            until (Vector3.new(1072.07080078125, 101.7808837890625, 1249.11669921875) - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 200
+            continuar2 = true
         end
-        wait(0.5)
-    until (Vector3.new(1072.07080078125, 101.7808837890625, 1249.11669921875) - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 200
-
-end
+    end
 
 function sairall()
     for i = 1, 50 do
@@ -1887,6 +1977,7 @@ end
         'Auto Farm',
         function(bool)
             AutoFarm = bool
+            kill_aura_on = bool
         end
     )
     function getCar()
@@ -1912,6 +2003,18 @@ end
     local can = true
     local Part
     function plataforma()
+        carro()
+        wait(1)
+        if game.Players.LocalPlayer.Character.Humanoid.Sit == false then
+            
+            local continuar1 = false
+            repeat wait(2)
+                carro()
+                until game.Players.LocalPlayer.Character.Humanoid.Sit == true 
+            end
+        continuar1 = true
+        proteger()
+        auto_equip_killaura = true
         if can then
             can = false
             Part = Instance.new('Part', workspace)
@@ -1930,6 +2033,7 @@ end
     function deletar_plataforma()
         if can == false then
             can = true
+            auto_equip_killaura = false
             Part:Destroy()
         end
     end
@@ -1949,25 +2053,26 @@ end
                     if AutoFarm ~= false then
                         local pode = true
                         if whatRob() == 'casino' and pode then
+                            proteger()
                             pode = false
                             notificar("Auto farm\nCasino", 2, 3)
-                            
-                            carro()
+                            auto_equip_killaura = true
                             auto_casino()
                             wait(1)
-                            venderjoa()
-
+                            autovendervulcao()
+                            auto_equip_killaura = false
                         end
 
                         if whatRob() == 'jewelry store' and pode then
+                            proteger()
                             notificar("Auto farm".. "\nJewelry", 2, 4)
                             pode = false
-                            carro()
                             wait(0.3)
                             autojoa()
+                            auto_equip_killaura = true
                             wait(1)
                             venderjoa()
-
+                            auto_equip_killaura = false
                         end
                     end
                 else
@@ -1995,7 +2100,8 @@ end
                             getHumanoid(speaker).Health = 0 
 
                             speaker.CharacterAdded:wait():WaitForChild("HumanoidRootPart")
-
+wait(1)
+carro()
                         end
                     end
                 end
@@ -2338,10 +2444,10 @@ end
                 fireclickdetector(workspace.Casino.Elevator.Floors['3'].Call.ClickDetector)
             end
         )
-        wait(1)
+        wait(0.7)
         local pos = Vector3.new(-17.89362907409668, 71.49137878417969, -4750.1083984375) -- posicao
         Tp1(pos)
-        wait(1.6)
+        wait(1)
 
         local Call = game:GetService('Workspace').Casino.Elevator.Car.InnerModel.Calls['1']
 
@@ -2404,8 +2510,13 @@ end
         --abrir
         wait(1.5)
         Tp1(Vector3.new(174.0567169189453, -76.8016357421875, -4518.5625))
-        
-        
+        wait(1)
+        for i = 1, 50 do
+            game:GetService('Players').LocalPlayer.Character:PivotTo(
+                CFrame.new(179.45883178710938, -72.8558578491211, -4527.10498046875)
+            )
+            task.wait()
+        end
         Tp1(Vector3.new(207.6075897216797, -77.38936614990234, -4528.095703125))
 
         Tp1(Vector3.new(263.5859069824219, -74.1202392578125, -4610.9208984375))
@@ -2522,11 +2633,11 @@ end
             end
         end
         wait(0.5)
-        for i = 1, 50 do
+        for i = 1, 20 do
             game:GetService('Players').LocalPlayer.Character:PivotTo(
                 CFrame.new(18.774715423583984, -76.71837615966797, -4723.556640625)
             )
-            task.wait()
+            task.wait(0.001)
         end
         Tp1(Vector3.new(13.894144058227539, -76.59082794189453, -4726.22314453125))
         Tp1(Vector3.new(-3.2409136295318604, -76.22847747802734, -4728.818359375))
@@ -2566,11 +2677,11 @@ end
     end
 
     function autojoa()
-        carro()
         Tp2(Vector3.new(66.99860382080078, 18.001718521118164, 1319.859375), true)
+        wait(1)
         saircarro()
         laser1()
-        for i = 1, 50 do
+        for i = 1, 20 do
             game:GetService('Players').LocalPlayer.Character:PivotTo(
                 CFrame.new(
                     72.7713928,
@@ -2589,9 +2700,10 @@ end
             )
             task.wait()
         end
-        wait(1)
+        wait()
+        Tp1(Vector3.new(92.971435546875, 18.539608001708984, 1311.159423828125))
+        wait(3)
         no_clip(true)
-        wait(1)
         Tp1(Vector3.new(98.52640533447266, 18.343517303466797, 1310.1895751953125))
         no_clip(false)
         wait(0.2)
@@ -3459,7 +3571,7 @@ end
             end
             if is_opened('jewelry store') == 'aberto' or is_opened('jewelry store') == 'roubando' then
             else
-                notificar('MACRO X'.. '\nJoalheria Fechada!', 3, 4)
+                notificar(''.. 'Joalheria Fechada!', 3, 4)
             end
         end
     )
@@ -3695,7 +3807,7 @@ end
             end
             if is_opened('Donut Store') == 'aberto' or is_opened('Donut Store') == 'roubando' then
             else
-                notificar('MACRO X'.. '\nLoja De Rosquinha Fechada!', 3, 4)
+                notificar(''.. 'Loja De Rosquinha Fechada!', 3, 4)
             end
         end
     )
@@ -3727,7 +3839,7 @@ end
 
                         spawn(
                             function()
-                                notificar('MACRO X'.. '\nColete o AirDrop!', 2,4)
+                                notificar(''.. 'Colete o AirDrop!', 2,4)
 
                                 no_clip(true)
                                 while getHumanoid(speaker).Health > 0 do
@@ -4152,7 +4264,7 @@ end
     Loja:CriarBotao(
         'Key Card',
         function()
-            notificar('MACRO X'.. '\nCartão Adicionado!', 1, 4)
+            notificar(''.. 'Cartão Adicionado!', 1, 4)
             local plrUtils = game:GetService('ReplicatedStorage').Game.PlayerUtils
             local oldHasKey = require(plrUtils).hasKey
             require(plrUtils).hasKey = function()
@@ -4462,7 +4574,7 @@ end)
             for i, a in next, Teste.CircleAction.Specs do
                 a.Timed = false
             end
-            notificar('MACRO X'.. '\nE (SEM DELAY) Ativado!', 1, 4)
+            notificar(''.. 'E (SEM DELAY) Ativado!', 1, 4)
         end
     )
 
@@ -4476,7 +4588,7 @@ end)
     Outros:CriarBotao(
         'FLY(X)',
         function()
-            notificar('MACRO X'.. '\nFLY Ativado!', 1, 4)
+            notificar(''.. 'FLY Ativado!', 1, 4)
             pcall(function()
                 FLYSPEED = 20
                 game:GetService('UserInputService').InputBegan:Connect(function(a,b)
@@ -4561,7 +4673,7 @@ end)
         'Anti Dano De Queda',
         function(value)
             loadstring(game:HttpGet('https://pastebin.com/raw/nzbus1JP'))()
-            notificar('MACRO X'.. '\nAnti dano de queda ativado!', 1, 4)
+            notificar(''.. 'Anti dano de queda ativado!', 1, 4)
         end
     )
 
@@ -4586,7 +4698,7 @@ end)
             clone:FindFirstChild('RampWood').CFrame = root.CFrame * CFrame.new(0, 0, -5)
             clone:FindFirstChild('RampLegs').CanCollide = true
             clone:FindFirstChild('RampBase').CanCollide = true
-            notificar('MACRO X'.. '\nRampa Criada!', 1, 4)
+            notificar(''.. 'Rampa Criada!', 1, 4)
         end
     )
 
@@ -4634,9 +4746,10 @@ end)
                 setclipboard('https://pastebin.com/raw/XgD1sv52')
                 notificar("Sucesso", 1, 4)
             else
-                notificar("Exploit incompativel", 3, 4)
+                notificar("Exploit incompativel", 2, 4)
             end
         end
     )
-   notificar("Att (16/04/23)", 2, 5)
+    wait(1)
+    notificar(''.. 'MACRO X UPDATE (16/04/2023)', 2, 7)
 end
