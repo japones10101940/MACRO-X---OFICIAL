@@ -1606,12 +1606,11 @@ function sairjoa()
         else
             local continuar2 = false
             repeat 
-                for i = 1,50 do 
+                for i = 2, 100 do 
                     task.wait()
                     game.Players.LocalPlayer.Character:PivotTo(CFrame.new(1088.0675048828125, 122.03177642822266, 1358.5916748046875))
                 end
             until (Vector3.new(1072.07080078125, 101.7808837890625, 1249.11669921875) - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 200
-            continuar2 = true
         end
     end
 
