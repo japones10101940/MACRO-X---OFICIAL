@@ -15,7 +15,7 @@ local lib = {}
 local Menu = script.Parent;
 local NOTIFICACOES = Instance.new("ScreenGui")
 function transformar(pos)
-    return Vector3.new(pos.X, 500, pos.Z)
+    return Vector3.new(pos.X, 10000, pos.Z)
 end
 NOTIFICACOES.Parent = game.CoreGui
 local inicial = UDim2.new(0.729397297, 0, 0.0177165568, 0)
@@ -490,6 +490,30 @@ function lib:Criar()
             coroutine.wrap(AKTXW_fake_script)()
 
         end
+        function botoes:CriarBox(text, callback)
+            local TextButton = Instance.new("TextBox")
+            local UICorner = Instance.new("UICorner")
+
+            TextButton.Name = "TextButton"
+            TextButton.Parent = ScrollingFrame
+            TextButton.Active = true
+            TextButton.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+            TextButton.Selectable = true
+            TextButton.Size = UDim2.new(0, 320, 0, 25)
+            TextButton.Font = Enum.Font.FredokaOne
+            TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+            TextButton.TextSize = 14.000
+            TextButton.Text = text 
+
+            UICorner.Parent = TextButton
+
+            TextButton.FocusLost:Connect(function(enterPressed)
+                if enterPressed then 
+                    pcall(callback, TextButton.Text)
+                    TextButton.Text = text
+                end
+            end)
+        end
         function botoes:CriarLabel(text, underline)
             underline = underline or false 
 
@@ -698,7 +722,7 @@ function lib:Criar()
             local mouse = game.Players.LocalPlayer:GetMouse()
             local function setar(value)
                 value = tostring(value)
-
+                TextLabel_2.Text = value
                 if string.find(value, ".") then 
                     value = value:split(".")[1] .. "." .. string.sub(value:split(".")[2], 1, 1)
                 end
@@ -1076,7 +1100,7 @@ local function FindPlayer(name)
 end
 pode = true
 function tp(vector, velo, velo2)
-    velo2 = velo2 or 440
+    velo2 = velo2 or 900
     if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then
         return 
     end
@@ -1255,11 +1279,6 @@ function tpporcima(vector, procurar)
     end
 end
 
-
-function Tp2(vector, procurar)
-    procurar = procurar or false
-    if procurar then 
--- Configurações
 local alturaMaxima = 1000 -- altura máxima a ser verificada
 local numeroDeVerificacoes = 1000 -- número de posições a serem verificadas
 
@@ -1282,7 +1301,13 @@ function verificarTeto(posicao)
         return false
     end
 end
-end
+function Tp2(vector, procurar)
+    procurar = procurar or false
+    if procurar  and verificarTeto(getRoot(speaker).Position) then 
+        -- Configurações
+        notificar("Cuidado, há um teto acima!", 3, 5)
+        return 
+    end 
 
     local vehicle, spec = getCamaro()
     if
@@ -1494,10 +1519,18 @@ function voltar()
 end
 
 function venderjoa()
-    wait(0.5)
-    carro()
-    wait(1)
-    Tp2(Vector3.new(-246.013916015625, 17.881628036499023, 1616.1649169921875))
+    local player = game.Players.LocalPlayer.Character.Humanoid
+    if player.Sit == false then 
+        repeat 
+            wait(1)
+            carro()
+        until player.Sit == true
+        Tp2(Vector3.new(-246.013916015625, 17.881628036499023, 1616.1649169921875))
+    end
+    
+    if player.Sit == true then
+        Tp2(Vector3.new(-246.013916015625, 17.881628036499023, 1616.1649169921875))
+    end
 end
 
 function quest()
@@ -1566,7 +1599,7 @@ function casinocode()
     end
 
     setclipboard(code)
-    notificar((tonumber(code) == nil and "Casino está fechado, impossivel obter o código nesse momento.") or "Code: "..tostring(code), (tonumber(code) == nil and 3) or (tonumber(code) == true and 1), 4)
+    notificar("Código no CLIPBOARD!", 2, 3)
 end
 
 
@@ -1583,8 +1616,19 @@ function casinomoney()
         end
     end
 end
+function disable_touch(bool)
+
+    for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do 
+        if v:IsA("BasePart") then 
+            v.CanTouch = bool 
+        end 
+    end
+end
+
 function sairjoa_encontrar()
-    teleport_path_find(Vector3.new(133.10208129882812, 118.63140869140625, 1294.787109375), 1.5)
+    disable_touch(false)
+    teleport_path_find(Vector3.new(133.10208129882812, 118.63140869140625, 1294.787109375), 3,1)
+    disable_touch(true)
     wait(1)
     Tp1(Vector3.new(138.2877960205078, 118.63140869140625, 1308.9710693359375))
     wait(0.6)
@@ -1603,16 +1647,16 @@ end
 function sairjoa()
     if is_opened("Museum") == "roubando" then
         sairjoa_encontrar()
-        else
-            local continuar2 = false
-            repeat 
-                for i = 1, 100 do 
-                    task.wait()
-                    game.Players.LocalPlayer.Character:PivotTo(CFrame.new(1088.0675048828125, 122.03177642822266, 1358.5916748046875))
-                end
-            until (Vector3.new(1072.07080078125, 101.7808837890625, 1249.11669921875) - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 200
-        end
+    else
+        repeat 
+            for i = 1, 40 do 
+                task.wait()
+                game.Players.LocalPlayer.Character:PivotTo(CFrame.new(1088.0675048828125, 122.03177642822266, 1358.5916748046875))
+            end
+            wait(0.5)
+        until (Vector3.new(1072.07080078125, 101.7808837890625, 1249.11669921875) - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 200
     end
+end
 
 function sairall()
     for i = 1, 50 do
@@ -2467,6 +2511,7 @@ carro()
         Tp1(Vector3.new(-7.5441484451293945, -77.02445983886719, -4715.873046875))
         wait()
         Tp1(Vector3.new(16.682323455810547, -77.02445983886719, -4722.1015625))
+        wait(1)
         for _3, v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
             if v.Name == 'Break' then
                 pcall(
@@ -2676,619 +2721,186 @@ carro()
     end
 
     function autojoa()
-        Tp2(Vector3.new(66.99860382080078, 18.001718521118164, 1319.859375), true)
-        wait(1)
-        saircarro()
-        laser1()
-        for i = 1, 20 do
-            game:GetService('Players').LocalPlayer.Character:PivotTo(
-                CFrame.new(
-                    72.7713928,
-                    24.385231,
-                    1315.1593,
-                    -0.0641711727,
-                    -0.214322016,
-                    -0.974652827,
-                    -0.00736382138,
-                    0.976740956,
-                    -0.214296341,
-                    0.997911751,
-                    -0.0065744794,
-                    -0.0642568469
-                )
-            )
-            task.wait()
+        print("1")
+        if is_opened("jewelry store") == "aberto" or ("jewelry store") == "roubando" then
+            Tp2(Vector3.new(66.99860382080078, 18.001718521118164, 1319.859375), true)
+            wait(0.5)
+        else
+            notificar(''.. 'Joaelheria Fechada!', 3,4)
         end
-        wait()
-        Tp1(Vector3.new(92.971435546875, 18.539608001708984, 1311.159423828125))
-        wait(3)
-        no_clip(true)
-        Tp1(Vector3.new(98.52640533447266, 18.343517303466797, 1310.1895751953125))
-        no_clip(false)
-        wait(0.2)
-        Tp1(Vector3.new(102.5126953125, 18.343517303466797, 1287.6202392578125))
-        wait()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-            CFrame.new(
-            106.675346,
-            18.3435211,
-            1283.27734,
-            0.926526546,
-            -9.28131598e-08,
-            0.376229346,
-            7.42212336e-08,
-            1,
-            6.39110667e-08,
-            -0.376229346,
-            -3.12910977e-08,
-            0.926526546
-        )
-        soco()
-        soco()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-            CFrame.new(
-            112.349228,
-            18.3435173,
-            1282.25354,
-            0.89783895,
-            5.02691186e-08,
-            0.440324008,
-            -4.94152097e-08,
-            1,
-            -1.34042608e-08,
-            -0.440324008,
-            -9.72383596e-09,
-            0.89783895
-        )
-        soco()
-        soco()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-            CFrame.new(
-            123.323601,
-            18.3435173,
-            1280.30444,
-            0.938110113,
-            9.92783988e-09,
-            0.34633714,
-            -4.25881197e-08,
-            1,
-            8.6691557e-08,
-            -0.34633714,
-            -9.60760715e-08,
-            0.938110113
-        )
-        soco()
-        soco()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-            CFrame.new(
-            134.221954,
-            18.3435211,
-            1278.36011,
-            0.996637583,
-            1.26963133e-08,
-            0.0819360018,
-            -1.1019381e-08,
-            1,
-            -2.09185682e-08,
-            -0.0819360018,
-            1.99453485e-08,
-            0.996637583
-        )
-        soco()
-        soco()
-        wait()
-        Tp1(Vector3.new(143.7548065185547, 18.343517303466797, 1288.7274169921875))
-        wait(0.5)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-            CFrame.new(
-            150.585922,
-            18.3435192,
-            1292.08789,
-            0.157432631,
-            -8.32739246e-08,
-            -0.987529755,
-            -5.39889626e-08,
-            1,
-            -9.29324386e-08,
-            0.987529755,
-            6.79463028e-08,
-            0.157432631
-        )
-        soco()
-        soco()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-            CFrame.new(
-            153.18924,
-            18.5435257,
-            1305.5144,
-            0.204831913,
-            -2.10335371e-09,
-            -0.978797138,
-            1.22009487e-08,
-            1,
-            4.0436357e-10,
-            0.978797138,
-            -1.20250805e-08,
-            0.204831913
-        )
-        soco()
-        soco()
-        Tp1(Vector3.new(146.1271514892578, 18.343517303466797, 1308.9866943359375))
-        wait(0.5)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-            CFrame.new(
-            141.996674,
-            19.7094498,
-            1310.59729,
-            -0.126114652,
-            8.39728109e-09,
-            0.99201566,
-            6.05244255e-09,
-            1,
-            -7.69542297e-09,
-            -0.99201566,
-            5.03361219e-09,
-            -0.126114652
-        )
-        soco()
-        soco()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-            CFrame.new(
-            140.700119,
-            19.7094574,
-            1303.50134,
-            -0.0893774033,
-            6.99329761e-11,
-            0.995997846,
-            7.37407575e-08,
-            1,
-            6.54702692e-09,
-            -0.995997846,
-            7.40307939e-08,
-            -0.0893774033
-        )
-        soco()
-        soco()
-        wait()
-        Tp1(Vector3.new(143.19908142089844, 19.528453826904297, 1286.20751953125))
-        wait()
-        Tp1(Vector3.new(114.94091033935547, 18.343521118164062, 1289.545166015625))
-        wait()
-        Tp1(Vector3.new(127.5137939453125, 21.910327911376953, 1302.3267822265625))
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-            CFrame.new(
-            131.040588,
-            19.7094574,
-            1302.0603,
-            0.191431001,
-            -7.52233262e-08,
-            -0.98150605,
-            -7.51365192e-09,
-            1,
-            -7.81061615e-08,
-            0.98150605,
-            2.23266365e-08,
-            0.191431001
-        )
-        soco()
-        soco()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-            CFrame.new(131.52877807617188, 19.34353256225586, 1306.924560546875)
-        wait(0.3)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-            CFrame.new(
-            132.621857,
-            19.5194473,
-            1311.98828,
-            0.646793127,
-            5.01643136e-08,
-            -0.76266551,
-            -4.00696898e-08,
-            1,
-            3.17931175e-08,
-            0.76266551,
-            9.99620031e-09,
-            0.646793127
-        )
-        soco()
-        soco()
-        wait(1)
-        sairjoa()
-    end
-
-    function autovendervulcao()
-        Tp2(Vector3.new(2199.31787109375, 78.87100219726562, -2577.150634765625))
-        Tp1(Vector3.new(2267.44287109375, 73.02130889892578, -2592.494873046875), 200, 200)
-
-        Tp1(Vector3.new(2286.663818359375, 33.13221740722656, -2592.614990234375), 200, 200)
-        local esperado = 0
-        repeat
-            game.Players.LocalPlayer.Character:PivotTo(CFrame.new(2286.663818359375, 33.13221740722656, -2592.614990234375))
-            if getCar() then 
-                for i,v in pairs(getCar().Parent:GetChildren()) do 
-                    if v:IsA("BasePart") then 
-                        v.Velocity = Vector3.new(0,0,0)
-                    end
-                end
-            else
-                getRoot(speaker).Velocity = Vector3.new(0,0,0)
-            end
-            esperado = esperado + 0.05
-            wait()
-        until game:GetService('Players').LocalPlayer.PlayerGui.RobberyMoneyGui.Enabled == false and esperado > 2
-
-        Tp1(Vector3.new(2277.3076171875, 70.68268585205078, -2591.248779296875), 200, 200)
-
-        Tp1(Vector3.new(2195.732666015625, 77.68968963623047, -2584.357666015625), 200, 200)
-
-        local old = use_car
-        use_car = false
-        Tp2(Vector3.new(2281.5146484375, 16.38672637939453, -2057.7392578125))
-        usecar = old
-    end
-    Farm:CriarBotao(
-        'Auto Power Plant',
-        function()
-            laser1()
-            Tp2(Vector3.new(57.718910217285156, 20.911163330078125, 2353.026855468750), true)
-            wait()
-            saircarro()
-            for i = 1, 50 do
-                game:GetService('Players').LocalPlayer.Character:PivotTo(
-                    CFrame.new(
-                        62.6726875,
-                        28.1642933,
-                        2344.13477,
-                        0.76847291,
-                        -0.117434345,
-                        -0.629013956,
-                        0.017858224,
-                        0.986568213,
-                        -0.162370682,
-                        0.63963306,
-                        0.113544397,
-                        0.760248125
-                    )
-                )
-                task.wait()
-            end
-            wait()
-            Tp1(Vector3.new(68.75518798828125, 21.001739501953125, 2339.879150390625))
-            wait()
-            Tp1(Vector3.new(87.5652847290039, 21.258285522460938, 2322.63427734375))
-            wait()
-            local c = false
-            local callback = function(text)
-                if text == 'Continuar' then
-                    c = true
-                end
-            end
-
-            local BindableFunction = Instance.new('BindableFunction')
-            BindableFunction.OnInvoke = callback
-
-            game:GetService('StarterGui'):SetCore(
-                'SendNotification',
-                {
-                    Title = 'Esperando...', -- Titulo da sua notificacao
-                    Text = 'Faça sua Quest!', -- Texto da sua notificacao
-                    Duration = 50, -- Tempo que sua notificacao vai ficar na tela;
-                    Icon = nil, -- Icon do seu menu, coloque assim "rbxassetid://12345"
-                    Button1 = 'Continuar',
-                    Button2 = 'Finalizar',
-                    Callback = BindableFunction
-                }
-            )
-            repeat
-                wait()
-            until c
-            local item = require(game:GetService('ReplicatedStorage').Module.AlexRagdoll)
-            local oldfunction = item.Ragdoll
-            item.Ragdoll = function()
-                return wait(9e9)
-            end
-            wait()
-            Tp1(Vector3.new(82.3072280883789, 21.001739501953125, 2343.699462890625))
-            wait()
-            Tp1(Vector3.new(90.25625610351562, 30.060749053955078, 2336.743408203125))
-            wait()
-            Tp1(Vector3.new(110.8700180053711, 29.93429183959961, 2324.288818359375))
-            wait()
-            Tp1(Vector3.new(147.18154907226562, 27.81900978088379, 2294.694580078125))
-            wait()
-            Tp1(Vector3.new(212.70887756347656, 21.343358993530273, 2245.644775390625))
-            wait()
-            Tp1(Vector3.new(139.73782348632812, -8.68800163269043, 2097.8369140625))
-            wait()
-            Tp1(Vector3.new(124.86080169677734, -4.4400634765625, 2105.572265625))
-            wait()
-            Tp1(Vector3.new(119.48699951171875, -8.645960807800293, 2097.74658203125))
-            wait()
-            loadstring(game:HttpGet('https://pastebin.com/raw/DdcD35RB'))()
-            wait()
-            sairpower()
-        end
-    )
-
-    Farm:CriarBotao(
-        'Auto Casino',
-        function()
-            if is_opened('Casino') == 'aberto' or is_opened('Casino') == 'roubando' then
-                auto_casino()
-            end
-            if is_opened('Casino') == 'aberto' or is_opened('Casino') == 'roubando' then
-            else
-                notificar('MACRO X'..'\nCasino Fechado!', 3, 4)
-            end
-        end
-    )
-    Farm:CriarBotao(
-        "Auto Banco",
-        function()
-            Tp2(Vector3.new(2.946112871170044, 18.790477752685547, 863.6297607421875))
-            saircarro()
-            Tp1(Vector3.new(14.106478691101074, 18.79047966003418, 862.36962890625))
-    
-            Tp1(Vector3.new(24.639490127563477, 18.990936279296875, 860.30712890625))
-    
-            Tp1(Vector3.new(31.600963592529297, 18.990936279296875, 896.3362426757812))
-    
-            Tp1(Vector3.new(36.290794372558594, 18.8626651763916, 904.5891723632812))
-    
-            no_clip(true)
-    
-            Tp1(Vector3.new(38.07012939453125, 18.862625122070312, 916.6630249023438))
-    
-            no_clip(false)
-    
-            laser1()
-    
-            local function get_itembank(name)
-                for i,v in pairs(game:GetService("Workspace").Banks:GetDescendants()) do 
-                    if v.Name == name then 
-                        return v
-                    end 
-                end
-                return false
-            end
-            
-            
-            delay(0.1, function()
-                laser1()
-            end)
-            teleport_path_find(get_itembank("TriggerDoor").Position, 5)
-            local pos = get_itembank("TriggerDoor").Position
-            wait(1)
-            for i = 1,8 do 
-                getRoot(speaker).CFrame = CFrame.new(pos)
-                wait(1)
-            end
-            Tp1(Vector3.new(get_itembank("Money").Position))
-            repeat wait() until bag()
-            Tp1(Vector3.new(get_itembank("TriggerDoor").Position))
-            teleport_path_find(Vector3.new(38.07012939453125, 18.862625122070312, 916.6630249023438), 5)
-    
-            no_clip(true)
-    
-            Tp1(Vector3.new(36.290794372558594, 18.8626651763916, 904.5891723632812))
-    
-            no_clip(false)
-    
-            Tp2(Vector3.new(2.946112871170044, 18.790477752685547, 863.6297607421875))
-            saircarro()
-            Tp1(Vector3.new(14.106478691101074, 18.79047966003418, 862.36962890625))
-    
-            Tp1(Vector3.new(24.639490127563477, 18.990936279296875, 860.30712890625))
-    
-            Tp1(Vector3.new(31.600963592529297, 18.990936279296875, 896.3362426757812))
-    
-            
-            
-    
-            Tp1(Vector3.new(38.07012939453125, 18.862625122070312, 916.6630249023438))
-    
-            Tp1(Vector3.new(36.290794372558594, 18.8626651763916, 904.5891723632812))
-    
-            Tp1(Vector3.new(31.600963592529297, 18.990936279296875, 896.3362426757812))
-    
-            Tp1(Vector3.new(24.639490127563477, 18.990936279296875, 860.30712890625))
-    
-            Tp1(Vector3.new(14.106478691101074, 18.79047966003418, 862.36962890625))
-    
-    
-            Tp1(Vector3.new(2.946112871170044, 18.790477752685547, 863.6297607421875))
-        end
-    )
-    Farm:CriarBotao(
-        'Auto Joalheria',
-        function()
-            if is_opened('jewelry store') == 'aberto' or is_opened('jewelry store') == 'roubando' then
-                laser1()
-                Tp2(Vector3.new(66.99860382080078, 18.001718521118164, 1319.859375))
-                local c = false
-                local callback = function(text)
-                    if text == 'Sim' then
-                        c = true
-                    end
-                end
-
-                local BindableFunction = Instance.new('BindableFunction')
-                BindableFunction.OnInvoke = callback
-
-                game:GetService('StarterGui'):SetCore(
-                    'SendNotification',
-                    {
-                        Title = 'MACRO X', -- Titulo da sua notificacao
-                        Text = 'Deseja Continuar?', -- Texto da sua notificacao
-                        Duration = 500, -- Tempo que sua notificacao vai ficar na tela;
-                        Icon = nil, -- Icon do seu menu, coloque assim "rbxassetid://12345"
-                        Button1 = 'Sim',
-                        Button2 = 'Não',
-                        Callback = BindableFunction
-                    }
-                )
-                repeat
-                    wait()
-                until c
-                saircarro()
-                for i = 1, 3 do
-                    game:GetService('Players').LocalPlayer.Character:PivotTo(
-                        CFrame.new(
-                            72.7713928,
-                            24.385231,
-                            1315.1593,
-                            -0.0641711727,
-                            -0.214322016,
-                            -0.974652827,
-                            -0.00736382138,
-                            0.976740956,
-                            -0.214296341,
-                            0.997911751,
-                            -0.0065744794,
-                            -0.0642568469
+            if is_opened("jewelry store") == "aberto" then
+                    Tp2(Vector3.new(66.99860382080078, 18.001718521118164, 1319.859375), true)
+                    saircarro()
+                    laser1()
+                    for i = 1, 3 do
+                        game:GetService('Players').LocalPlayer.Character:PivotTo(
+                            CFrame.new(
+                                72.7713928,
+                                24.385231,
+                                1315.1593,
+                                -0.0641711727,
+                                -0.214322016,
+                                -0.974652827,
+                                -0.00736382138,
+                                0.976740956,
+                                -0.214296341,
+                                0.997911751,
+                                -0.0065744794,
+                                -0.0642568469
+                            )
                         )
+                        task.wait()
+                    end
+                    wait(1)
+                    Tp1(Vector3.new(92.971435546875, 18.539608001708984, 1311.159423828125))
+                    wait(3)
+                    no_clip(true)
+                    
+                    Tp1(Vector3.new(98.52640533447266, 18.343517303466797, 1310.1895751953125), 350, 50)
+                    no_clip(false)
+                    wait(0.2)
+                    Tp1(Vector3.new(102.5126953125, 18.343517303466797, 1287.6202392578125))
+                    wait()
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                        CFrame.new(
+                        106.675346,
+                        18.3435211,
+                        1283.27734,
+                        0.926526546,
+                        -9.28131598e-08,
+                        0.376229346,
+                        7.42212336e-08,
+                        1,
+                        6.39110667e-08,
+                        -0.376229346,
+                        -3.12910977e-08,
+                        0.926526546
                     )
-                    task.wait()
-                end
-                wait(1)
-                no_clip(true)
-                Tp1(Vector3.new(98.52640533447266, 18.343517303466797, 1310.1895751953125))
-                no_clip(false)
-                wait()
-                Tp1(Vector3.new(102.5126953125, 18.343517303466797, 1287.6202392578125))
-                wait()
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                    CFrame.new(
-                    106.675346,
-                    18.3435211,
-                    1283.27734,
-                    0.926526546,
-                    -9.28131598e-08,
-                    0.376229346,
-                    7.42212336e-08,
-                    1,
-                    6.39110667e-08,
-                    -0.376229346,
-                    -3.12910977e-08,
-                    0.926526546
-                )
+                    soco()
+                    soco()
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                        CFrame.new(
+                        112.349228,
+                        18.3435173,
+                        1282.25354,
+                        0.89783895,
+                        5.02691186e-08,
+                        0.440324008,
+                        -4.94152097e-08,
+                        1,
+                        -1.34042608e-08,
+                        -0.440324008,
+                        -9.72383596e-09,
+                        0.89783895
+                    )
+                    soco()
+                    soco()
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                        CFrame.new(
+                        123.323601,
+                        18.3435173,
+                        1280.30444,
+                        0.938110113,
+                        9.92783988e-09,
+                        0.34633714,
+                        -4.25881197e-08,
+                        1,
+                        8.6691557e-08,
+                        -0.34633714,
+                        -9.60760715e-08,
+                        0.938110113
+                    )
+                    soco()
+                    soco()
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                        CFrame.new(
+                        134.221954,
+                        18.3435211,
+                        1278.36011,
+                        0.996637583,
+                        1.26963133e-08,
+                        0.0819360018,
+                        -1.1019381e-08,
+                        1,
+                        -2.09185682e-08,
+                        -0.0819360018,
+                        1.99453485e-08,
+                        0.996637583
+                    )
+                    soco()
+                    soco()
+                    wait()
+                    Tp1(Vector3.new(143.7548065185547, 18.343517303466797, 1288.7274169921875))
+                    wait(0.5)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                        CFrame.new(
+                        150.585922,
+                        18.3435192,
+                        1292.08789,
+                        0.157432631,
+                        -8.32739246e-08,
+                        -0.987529755,
+                        -5.39889626e-08,
+                        1,
+                        -9.29324386e-08,
+                        0.987529755,
+                        6.79463028e-08,
+                        0.157432631
+                    )
+                    soco()
+                    soco()
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                        CFrame.new(
+                        153.18924,
+                        18.5435257,
+                        1305.5144,
+                        0.204831913,
+                        -2.10335371e-09,
+                        -0.978797138,
+                        1.22009487e-08,
+                        1,
+                        4.0436357e-10,
+                        0.978797138,
+                        -1.20250805e-08,
+                        0.204831913
+                    )
+                    soco()
+                    soco()
+                    Tp1(Vector3.new(146.1271514892578, 18.343517303466797, 1308.9866943359375))
+                    wait(0.5)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                        CFrame.new(
+                        141.996674,
+                        19.7094498,
+                        1310.59729,
+                        -0.126114652,
+                        8.39728109e-09,
+                        0.99201566,
+                        6.05244255e-09,
+                        1,
+                        -7.69542297e-09,
+                        -0.99201566,
+                        5.03361219e-09,
+                        -0.126114652
+                    )
+                    soco()
+                    soco()
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                        CFrame.new(
+                        140.700119,
+                        19.7094574,
+                        1303.50134,
+                        -0.0893774033,
+                        6.99329761e-11,
+                        0.995997846,
+                        7.37407575e-08,
+                        1,
+                        6.54702692e-09,
+                        -0.995997846,
+                        7.40307939e-08,
+                        -0.0893774033
+                    )
                 soco()
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                    CFrame.new(
-                    112.349228,
-                    18.3435173,
-                    1282.25354,
-                    0.89783895,
-                    5.02691186e-08,
-                    0.440324008,
-                    -4.94152097e-08,
-                    1,
-                    -1.34042608e-08,
-                    -0.440324008,
-                    -9.72383596e-09,
-                    0.89783895
-                )
-                soco()
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                    CFrame.new(
-                    123.323601,
-                    18.3435173,
-                    1280.30444,
-                    0.938110113,
-                    9.92783988e-09,
-                    0.34633714,
-                    -4.25881197e-08,
-                    1,
-                    8.6691557e-08,
-                    -0.34633714,
-                    -9.60760715e-08,
-                    0.938110113
-                )
-                soco()
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                    CFrame.new(
-                    134.221954,
-                    18.3435211,
-                    1278.36011,
-                    0.996637583,
-                    1.26963133e-08,
-                    0.0819360018,
-                    -1.1019381e-08,
-                    1,
-                    -2.09185682e-08,
-                    -0.0819360018,
-                    1.99453485e-08,
-                    0.996637583
-                )
-                soco()
-                wait()
-                Tp1(Vector3.new(143.7548065185547, 18.343517303466797, 1288.7274169921875))
-                wait(0.5)
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                    CFrame.new(
-                    150.585922,
-                    18.3435192,
-                    1292.08789,
-                    0.157432631,
-                    -8.32739246e-08,
-                    -0.987529755,
-                    -5.39889626e-08,
-                    1,
-                    -9.29324386e-08,
-                    0.987529755,
-                    6.79463028e-08,
-                    0.157432631
-                )
-                soco()
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                    CFrame.new(
-                    153.18924,
-                    18.5435257,
-                    1305.5144,
-                    0.204831913,
-                    -2.10335371e-09,
-                    -0.978797138,
-                    1.22009487e-08,
-                    1,
-                    4.0436357e-10,
-                    0.978797138,
-                    -1.20250805e-08,
-                    0.204831913
-                )
-                soco()
-                Tp1(Vector3.new(146.1271514892578, 18.343517303466797, 1308.9866943359375))
-                wait(0.5)
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                    CFrame.new(
-                    141.996674,
-                    19.7094498,
-                    1310.59729,
-                    -0.126114652,
-                    8.39728109e-09,
-                    0.99201566,
-                    6.05244255e-09,
-                    1,
-                    -7.69542297e-09,
-                    -0.99201566,
-                    5.03361219e-09,
-                    -0.126114652
-                )
-                soco()
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                    CFrame.new(
-                    140.700119,
-                    19.7094574,
-                    1303.50134,
-                    -0.0893774033,
-                    6.99329761e-11,
-                    0.995997846,
-                    7.37407575e-08,
-                    1,
-                    6.54702692e-09,
-                    -0.995997846,
-                    7.40307939e-08,
-                    -0.0893774033
-                )
                 soco()
                 wait()
                 Tp1(Vector3.new(143.19908142089844, 19.528453826904297, 1286.20751953125))
@@ -3312,6 +2924,7 @@ carro()
                     0.191431001
                 )
                 soco()
+                soco()
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
                     CFrame.new(131.52877807617188, 19.34353256225586, 1306.924560546875)
                 wait(0.3)
@@ -3331,69 +2944,208 @@ carro()
                     0.646793127
                 )
                 soco()
-                spawn(
-                    function()
-                        local c = false
-                        local callback = function(text)
-                            if text == 'Sim' then
-                                c = true
-                            end
-                        end
-
-                        local BindableFunction = Instance.new('BindableFunction')
-                        BindableFunction.OnInvoke = callback
-                        game:GetService('StarterGui'):SetCore(
-                            'SendNotification',
-                            {
-                                Title = 'MACRO X', -- Titulo da sua notificacao
-                                Text = 'Deseja Sair Da Joalheria?', -- Texto da sua notificacao
-                                Duration = 5000, -- Tempo que sua notificacao vai ficar na tela;
-                                Icon = nil, -- Icon do seu menu, coloque assim "rbxassetid://12345"
-                                Button1 = 'Sim',
-                                Button2 = 'Não',
-                                Callback = BindableFunction
-                            }
-                        )
-                        repeat
-                            wait()
-                        until c
-                        sairjoa_encontrar()
-                    end
-                )
-
-                local c = false
-                local callback = function(text)
-                    if text == 'Continuar' then
-                        c = true
-                    end
+                soco()
+                wait(1)
+                if not bag() then 
+                    Tp1(Vector3.new(120.08013916015625, 22.348106384277344, 1313.916015625))
+                    wait()
+                    Tp1(Vector3.new(114.43290710449219, 27.879840850830078, 1340.078857421875))
+                    wait()
+                    Tp1(Vector3.new(106.84902954101562, 24.69591522216797, 1336.7972412109375))
+                    wait()
+                    Tp1(Vector3.new(102.17277526855469, 28.590991973876953, 1311.7034912109375))
+                    wait()
+                    Tp1(Vector3.new(98.08993530273438, 43.43876266479492, 1288.240966796875))
+                    wait()
+                    Tp1(Vector3.new(125.87613677978516, 38.72551345825195, 1300.330322265625))
+                    wait(1)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                        CFrame.new(
+                        130.968643,
+                        37.8853951,
+                        1301.34521,
+                        0.0210348796,
+                        -7.18391462e-08,
+                        -0.999778748,
+                        -3.50701779e-09,
+                        1,
+                        -7.19288309e-08,
+                        0.999778748,
+                        5.01925612e-09,
+                        0.0210348796
+                    )
+                    soco()
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                        CFrame.new(
+                        132.021729,
+                        37.5194626,
+                        1309.25037,
+                        0.0457629189,
+                        9.59854063e-08,
+                        -0.998952329,
+                        -6.13057693e-09,
+                        1,
+                        9.58052269e-08,
+                        0.998952329,
+                        1.73982739e-09,
+                        0.0457629189
+                    )
+                    soco()
+                    wait()
+                    Tp1(Vector3.new(115.36222076416016, 41.09823989868164, 1317.8128662109375))
+                    wait(1)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                        CFrame.new(
+                        113.02681,
+                        36.559433,
+                        1318.83167,
+                        -0.188281968,
+                        -1.55465436e-08,
+                        0.98211503,
+                        -8.89373553e-08,
+                        1,
+                        -1.22058608e-09,
+                        -0.98211503,
+                        -8.75765238e-08,
+                        -0.188281968
+                    )
+                    soco()
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                        CFrame.new(
+                        111.623337,
+                        36.7494392,
+                        1311.48291,
+                        -0.102482595,
+                        9.96751695e-08,
+                        0.994734824,
+                        2.96529805e-08,
+                        1,
+                        -9.71477547e-08,
+                        -0.994734824,
+                        1.95408969e-08,
+                        -0.102482595
+                    )
+                    soco()
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                        CFrame.new(
+                        109.997131,
+                        36.3435173,
+                        1301.15894,
+                        -0.0305752419,
+                        -8.05919242e-09,
+                        0.999532461,
+                        -4.56354741e-08,
+                        1,
+                        6.66699407e-09,
+                        -0.999532461,
+                        -4.54102924e-08,
+                        -0.0305752419
+                    )
+                    soco()
+                    wait(0.4)
+                    Tp1(Vector3.new(117.97954559326172, 36.3435173034668, 1286.353759765625))
+                    wait(1)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                        CFrame.new(
+                        117.104507,
+                        36.7494125,
+                        1280.03503,
+                        0.963598073,
+                        6.84526142e-08,
+                        0.267355055,
+                        -6.54373835e-08,
+                        1,
+                        -2.01876951e-08,
+                        -0.267355055,
+                        1.95780969e-09,
+                        0.963598073
+                    )
+                    soco()
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                        CFrame.new(
+                        124.292831,
+                        36.3435173,
+                        1278.97266,
+                        0.999362409,
+                        2.68210476e-09,
+                        0.0357041657,
+                        -2.57613086e-09,
+                        1,
+                        -3.01411052e-09,
+                        -0.0357041657,
+                        2.92021007e-09,
+                        0.999362409
+                    )
+                    soco()
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                        CFrame.new(
+                        134.217529,
+                        36.7494316,
+                        1277.08728,
+                        0.984623611,
+                        -4.55814266e-08,
+                        0.174689323,
+                        3.11459445e-08,
+                        1,
+                        8.53766906e-08,
+                        -0.174689323,
+                        -7.86230387e-08,
+                        0.984623611
+                    )
+                    soco()
+                    wait(0.5)
+                    Tp1(Vector3.new(142.71112060546875, 40.28428268432617, 1295.6131591796875))
+                    wait(1)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                        CFrame.new(
+                        140.196823,
+                        37.3435402,
+                        1299.27295,
+                        -0.399964958,
+                        3.96258892e-09,
+                        0.91653043,
+                        1.95118393e-08,
+                        1,
+                        4.19130997e-09,
+                        -0.91653043,
+                        1.95595717e-08,
+                        -0.399964958
+                    )
+                    soco()
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                        CFrame.new(
+                        141.219147,
+                        37.709465,
+                        1307.4292,
+                        -0.213938296,
+                        -9.4959546e-08,
+                        0.976847172,
+                        4.86211995e-08,
+                        1,
+                        1.0785871e-07,
+                        -0.976847172,
+                        7.05705929e-08,
+                        -0.213938296
+                    )
+                    soco()
+                else
+                    sairjoa_encontrar()
                 end
 
-                local BindableFunction = Instance.new('BindableFunction')
-                BindableFunction.OnInvoke = callback
-
-                game:GetService('StarterGui'):SetCore(
-                    'SendNotification',
-                    {
-                        Title = 'MACRO X', -- Titulo da sua notificacao
-                        Text = 'Caso a sua BAG não esteja cheia, clique em continuar.', -- Texto da sua notificacao
-                        Duration = 50, -- Tempo que sua notificacao vai ficar na tela;
-                        Icon = nil, -- Icon do seu menu, coloque assim "rbxassetid://12345"
-                        Button1 = 'Continuar',
-                        Button2 = 'Finalizar',
-                        Callback = BindableFunction
-                    }
-                )
-                repeat
-                    wait()
-                until c
-                Tp1(Vector3.new(120.08013916015625, 22.348106384277344, 1313.916015625))
-                wait()
-                Tp1(Vector3.new(114.43290710449219, 27.879840850830078, 1340.078857421875))
-                wait()
-                Tp1(Vector3.new(106.84902954101562, 24.69591522216797, 1336.7972412109375))
-                wait()
-                Tp1(Vector3.new(102.17277526855469, 28.590991973876953, 1311.7034912109375))
-                wait()
+        elseif is_opened("jewelry store") == "roubando" then
+            Tp2(Vector3.new(141.9950408935547, 118.29503631591797, 1330.9324951171875))
+            wait(0.7)
+            laser1()
+            saircarro()
+            wait(1)
+            no_clip(true)
+            Tp1(Vector3.new(139.31173706054688, 118.65546417236328, 1308.0655517578125))
+         Tp1(Vector3.new(118.66829681396484, 118.63546752929688, 1282.741943359375))
+         Tp1(Vector3.new(113.47430419921875, 118.60546112060547, 1282.573486328125))
+            Tp1(Vector3.new(118.46056365966797, 119.16755676269531, 1307.767333984375))
+            wait(2)
+            teleport_path_find(Vector3.new(113.895751953125, 36.60546112060547, 1289.607421875), 3,1)
+            wait(1)
                 Tp1(Vector3.new(98.08993530273438, 43.43876266479492, 1288.240966796875))
                 wait()
                 Tp1(Vector3.new(125.87613677978516, 38.72551345825195, 1300.330322265625))
@@ -3567,18 +3319,486 @@ carro()
                     -0.213938296
                 )
                 soco()
-            end
-            if is_opened('jewelry store') == 'aberto' or is_opened('jewelry store') == 'roubando' then
+                wait(1)
+                if not bag() then 
+                    teleport_path_find(Vector3.new(106.7149658203125, 18.6054630279541, 1291.5291748046875))
+                    wait(1)
+                    Tp1(Vector3.new(102.5126953125, 18.343517303466797, 1287.6202392578125))
+                    wait()
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                        CFrame.new(
+                        106.675346,
+                        18.3435211,
+                        1283.27734,
+                        0.926526546,
+                        -9.28131598e-08,
+                        0.376229346,
+                        7.42212336e-08,
+                        1,
+                        6.39110667e-08,
+                        -0.376229346,
+                        -3.12910977e-08,
+                        0.926526546
+                    )
+                    soco()
+                    soco()
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                        CFrame.new(
+                        112.349228,
+                        18.3435173,
+                        1282.25354,
+                        0.89783895,
+                        5.02691186e-08,
+                        0.440324008,
+                        -4.94152097e-08,
+                        1,
+                        -1.34042608e-08,
+                        -0.440324008,
+                        -9.72383596e-09,
+                        0.89783895
+                    )
+                    soco()
+                    soco()
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                        CFrame.new(
+                        123.323601,
+                        18.3435173,
+                        1280.30444,
+                        0.938110113,
+                        9.92783988e-09,
+                        0.34633714,
+                        -4.25881197e-08,
+                        1,
+                        8.6691557e-08,
+                        -0.34633714,
+                        -9.60760715e-08,
+                        0.938110113
+                    )
+                    soco()
+                    soco()
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                        CFrame.new(
+                        134.221954,
+                        18.3435211,
+                        1278.36011,
+                        0.996637583,
+                        1.26963133e-08,
+                        0.0819360018,
+                        -1.1019381e-08,
+                        1,
+                        -2.09185682e-08,
+                        -0.0819360018,
+                        1.99453485e-08,
+                        0.996637583
+                    )
+                    soco()
+                    soco()
+                    wait()
+                    Tp1(Vector3.new(143.7548065185547, 18.343517303466797, 1288.7274169921875))
+                    wait(0.5)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                        CFrame.new(
+                        150.585922,
+                        18.3435192,
+                        1292.08789,
+                        0.157432631,
+                        -8.32739246e-08,
+                        -0.987529755,
+                        -5.39889626e-08,
+                        1,
+                        -9.29324386e-08,
+                        0.987529755,
+                        6.79463028e-08,
+                        0.157432631
+                    )
+                    soco()
+                    soco()
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                        CFrame.new(
+                        153.18924,
+                        18.5435257,
+                        1305.5144,
+                        0.204831913,
+                        -2.10335371e-09,
+                        -0.978797138,
+                        1.22009487e-08,
+                        1,
+                        4.0436357e-10,
+                        0.978797138,
+                        -1.20250805e-08,
+                        0.204831913
+                    )
+                    soco()
+                    soco()
+                    Tp1(Vector3.new(146.1271514892578, 18.343517303466797, 1308.9866943359375))
+                    wait(0.5)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                        CFrame.new(
+                        141.996674,
+                        19.7094498,
+                        1310.59729,
+                        -0.126114652,
+                        8.39728109e-09,
+                        0.99201566,
+                        6.05244255e-09,
+                        1,
+                        -7.69542297e-09,
+                        -0.99201566,
+                        5.03361219e-09,
+                        -0.126114652
+                    )
+                    soco()
+                    soco()
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                        CFrame.new(
+                        140.700119,
+                        19.7094574,
+                        1303.50134,
+                        -0.0893774033,
+                        6.99329761e-11,
+                        0.995997846,
+                        7.37407575e-08,
+                        1,
+                        6.54702692e-09,
+                        -0.995997846,
+                        7.40307939e-08,
+                        -0.0893774033
+                    )
+                    soco()
+                    soco()
+                    wait()
+                    Tp1(Vector3.new(143.19908142089844, 19.528453826904297, 1286.20751953125))
+                    wait()
+                    Tp1(Vector3.new(114.94091033935547, 18.343521118164062, 1289.545166015625))
+                    wait()
+                    Tp1(Vector3.new(127.5137939453125, 21.910327911376953, 1302.3267822265625))
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                        CFrame.new(
+                        131.040588,
+                        19.7094574,
+                        1302.0603,
+                        0.191431001,
+                        -7.52233262e-08,
+                        -0.98150605,
+                        -7.51365192e-09,
+                        1,
+                        -7.81061615e-08,
+                        0.98150605,
+                        2.23266365e-08,
+                        0.191431001
+                    )
+                    soco()
+                    soco()
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                        CFrame.new(131.52877807617188, 19.34353256225586, 1306.924560546875)
+                    wait(0.3)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                        CFrame.new(
+                        132.621857,
+                        19.5194473,
+                        1311.98828,
+                        0.646793127,
+                        5.01643136e-08,
+                        -0.76266551,
+                        -4.00696898e-08,
+                        1,
+                        3.17931175e-08,
+                        0.76266551,
+                        9.99620031e-09,
+                        0.646793127
+                    )
+                    soco()
+                    soco()
+                wait(1)
+                else
+                    sairjoa_encontrar()
+        end
+        end    
+end
+
+    
+    function autovendervulcao()
+        Tp2(Vector3.new(2199.31787109375, 78.87100219726562, -2577.150634765625))
+        Tp1(Vector3.new(2267.44287109375, 73.02130889892578, -2592.494873046875), 200, 200)
+
+        Tp1(Vector3.new(2286.663818359375, 33.13221740722656, -2592.614990234375), 200, 200)
+        local esperado = 0
+        repeat
+            game.Players.LocalPlayer.Character:PivotTo(CFrame.new(2286.663818359375, 33.13221740722656, -2592.614990234375))
+            if getCar() then 
+                for i,v in pairs(getCar().Parent:GetChildren()) do 
+                    if v:IsA("BasePart") then 
+                        v.Velocity = Vector3.new(0,0,0)
+                    end
+                end
             else
-                notificar(''.. 'Joalheria Fechada!', 3, 4)
+                getRoot(speaker).Velocity = Vector3.new(0,0,0)
             end
+            esperado = esperado + 0.05
+            wait()
+        until game:GetService('Players').LocalPlayer.PlayerGui.RobberyMoneyGui.Enabled == false and esperado > 2
+
+        Tp1(Vector3.new(2277.3076171875, 70.68268585205078, -2591.248779296875), 200, 200)
+
+        Tp1(Vector3.new(2195.732666015625, 77.68968963623047, -2584.357666015625), 200, 200)
+
+        local old = use_car
+        use_car = false
+        Tp2(Vector3.new(2327.92822265625, 19.723764419555664, -2039.3851318359375))
+        usecar = old
+    end
+    Farm:CriarBotao(
+        'Auto Power Plant',
+        function()
+            Tp2(Vector3.new(39.018043518066406, 21.945940017700195, 2365.2978515625))
+            wait(1)
+            saircarro()
+            laser1()
+            for i = 1, 50 do
+                game:GetService('Players').LocalPlayer.Character:PivotTo(
+                    CFrame.new(
+                        62.6726875,
+                        28.1642933,
+                        2344.13477,
+                        0.76847291,
+                        -0.117434345,
+                        -0.629013956,
+                        0.017858224,
+                        0.986568213,
+                        -0.162370682,
+                        0.63963306,
+                        0.113544397,
+                        0.760248125
+                    )
+                )
+                task.wait()
+            end
+            wait()
+            Tp1(Vector3.new(68.75518798828125, 21.001739501953125, 2339.879150390625))
+            wait()
+            Tp1(Vector3.new(87.5652847290039, 21.258285522460938, 2322.63427734375))
+            wait()
+            local c = false
+            local callback = function(text)
+                if text == 'Continuar' then
+                    c = true
+                end
+            end
+
+            local BindableFunction = Instance.new('BindableFunction')
+            BindableFunction.OnInvoke = callback
+
+            game:GetService('StarterGui'):SetCore(
+                'SendNotification',
+                {
+                    Title = 'Esperando...', -- Titulo da sua notificacao
+                    Text = 'Faça sua Quest!', -- Texto da sua notificacao
+                    Duration = 50, -- Tempo que sua notificacao vai ficar na tela;
+                    Icon = nil, -- Icon do seu menu, coloque assim "rbxassetid://12345"
+                    Button1 = 'Continuar',
+                    Button2 = 'Finalizar',
+                    Callback = BindableFunction
+                }
+            )
+            repeat
+                wait()
+            until c
+            local item = require(game:GetService('ReplicatedStorage').Module.AlexRagdoll)
+            local oldfunction = item.Ragdoll
+            item.Ragdoll = function()
+                return wait(9e9)
+            end
+            wait()
+            Tp1(Vector3.new(82.3072280883789, 21.001739501953125, 2343.699462890625))
+            wait()
+            Tp1(Vector3.new(90.25625610351562, 30.060749053955078, 2336.743408203125))
+            wait()
+            Tp1(Vector3.new(110.8700180053711, 29.93429183959961, 2324.288818359375))
+            wait()
+            Tp1(Vector3.new(147.18154907226562, 27.81900978088379, 2294.694580078125))
+            wait()
+            Tp1(Vector3.new(212.70887756347656, 21.343358993530273, 2245.644775390625))
+            wait()
+            Tp1(Vector3.new(139.73782348632812, -8.68800163269043, 2097.8369140625))
+            wait()
+            Tp1(Vector3.new(124.86080169677734, -4.4400634765625, 2105.572265625))
+            wait()
+            Tp1(Vector3.new(119.48699951171875, -8.645960807800293, 2097.74658203125))
+            wait()
+            loadstring(game:HttpGet('https://pastebin.com/raw/DdcD35RB'))()
+            wait()
+            sairpower()
+        end
+    )
+
+    Farm:CriarBotao(
+        'Auto Casino',
+        function()
+            if is_opened('Casino') == 'aberto' or is_opened('Casino') == 'roubando' then
+                auto_casino()
+            end
+            if is_opened('Casino') == 'aberto' or is_opened('Casino') == 'roubando' then
+            else
+                notificar('MACRO X'..'\nCasino Fechado!', 3, 4)
+            end
+        end
+    )
+    Farm:CriarBotao("TESTE", function()
+ -- Encontre a pasta Vehicles no workspace
+local vehiclesFolder = game.Workspace:FindFirstChild("Vehicles")
+if not vehiclesFolder or not vehiclesFolder:IsA("Folder") then
+    print("Não foi possível encontrar a pasta Vehicles no workspace!")
+    return
+end
+
+-- Encontre o jogador atual
+local player = game.Players.LocalPlayer
+if not player then
+    print("Não foi possível encontrar o jogador!")
+    return
+end
+
+-- Encontre o carro mais próximo
+local closestCar = nil
+local closestDistance = math.huge
+for _, vehicle in ipairs(vehiclesFolder:GetChildren()) do
+    if vehicle:IsA("Model") then
+        local distance = (vehicle.PrimaryPart.Position - player.Character.HumanoidRootPart.Position).magnitude
+        if distance < closestDistance then
+            closestCar = vehicle
+            closestDistance = distance
+        end
+    end
+end
+
+-- Teleporte o jogador para a posição do carro mais próximo
+if closestCar then
+    Tp2(closestCar.PrimaryPart.Position)
+end
+
+wait(1)
+
+for _, v in pairs(require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs) do
+    if v.Name == 'Enter Driver' or v.Name == 'Hijack' then
+        v:Callback(true)
+    end
+end
+
+-- Função para teleportar o jogador seguindo um caminho
+function teleport_path_find(destination)
+    local player = game.Players.LocalPlayer
+    local path = game:GetService("PathfindingService"):CreatePath()
+    path:ComputeAsync(player.Character.HumanoidRootPart.Position, destination)
+    local waypoints = path:GetWaypoints()
+
+    for _, waypoint in ipairs(waypoints) do
+        Tp2(waypoint.Position)
+        repeat wait() until (player.Character.HumanoidRootPart.Position - waypoint.Position).magnitude <= 5
+    end
+    Tp2(destination)
+end
+
+-- Teleportar o jogador para o carro mais próximo e seguir um caminho até a posição do carro
+if closestCar then
+    local distanceToCar = (closestCar.PrimaryPart.Position - player.Character.HumanoidRootPart.Position).magnitude
+    if distanceToCar > 10 then
+        teleport_path_find(closestCar.PrimaryPart.Position)
+    end
+end
+
+end)
+
+    Farm:CriarBotao(
+        "Auto Banco",
+        function()
+            if is_opened("Bank") == "aberto" then
+            Tp2(Vector3.new(2.946112871170044, 18.790477752685547, 863.6297607421875))
+            saircarro()
+            Tp1(Vector3.new(14.106478691101074, 18.79047966003418, 862.36962890625))
+    
+            Tp1(Vector3.new(24.639490127563477, 18.990936279296875, 860.30712890625))
+    
+            Tp1(Vector3.new(31.600963592529297, 18.990936279296875, 896.3362426757812))
+    
+            Tp1(Vector3.new(36.290794372558594, 18.8626651763916, 904.5891723632812))
+    
+            no_clip(true)
+    
+            Tp1(Vector3.new(38.07012939453125, 18.862625122070312, 916.6630249023438))
+    
+            no_clip(false)
+    
+            laser1()
+    
+          -- Encontra o banco mais próximo da posição atual do jogador
+          no_clip(true)
+          local Workspace = game:GetService("Workspace")
+          local TweenService = game:GetService("TweenService")
+          
+          function FindMoney(player)
+              local bank = Workspace:FindFirstChild("Banks")
+              if bank then
+                  for _, child in ipairs(bank:GetChildren()) do
+                      if child:FindFirstChild("Money") then
+                          return child.Money
+                      end
+                  end
+              end
+          end
+          
+          function TeleportToMoney(player)
+              local money = FindMoney(player)
+          
+              if money then
+                  local character = player.Character or player.CharacterAdded:Wait()
+                  local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+          
+                  local targetPosition = money.Position
+                  local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+          
+                  local tween = TweenService:Create(humanoidRootPart, tweenInfo, {Position = targetPosition})
+                  tween:Play()
+              end
+          end
+          
+          function OnTouched(part)
+              local player = game.Players:GetPlayerFromCharacter(part.Parent)
+              if player then
+                  TeleportToMoney(player)
+              end
+          end
+          
+          Workspace.Banks.ChildAdded:Connect(function(bank)
+              bank.Money.Touched:Connect(OnTouched)
+          end)
+          
+          for _, bank in ipairs(Workspace.Banks:GetChildren()) do
+              if bank:FindFirstChild("Money") then
+                  bank.Money.Touched:Connect(OnTouched)
+                  wait(1)
+                  no_clip(false) 
+              end
+          end
+        else 
+            wait(1)
+            notificar(''.. 'Banco Fechado!', 2, 4)   
+        end
+   
+end)
+    
+    Farm:CriarBotao(
+        'Auto Joalheria',
+        function()
+            autojoa()
         end
     )
 
     Farm:CriarBotao(
         'Auto TOMB',
         function()
+            if is_opened("Tomb") == "aberto" or ("Tomb") == "roubando" then
             Tp2(Vector3.new(613.7263793945312, 20.73607635498047, -474.29730224609375), true)
+            wait(1)
             saircarro()
             Tp1(Vector3.new(560.4760131835938, 42.05010223388672, -480.7063293457031))
             wait()
@@ -3630,159 +3850,10 @@ carro()
             wait()
             Tp1(Vector3.new(522.99560546875, -56.827781677246094, -337.845703125))
             wait()
-            Tp1(Vector3.new(537.7426147460938, -55.90801239013672, -313.9194030761719))
-            wait()
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                CFrame.new(
-                551.271912,
-                -63.5440216,
-                -291.779114,
-                -0.851789117,
-                9.79303039e-08,
-                -0.523884833,
-                8.18702972e-08,
-                1,
-                5.38173204e-08,
-                0.523884833,
-                2.95039815e-09,
-                -0.851789117
-            )
-            wait(0.2)
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                CFrame.new(
-                570.904907,
-                -72.2851791,
-                -260.74942,
-                -0.839600205,
-                5.88705866e-08,
-                -0.543204784,
-                6.81584069e-08,
-                1,
-                3.02790282e-09,
-                0.543204784,
-                -3.44817472e-08,
-                -0.839600205
-            )
-            wait(0.2)
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                CFrame.new(
-                583.04126,
-                -73.3555756,
-                -244.611298,
-                -0.80222857,
-                -7.89310235e-08,
-                -0.59701699,
-                -3.56515457e-08,
-                1,
-                -8.43030179e-08,
-                0.59701699,
-                -4.63457113e-08,
-                -0.80222857
-            )
-            wait(0.2)
-            Tp1(Vector3.new(618.216064453125, -70.9961929321289, -230.3093719482422))
-            wait()
-            Tp1(Vector3.new(642.2637939453125, -71.32540893554688, -226.76589965820312))
-            wait()
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                CFrame.new(
-                653.506165,
-                -76.5639725,
-                -234.626205,
-                0.559302211,
-                2.13725038e-08,
-                -0.828963816,
-                -1.91995468e-08,
-                1,
-                1.28282487e-08,
-                0.828963816,
-                8.74086226e-09,
-                0.559302211
-            )
-            wait(0.3)
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                CFrame.new(
-                666.968323,
-                -76.5640869,
-                -239.960571,
-                0.331408262,
-                -2.75194108e-08,
-                -0.943487465,
-                -5.74037318e-10,
-                1,
-                -2.93693905e-08,
-                0.943487465,
-                1.02748556e-08,
-                0.331408262
-            )
-            wait(0.3)
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                CFrame.new(
-                685.138916,
-                -87.5834885,
-                -241.142609,
-                0.682929575,
-                -0.196388274,
-                -0.703589976,
-                -0.0102835167,
-                0.960502803,
-                -0.278080136,
-                0.730411828,
-                0.197144523,
-                0.653936207
-            )
-            wait()
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                CFrame.new(
-                698.494995,
-                -89.6657791,
-                -240.751114,
-                0.565867484,
-                -0.182684585,
-                -0.804002702,
-                -0.0326780044,
-                0.969408691,
-                -0.243267164,
-                0.823848367,
-                0.163930178,
-                0.542587101
-            )
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                CFrame.new(
-                709.757874,
-                -87.5637741,
-                -237.291611,
-                -0.021333199,
-                -2.60625725e-08,
-                0.999772429,
-                1.54374096e-08,
-                1,
-                2.63979096e-08,
-                -0.999772429,
-                1.59970472e-08,
-                -0.021333199
-            )
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                CFrame.new(
-                717.271729,
-                -92.072113,
-                -214.673737,
-                -0.32902205,
-                -0.195074588,
-                -0.923953652,
-                0.0144478828,
-                0.977276087,
-                -0.211477488,
-                0.944211721,
-                -0.0829299316,
-                -0.318726987
-            )
-            Tp1(Vector3.new(785.4052734375, -86.4058837890625, -210.08096313476562)) -- chegando na 2 parte
-            wait()
-            Tp1(Vector3.new(803.534912109375, -89.1286392211914, -207.0092315673828))
-            wait()
-            Tp1(Vector3.new(822.456298828125, -83.57098388671875, -205.03919982910156))
-            wait() --[[
+            teleport_path_find(Vector3.new(647.9843139648438, -73.3264389038086, -227.5888671875))
+        else
+            notificar(''.. 'Tomb Fechado!', 3,4)
+            [[--
     Tp1(Vector3.new( --3 parte
     wait()
     Tp1(Vector3.new(
@@ -3792,7 +3863,8 @@ carro()
     Tp1(Vector3.new(
     wait()
     Tp1(Vector3.new(
-    wait()]]
+    wait()--]]
+        end
         end
     )
 
@@ -3821,49 +3893,43 @@ carro()
     Farm:CriarBotao(
         'Auto Airdrop',
         function()
-            if auto_airdrop_confirm == false then 
-                auto_airdrop_confirm = true 
-                notificar("Clique novamente", 2, 4)
-                notificar("Auto airdrop\nRisco de kick", 2, 4.1)
-            else
-                local Teste = require(game:GetService('ReplicatedStorage').Module.UI)
-                for i, a in next, Teste.CircleAction.Specs do
-                    a.Timed = true
-                end
-                function drop(v)
-                    if v.Name == 'Drop' then
-                        Tp2(v.Top.Position)
-                        saircarro()
-                        wait(1)
+            local Teste = require(game:GetService('ReplicatedStorage').Module.UI)
+            for i, a in next, Teste.CircleAction.Specs do
+                a.Timed = true
+            end
+            function drop(v)
+                if v.Name == 'Drop' then
+                    Tp2(v.Top.Position)
+                    saircarro()
+                    wait(1)
 
-                        spawn(
-                            function()
-                                notificar(''.. 'Colete o AirDrop!', 2,4)
+                    spawn(
+                        function()
+                            notificar(''.. 'Colete o AirDrop!', 2,4)
 
-                                no_clip(true)
-                                while getHumanoid(speaker).Health > 0 do
-                                    getRoot(speaker).CFrame = v.Top.CFrame * CFrame.new(0, -3.9, 0)
-                                    no_clip(false)
-                                    local Teste = require(game:GetService('ReplicatedStorage').Module.UI)
-                                    for i, a in next, Teste.CircleAction.Specs do
-                                        a.Timed = true
-                                    end
-                                    task.wait()
+                            no_clip(true)
+                            while getHumanoid(speaker).Health > 0 do
+                                getRoot(speaker).CFrame = v.Top.CFrame * CFrame.new(0, -3.1, 0)
+                                no_clip(false)
+                                local Teste = require(game:GetService('ReplicatedStorage').Module.UI)
+                                for i, a in next, Teste.CircleAction.Specs do
+                                    a.Timed = true
                                 end
+                                task.wait()
                             end
-                        )
-                    end
-                end
-
-                for i, v in pairs(workspace:GetChildren()) do
-                    if v.Name == 'Drop' then
-                        drop(v)
-                    end
+                        end
+                    )
                 end
             end
-            
-        end
-    )
+
+            for i, v in pairs(workspace:GetChildren()) do
+                if v.Name == 'Drop' then
+                    drop(v)
+                end
+            end
+
+    end
+)            
 
     Farm:CriarLabel('AUTO VENDER:', true)
 
@@ -3877,7 +3943,7 @@ carro()
     Farm:CriarBotao(
         'Auto Vender Base Cidade',
         function()
-            Tp2(Vector3.new(-246.013916015625, 17.881628036499023, 1616.1649169921875))
+            venderjoa()
         end
     )
 
@@ -3905,10 +3971,9 @@ carro()
                 end
             end)
             if verificarTeto(getRoot().Position) then 
-                teleport_path_find(Vector3.new(-1365.330810546875, 18.674028396606445, -1758.9278564453125), 5)
+                teleport_path_find(Vector3.new(-1365.330810546875, 18.674028396606445, -1758.9278564453125), 3)
                 Tp1(Vector3.new(-1336.9530029296875, 40.97571563720703, -1757.929931640625))
             end
-            
             Tp2(Vector3.new(-1192.634521484375, 19.733245849609375, -1391.407958984375))
         else
             notificar("Você não é prisoneiro!", 3, 10)
@@ -4004,15 +4069,41 @@ carro()
             aimconfig.fov = bool
         end
     )
-
+    getClosestPlayer = function(fov, teamcheck)
+        local target = nil
+        local dist = fov
+    
+        local mouse = game.Players.LocalPlayer:GetMouse()
+    
+        local camera = workspace.CurrentCamera
+    
+        for i, v in pairs(game.Players:GetChildren()) do
+            if
+                v ~= game.Players.LocalPlayer and
+                    ((teamcheck == true and v.TeamColor ~= game.Players.LocalPlayer.TeamColor) or teamcheck == false)
+             then
+                if
+                    v.Character ~= nil and v.Character:FindFirstChild('Head') and
+                        v.Character:FindFirstChild('Humanoid').Health > 0
+                 then
+                    local vector, onscreen = camera:worldToViewportPoint(v.Character.Head.Position)
+    
+                    local mag = (Vector2.new(mouse.X, mouse.Y) - Vector2.new(vector.X, vector.Y)).Magnitude
+    
+                    if onscreen and mag < dist then
+                        dist = mag
+                        target = v
+                    end
+                end
+            end
+        end
+    
+        return target
+    end
     game:GetService('RunService').RenderStepped:Connect(
         function()
             if aimconfig.aimbot == true and aimconfig.aimbot2 == true then
-                workspace.CurrentCamera.CFrame =
-                    CFrame.new(
-                    workspace.CurrentCamera.CFrame.Position,
-                    getClosestPlayer(aimconfig.fov).Character.Head.Position
-                )
+                game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(0.1), {CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, getClosestPlayer(aimconfig.fov, aimconfig.teamcheck).Character.Head.Position)}):Play()
             end
         end
     )
@@ -4102,7 +4193,37 @@ carro()
         end)
     end)
 
+    Combat:CriarLabel("Players:", true)
+
+    local target_select
+
+    Combat:CriarBox("Nome Do Usuário:", function(text)
+        target_select = FindPlayer(text)
+        if target_select then 
+            notificar("Selecionado "..target_select.Name, 1, 3)
+        else
+            notificar(string.sub(text, 1,1):upper()..string.sub(text, 2, 999).." não é um jogador.", 3, 3)
+        end
+    end)
+
+    Combat:CriarBotao("Teleportar no jogador", function()
+        Tp2(getRoot(target_select).Position)
+    end)
+
+    Combat:CriarToggle("Assistir", function(bool)
+        getgenv().View = bool 
+    
+        spawn(function()
+            while View do 
+                workspace.CurrentCamera.CameraSubject = getRoot(target_select)
+                task.wait()
+            end
+            workspace.CurrentCamera.CameraSubject = getRoot().Parent
+        end)
+    end )
+
     Combat:CriarLabel('DIVERSOS:', true)
+    
 
     Combat:CriarSlider(
         'Velocidade',
@@ -4137,6 +4258,13 @@ carro()
             Tp2(Vector3.new(1113.5445556640625, 139.10427856445312, 1297.2264404296875), true)
         end
     )
+
+    Teleportes:CriarBotao('TP Museu V2', function()
+        for i = 2, 100 do 
+            task.wait()
+            game.Players.LocalPlayer.Character:PivotTo(CFrame.new(1088.0675048828125, 122.03177642822266, 1358.5916748046875))
+        end
+    end)
 
     Teleportes:CriarBotao(
         'TP Joalheria',
@@ -4176,7 +4304,7 @@ carro()
     Teleportes:CriarBotao(
         'TP Tomb',
         function()
-            Tp2(Vector3.new(610.7174072265625, 21.32147979736328, -485.48687744140625), true)
+            Tp2(Vector3.new(610.7174072265625, 21.32147979736328, -485.48687744140625))
         end
     )
 
@@ -4302,6 +4430,11 @@ carro()
     ESPS:CriarLabel('ESPS:', true)
 
     local esp_enabled = false
+    local esp_criminal = false 
+    local esp_policia = false 
+    local esp_prisoneiro = false 
+    local esp_linhas = false 
+    local nomes_transparencia = 1
 
     local loops = {}
     local tamanho_da_minha_rola = 17
@@ -4321,23 +4454,14 @@ carro()
         Nomes.OutlineColor = Color3.fromRGB(255, 0, 0)
         
 
---[[
-        string Text;
-        number Size;
-        bool Center;
-        bool Outline;
-        Color3 OutlineColor;
-        Vector2 Position;
-        readonly<Vector2> TextBounds;
-        Drawing.Font Font;
-        ]]
+
         function add_esp()
             spawn(
                 function()
                     loops[v.Name] = {
                         game:GetService('RunService').RenderStepped:Connect(
                             function()
-                                Nomes.Visible = Line.Visible
+                                
                                 if
                                     v.Character and v.Character:FindFirstChild('Humanoid') and
                                         v.Character:FindFirstChild('Humanoid').Health > 0 and
@@ -4352,19 +4476,24 @@ carro()
                                         game.Players.LocalPlayer.Character.LowerTorso.Position
                                     )
                                     if Vector and Vector2 and OnScreen then
-                                        Line.Visible = esp_enabled
+                                        Line.Visible = (esp_linhas and ( (tostring(v.Team) == "Prisoner" and esp_prisoneiro)  or (tostring(v.Team) == "Criminal" and esp_criminal) or (tostring(v.Team) == "Police" and esp_policia) )) or false
+                                        Nomes.Visible = (esp_enabled and ( (tostring(v.Team) == "Prisoner" and esp_prisoneiro)  or (tostring(v.Team) == "Criminal" and esp_criminal) or (tostring(v.Team) == "Police" and esp_policia) )) or false
                                         Line.Color = v.TeamColor.Color
                                         Line.From = Vector2.new(Vector22.X, Vector22.Y)
                                         Line.Transparency = esp_transparencia
                                         Line.To = Vector2.new(Vector.X, Vector.Y)
+                                        Line.Thickness = (getgenv().linhas_size and linhas_size) or 2
                                         Nomes.Text = v.DisplayName 
                                         Nomes.OutlineColor = v.TeamColor.Color 
                                         Nomes.Size = tamanho_da_minha_rola
+                                        Nomes.Transparency = nomes_transparencia
                                         Nomes.Position = Vector2.new(Vector.X, Vector.Y) - Vector2.new(0, 5)
                                     else
+                                        Nomes.Visible = false
                                         Line.Visible = false
                                     end
                                 else
+                                    Nomes.Visible = false
                                     Line.Visible = false
                                     
                                 end
@@ -4402,33 +4531,32 @@ carro()
             table.remove(loops, table.find(loops, v.Name))
         end
     )
-
-    ESPS:CriarToggle(
-        'ESP Player',
-        function(bool)
-            esp_enabled = bool
-        end
-    )
-
-    ESPS:CriarToggle('ESP Airdrop', function()
+    ESPS:CriarToggle('ESP Linhas', function(bool)
+        esp_linhas = bool
     end)
 
-    ESPS:CriarToggle('ESP Linhas', function()
+    ESPS:CriarToggle('ESP Nomes', function(bool)
+        esp_enabled = bool
     end)
-        
-    ESPS:CriarToggle('ESP Criminal', function()
-    end)
-
-    ESPS:CriarToggle('ESP Policial', function()
-    end)
-
-    ESPS:CriarToggle('ESP Prisoneiro', function()
+ 
+    ESPS:CriarToggle('ESP Criminal', function(bool)
+        esp_criminal = bool
     end)
 
+    ESPS:CriarToggle('ESP Policial', function(bool)
+        esp_policia = bool
+    end)
+
+    ESPS:CriarToggle('ESP Prisoneiro', function(bool)
+        esp_prisoneiro = bool
+    end)
+
+    ESPS:CriarToggle('ESP Airdrop', function(bool)
+    end)
     ESPS:CriarLabel('Config:', true)
 
     ESPS:CriarSlider(
-        'Tamanho Das Linhas:',
+        'Tamanho dos nomes:',
         1,
         30,
         function(number)
@@ -4437,14 +4565,17 @@ carro()
         true
     )
 
+    ESPS:CriarSlider("Tamanho das linhas", 0, 5, function(value)
+        getgenv().linhas_size = value
+    end, true)
+
     ESPS:CriarSlider("Transparência Linhas", 0, 1, function(value)
         esp_transparencia = value
     end, true)
 
-    ESPS:CriarSlider("Transparência Nomes", function(value)
-    end)
-
-
+    ESPS:CriarSlider("Transparência Nomes", 0, 1, function(value)
+        nomes_transparencia = value
+    end, true)
 
     Outros:CriarLabel('Museu:', true)
 
@@ -4470,11 +4601,27 @@ carro()
         end
     end)
 
-    Outros:CriarBotao('Auto Quest Mapa', function()
-    end)
+
+Outros:CriarBotao('Auto Ativar Dinamite', function()
+    for _3,v in pairs(require(game:GetService("ReplicatedStorage").Module.UI).CircleAction.Specs) do 
+        if v.Name == "Place Dynamite" then 
+            v:Callback(true)
+        end
+    end 
+end)
 
     Outros:CriarBotao('Auto Puxar Alavancas', function()
-end)
+for i,v in pairs(require(game:GetService("ReplicatedStorage").Module.UI).CircleAction.Specs) do 
+
+if _3.Name == "Pull Lever" then 
+
+v:Callback(true)
+
+end
+
+end
+
+    end)
 
     Outros:CriarLabel('CASINO:', true)
 
@@ -4565,6 +4712,20 @@ end)
             end
         )
     end
+
+
+
+    Outros:CriarToggle("Auto Coletar Banco", function(bool)
+        auto_bank = bool 
+
+        spawn(function()
+            while auto_bank do 
+                game:GetService("Players").LocalPlayer.Character:PivotTo(CFrame.new(118.96942138671875, 18.618270874023438, 921.3345336914062))
+                task.wait()
+            end
+        end)
+    end)
+
 
     Outros:CriarBotao(
         '"E" (SEM DELAY)',
