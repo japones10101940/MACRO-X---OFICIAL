@@ -1016,7 +1016,7 @@ function getCar()
     return nil
 end
 function getCamaro()
-    local vehicle, spec, nearest = nil, nil, 1000
+    local vehicle, spec, nearest = nil, nil, 10000
     local Root = getRoot(speaker)
     for i, v in next, require(game.ReplicatedStorage.Module.UI).CircleAction.Specs do
         if v.Name == 'Enter Driver' and v.ValidRoot.Name == 'Camaro' --[[or Jeep]] then
@@ -1024,18 +1024,6 @@ function getCamaro()
 
             if dist < nearest then
                 vehicle, spec, nearest = v.ValidRoot, v, dist
-                --[[if game.Players.LocalPlayer.Character.Humanoid.Sit == false then
-                    for i, v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
-                        if v.Name == 'Enter Driver' then
-                            pcall(
-                                function()
-                                    v.Duration = 1
-                                    v:Callback(true)
-                                end
-                            )
-                        end
-                    end
-                end]]
             end
         end
     end
@@ -1100,7 +1088,7 @@ local function FindPlayer(name)
 end
 pode = true
 function tp(vector, velo, velo2)
-    velo2 = velo2 or 900
+    velo2 = velo2 or 502
     if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then
         return 
     end
@@ -2725,8 +2713,6 @@ carro()
         if is_opened("jewelry store") == "aberto" or ("jewelry store") == "roubando" then
             Tp2(Vector3.new(66.99860382080078, 18.001718521118164, 1319.859375), true)
             wait(0.5)
-        else
-            notificar(''.. 'Joaelheria Fechada!', 3,4)
         end
             if is_opened("jewelry store") == "aberto" then
                     Tp2(Vector3.new(66.99860382080078, 18.001718521118164, 1319.859375), true)
@@ -3512,8 +3498,8 @@ carro()
                 wait(1)
                 else
                     sairjoa_encontrar()
-        end
-        end    
+        end   
+end
 end
 
     
