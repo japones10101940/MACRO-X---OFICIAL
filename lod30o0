@@ -3991,11 +3991,5 @@ if game.PlaceId == Jogos["Jailbreak"] then
     
     
     tab_Credits:CreateLabel("SCRIPTERS", true)
-    
-    
-    getgenv().Tp1 = main.Tp1 
-    getgenv().Tp2 = main.Tp2
-    
-
-notificar("Update (30/04/23)", 3, 4)
 end
+print("update")
