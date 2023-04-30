@@ -1,4 +1,3 @@
-
 local Jogos = {
     ["Jailbreak"] = 606849621,
 
@@ -329,50 +328,22 @@ function MacroXLibrary:Window(Settings)
 			NewToggle.Parent = NewSection
 			local Check = NewToggle.Toggle:FindFirstChildOfClass("ImageLabel")
 			Check.Name = "Check"
-
+            Check.ImageTransparency = 1
 			CurrentValue = ToggleSettings.CurrentValue
 
-			if CurrentValue then
-				Check.ImageTransparency = 0
-
-				local Success, Response = pcall(function()
-					ToggleSettings.Callback(CurrentValue)
-				end)
-				if not Success then
-					error("Error: "..NewToggle.Name.." /// "..tostring(Response))
-				end
-			else
-				Check.ImageTransparency = 1
-			end
+            local isToggle = false
             local function CHANGE(bool)
-                if bool and CurrentValue == true  then 
-                    return
-                end
-                CurrentValue = not bool or CurrentValue
-                if CurrentValue and DebounceToggle == false  then
-					DebounceToggle = true
-					TweenService:Create(Check, TweenInfo.new(0.2), {ImageTransparency  = 1}):Play()
-					wait(0.2)
-					CurrentValue = false
-					DebounceToggle = false
-				elseif CurrentValue == false and DebounceToggle == false then
-					DebounceToggle = true
-					TweenService:Create(Check, TweenInfo.new(0.5), {ImageTransparency  = 0}):Play()
-					wait(0.2)
-					CurrentValue = true
-					DebounceToggle = false
-				end
 
-				local Success, Response = pcall(function()
-					ToggleSettings.Callback(CurrentValue)
-				end)
-				if not Success then
-					error("Error: "..NewToggle.Name.." /// "..tostring(Response))
-				end
+                isToggle = (bool) or (not isToggle)
+                
+                TweenService:Create(Check, TweenInfo.new(0.2), {ImageTransparency  = ((isToggle == true and 0) or (isToggle == false and 1))}):Play()
+
+
+				ToggleSettings.Callback(isToggle)
             end
 			NewToggle.MouseButton1Click:Connect(function()
 				
-				CHANGE(not CurrentValue)
+				CHANGE()
 
 			end)
 
@@ -932,6 +903,7 @@ function main.noclip(bool)
     end
 end
 
+getgenv().noclip = main.noclip
 
 function main.esperar(bloco, numero, other)
     other = other or function()
@@ -1070,6 +1042,12 @@ local abort = false
 
 local pode = true 
 function tp(vector, velo, velo2, extra)
+    local myFunc 
+    if typeof(vector) == "function" then 
+        myFunc = vector 
+
+        vector = myFunc()
+    end
     if pode == true then 
         pode = false 
     end
@@ -1083,11 +1061,17 @@ function tp(vector, velo, velo2, extra)
     BodyPosition.Position = getRoot().Position
     BodyPosition.Parent = getRoot(speaker)
     local Loop = game:GetService("RunService").Stepped:Connect(function(_, step)
+        if myFunc then 
+            vector = myFunc()
+        end
+        if main.getCar() then 
+            main.getCar().CFrame = CFrame.new(main.getCar().Position)
+        end
         local diff = (vector - getRoot().Position)
         local teleport_velo = (main.getCar() and velo) or velo2
 
         BodyPosition.Position = getRoot().Position + diff.Unit * math.min(step * teleport_velo, diff.Magnitude)
-        if diff.Magnitude < 1 then 
+        if diff.Magnitude < ((myFunc and 10) or 1) then 
             reached = true
         end
         if extra and typeof(extra) == "function" then 
@@ -1143,6 +1127,7 @@ function main.Tp1(...)
 end
 
 function transformar(pos)
+    pos = pos or Vector3.new(0,0,0)
     return Vector3.new(pos.X, 450, pos.Z)
 end
 
@@ -1293,20 +1278,28 @@ function main.Tp2(...)
         local vehicle, spec = main.getCamaro()
         local localRoot = getRoot()
 
-        local distanceFromLocalRootToVehicleSeat = (vehicle.Seat.Position - localRoot.Position).Magnitude
-        if distanceFromLocalRootToVehicleSeat < (args[1] - localRoot.Position).Magnitude and 
-            distanceFromLocalRootToVehicleSeat < 40 then
-            spec:Callback(true)
-            wait(0.5)
-        else
-            tpporcima(vehicle.Seat.Position + Vector3.new(0, 20, 0))
-
-            local startTime = tick()
-            repeat
-                task.wait()
-                main.instant(vehicle.Seat.Position + Vector3.new(0, 20, 0))
-                spec:Callback(true)
-            until getHumanoid(speaker).Sit or tick() - startTime > 6
+        if vehicle then 
+            local distanceFromLocalRootToVehicleSeat = (vehicle.Seat.Position - localRoot.Position).Magnitude
+            if distanceFromLocalRootToVehicleSeat < (args[1] - localRoot.Position).Magnitude and 
+                distanceFromLocalRootToVehicleSeat < 40 then
+                
+                local num = 0
+                repeat 
+                    spec:Callback(true)
+                    num = num + 0.1
+                    wait(0.1)
+                until num > 3 or main.getCar()
+            else
+                tpporcima(vehicle.Seat.Position + Vector3.new(0, 20, 0))
+    
+                local startTime = tick()
+                repeat
+                    task.wait()
+                    main.instant(vehicle.Seat.Position + Vector3.new(0, 20, 0))
+                    spec:Callback(true)
+                until (main.getCar()) or tick() - startTime > 3
+                wait(0.5)
+            end
         end
     end
     tpporcima(...)
@@ -1345,6 +1338,7 @@ function main.Tp3(Part, usecar)
                     main.instant(vehicle.Seat.Position + Vector3.new(0, 15, 0))
                     spec:Callback(true)
                 until getHumanoid(speaker).Sit == true or esperando > 3
+                wait(0.5)
             end
         end
     end
@@ -1377,11 +1371,7 @@ function main.Tp3(Part, usecar)
 
     repeat
 
-        spawn(function()
-            tp(transformar(Take()), 350, 200)
-        end)
-        
-        task.wait(0.5)
+        tp(function() return transformar(Take()) end, 350, 200)
         abort = true 
     until ( (transformar(getRoot().Position) - transformar(Take())).Magnitude < 50 ) or getHumanoid().Health == 0 or Take() == false
     if Take() == false then return end 
@@ -2728,8 +2718,14 @@ if game.PlaceId == Jogos["Jailbreak"] then
     end
     
     local AUTO_STATUS = tab_Auto:CreateLabel("Status: ")
-    function status_auto(text)
+    function status_auto(text, num)
+        
         AUTO_STATUS:Refresh("Status: " .. string.sub(text, 1, 1):upper() .. string.sub(text, 2, 99))
+        if num then 
+            delay(num, function()
+                AUTO_STATUS:Refresh("Status: ")
+            end)
+        end
     end
     function status_cooldown(text, cooldown)
         for i = cooldown, 1, -1 do 
@@ -2753,11 +2749,29 @@ if game.PlaceId == Jogos["Jailbreak"] then
             
             local Primaria = Plat_[1].PRIMARIA
             
+            local old_pos = getRoot().Position
             Primaria.CFrame = CFrame.new(transformar(getRoot().Position))
             main.instant(Primaria.Position + Vector3.new(0, 5, 0))
             delay(1, function()
                 cooldown_plat = true
             end)
+            if game.Players.LocalPlayer.Character.Humanoid.Sit == false then 
+                status_auto("Getting car...")
+                getRoot().CFrame = CFrame.new(old_pos)
+                wait(0.1)
+                local num = 0 
+                repeat 
+                    num = num + 0.1
+                    carro()
+                    task.wait()
+                until main.getCar() or num > 3
+                main.instant(Primaria.Position + Vector3.new(0, 5, 0))
+                if main.getCar() then 
+                    status_auto("Sucess", 1)
+                else
+                    status_auto("You cant spawn any car in this time...", 1)
+                end
+            end
         end
     end
     function haveplat()
@@ -2766,6 +2780,7 @@ if game.PlaceId == Jogos["Jailbreak"] then
                 return true 
             end
         end
+        return false
     end
     function unplat()
         for i,v in pairs(Parts) do 
@@ -2841,7 +2856,7 @@ if game.PlaceId == Jogos["Jailbreak"] then
         if (Vector3.new(2193.125732421875, 22.805452346801758, -2572.656005859375) - getRoot().Position).Magnitude < 400 then 
             status_auto("Are you in Volcano base, Leaving...")
             wait(1)
-            local Path = main.path_find(Vector3.new(2215.70947265625, 19.38240623474121, -2466.318115234375), 3)
+            local Path = main.path_find(Vector3.new(2215.70947265625, 19.38240623474121, -2466.318115234375), 10)
             if not Path then 
                 return "Reset"
             end
@@ -2853,12 +2868,10 @@ if game.PlaceId == Jogos["Jailbreak"] then
         return true
     end
     
-    local ROBBERYS_ALREADY = {}
+    getgenv().ROBBERYS_ALREADY = {}
     local function whatRob()
         local whatRobb = false
-        if (main.is_opened("Cargo plane") == "aberto" or main.is_opened("Cargo plane") == "roubando") and findtab(ROBBERYS_ALREADY, "cargo plane") == false then 
-            whatRobb = "cargo plane"
-        elseif (main.is_opened("cargo train") == "aberto") and findtab(ROBBERYS_ALREADY, "train") == false then 
+        if (main.is_opened("cargo train") == "aberto") and findtab(ROBBERYS_ALREADY, "train") == false then 
             whatRobb = "train"
         elseif (main.is_opened("museum") == "roubando") and findtab(ROBBERYS_ALREADY, "museum") == false then 
             whatRobb = 'museum'
@@ -2868,19 +2881,17 @@ if game.PlaceId == Jogos["Jailbreak"] then
             whatRobb = 'bank'
         elseif (main.is_opened('casino') == 'aberto' or main.is_opened('casino') == 'roubando') and findtab(ROBBERYS_ALREADY, "casino") == false then
             whatRobb = 'casino'
-        
-        
-        
+        elseif (main.is_opened("Cargo plane") == "aberto" or main.is_opened("Cargo plane") == "roubando") and findtab(ROBBERYS_ALREADY, "cargo plane") == false and cargoPlaneLoaded() then 
+            whatRobb = "cargo plane"
         end
-        
-    
+
         if whatRobb ~= false then 
             ROBBERYS_ALREADY[#ROBBERYS_ALREADY + 1] = whatRobb
         end
         return whatRobb
     end
     
-    
+
     tab_Auto:CreateToggle("Auto Farm", function(bool)
         AUTO_FARM = bool 
         if bool and main.bag() then 
@@ -2893,26 +2904,41 @@ if game.PlaceId == Jogos["Jailbreak"] then
             unplat()
         end
         spawn(function()
+            local giro = 1
+            
             while AUTO_FARM do 
                 if time_alived > 10 then 
                     local _tw = Flags["verify farm"]()
                     if _tw == true then 
-                        plat()
+                        
     
                         local Roubo = whatRob()
                         if Roubo == false then 
-                            status_auto("Waiting for a ROB...")
-                            return
+                            if not haveplat() then 
+                                plat()
+                            end
+                            status_auto("Auto farm is awaiting for any rob... ["..((giro == 1 and "/") or (giro == 2 and "-") or (giro == 3 and "\\") or (giro == 4 and "|")).."]")
+                            giro = giro + 1 
+                            if giro == 5 then 
+                                giro = 1 
+                            end
+                            wait(0.5)
+                            continue
                         end
                         spawn(function()
                             repeat wait() until main.is_opened(Roubo) == "fechado"
-                            ROBBERYS_ALREADY[Roubo] = nil
+                            for i = 1,10 do 
+                                pcall(function()
+                                    table.remove(ROBBERYS_ALREADY, table.find(ROBBERYS_ALREADY, Roubo))
+                            
+                                end)
+                            end
                         end)
                         wait(1)
                         unplat()
                         if AUTO_FARM == false then continue end
-                        local _twt = Flags[Roubo.." auto"](true)
-                        if _twt == "Stop" then 
+                        local _twt = pcall(Flags[Roubo.." auto"], true)
+                        if _twt == "stop" then 
                             status_auto("Auto Farm Error!")
                             getHumanoid().Health = 0
                             status_cooldown("Countdown...", 5)
@@ -2920,9 +2946,9 @@ if game.PlaceId == Jogos["Jailbreak"] then
                         end
     
                         if Roubo == "museum" then 
-                            Flags["vulcano sell"]()
+                            pcall(Flags["vulcano sell"])
                         elseif Roubo == "casino" then 
-                            Flags["vulcano sell"]()
+                            pcall(Flags["vulcano sell"])
                         end
                     elseif _tw == "Reset" then 
                         for i = 1,30 do 
@@ -2938,11 +2964,13 @@ if game.PlaceId == Jogos["Jailbreak"] then
                 end
                 task.wait()
             end
+
         end)
     end)
     
     
     tab_Auto:CreateButton("Auto Jewelry", function()
+        if not main.getCar() then carro() end 
         if not main.bag() then
         if main.is_opened("jewelry store") == "aberto" or main.is_opened("jewelry store") == "roubando" then 
             status_auto("teleporting to jewelry...")
@@ -3047,6 +3075,7 @@ if game.PlaceId == Jogos["Jailbreak"] then
     end, "jewelry store auto")
     
     tab_Auto:CreateButton("Auto Museum", function()
+        if not main.getCar() then carro() end 
         if not main.bag() then
             if main.is_opened("Museum") == "roubando" then
                 status_auto("Teleporting to museum...")
@@ -3077,20 +3106,19 @@ if game.PlaceId == Jogos["Jailbreak"] then
                 wait(1)
                 main.path_find(Vector3.new(1021.1305541992188, 101.80493927001953, 1220.2750244140625))
                 status_auto("")
-                return  
+                return "stop"
             end
-          
-            Flags["museum bag"](true)
-           
-            
             main.noclip(true)
+            main.instant(Vector3.new(1132.56298828125, 107.80691528320312, 1306.5733642578125))
             main.Tp1(Vector3.new(1132.56298828125, 107.80691528320312, 1306.5733642578125), 350, 50)
             status_auto("Fill bag...")
-         
+            Flags["museum bag"](false)
+            wait(0.1)
+            Flags["museum bag"](true)
             main.Tp1(Vector3.new(1135.0927734375, 107.80681610107422, 1307.481689453125), 350, 50)
-            repeat
-                wait()
+            repeat wait(0.2)
                 status_auto("Bag ["..main.bag2().."]")
+                main.instant(Vector3.new(1135.0927734375, 107.80681610107422, 1307.481689453125))
                 main.Tp1(Vector3.new(1135.0927734375, 107.80681610107422, 1307.481689453125), 350, 50)
             until main.bag() or main.is_opened("museum") == "fechado"
             if main.is_opened("museum") == "fechado" then 
@@ -3134,24 +3162,35 @@ if game.PlaceId == Jogos["Jailbreak"] then
     end, "museum auto")
     
     tab_Auto:CreateButton("Auto Bank", function(isfarm)
+        if not main.getCar() then carro() end 
         isfarm = isfarm or false
         if not main.bag() then 
         if main.is_opened("bank") == "aberto" or main.is_opened("bank") == "roubando" then
             status_auto("Teleporting to bank...")
             main.Tp2(Vector3.new(2.946112871170044, 18.790477752685547, 863.6297607421875))
             if isfarm then 
-                notificar("Protect is Enabled")
-                Flags["kill aura enabled"](true)
-                Flags["kill aura equipped"](true)
+                notificar("Protect is Enabled", 1, 4)
+                for i = 1,10 do 
+                    Flags["kill aura enabled"](true)
+                    Flags["kill aura equipped"](true)
+                    
+                end
             end
             if main.is_opened("bank") == "aberto" or main.is_opened("bank") == "roubando" then 
                 Flags["bank door"](true)
                 status_auto("Leaving car...")
-                wait(1)
+                wait(0.5)
                 disable_touch()
                 ExitCar()
+                wait(0.5)
                 status_auto("Entering...")
-                main.Tp1(Vector3.new(14.106478691101074, 18.79047966003418, 862.36962890625), 150, 140)
+                main.instant(Vector3.new(2.946112871170044, 18.790477752685547, 863.6297607421875))
+                wait(0.1)
+                repeat
+                    main.instant(Vector3.new(14.106478691101074, 18.79047966003418, 862.36962890625))
+                
+                    wait(0.5)
+                until (getRoot().Position - Vector3.new(14.106478691101074, 18.79047966003418, 862.36962890625)).Magnitude < 5
                 Flags["bank door"](false)
     
                 main.Tp1(Vector3.new(24.639490127563477, 18.990936279296875, 860.30712890625), 150, 20)
@@ -3358,7 +3397,7 @@ if game.PlaceId == Jogos["Jailbreak"] then
     
                 status_auto("Sucess")
                 if isfarm then 
-                    notificar("Protect is Disabled")
+                    notificar("Protect is Disabled", 1, 4)
                     Flags["kill aura enabled"](false)
                     Flags["kill aura equipped"](false)
                 end
@@ -3382,6 +3421,7 @@ if game.PlaceId == Jogos["Jailbreak"] then
     end, "bank auto")
     
     tab_Auto:CreateButton("Auto Casino", function()
+        if not main.getCar() then carro() end 
         if not main.bag() then
         if main.is_opened("casino") == "aberto" or main.is_opened("casino") == "roubando" then 
             status_auto("Teleporting to casino...")
@@ -3421,7 +3461,7 @@ if game.PlaceId == Jogos["Jailbreak"] then
                 main.Tp1(Vector3.new(56.78488540649414, 78.14791870117188, -4688.5380859375))
                 for i, v in pairs(game:GetService('Workspace').Casino.Computers:GetChildren()) do
                 if v.Name == 'Computer' and hack_computer == false and tem_verde() ~= true then
-                    main.Tp1(v.Display.Position + Vector3.new(0, 6, 0), nil, nil)
+                    main.Tp1(v.Display.Position + Vector3.new(0, 6, 0), nil, 80)
                     v[Remote_Casino_Hack]:FireServer()
                     v[Remote_Casino_Hack]:FireServer()
                     if v.Display.Color == Color3.fromRGB(0, 255, 0) then
@@ -3430,10 +3470,10 @@ if game.PlaceId == Jogos["Jailbreak"] then
                 end
             end
             main.noclip(false)
-            main.Tp1(Vector3.new(49.01467514038086, 77.47745513916016, -4669.95703125))
-            main.Tp1(Vector3.new(59.22966003417969, 85.37664031982422, -4705.568359375))
-            main.Tp1(Vector3.new(-1.5249227285385132, 74.67791748046875, -4738.3876953125))
-            main.Tp1(Vector3.new(-13.993463516235352, 76.17466735839844, -4737.6279296875))
+            main.Tp1(Vector3.new(49.01467514038086, 77.47745513916016, -4669.95703125), nil, 80)
+            main.Tp1(Vector3.new(59.22966003417969, 85.37664031982422, -4705.568359375), nil, 80)
+            main.Tp1(Vector3.new(-1.5249227285385132, 74.67791748046875, -4738.3876953125), nil, 80)
+            main.Tp1(Vector3.new(-13.993463516235352, 76.17466735839844, -4737.6279296875), nil, 80)
             main.noclip(true)
             main.Tp1(Vector3.new(-16.8765811920166, 78.07470703125, -4754.501953125), nil, 50)
            end
@@ -3499,13 +3539,33 @@ if game.PlaceId == Jogos["Jailbreak"] then
             notificar("Casino is closed", 2, 5)
     end
     end, "casino auto")
-    
+    function cargoPlaneLoaded()
+        if workspace:FindFirstChild("Plane") then 
+            for i,v in pairs(game:GetService("Workspace").Plane:GetDescendants()) do 
+                --Crates.Crate1
+                if v.Name ~= "Crates" then 
+                    if v.Name == "Crate1" or v.Name == "Crate2" or v.Name == "Crate3" or v.Name == "Crate4" or v.Name == "Crate5" or v.Name == "Crate6" then 
+                        if v:FindFirstChild("1") and v:FindFirstChild("2") then 
+                        
+                            return true 
+                                                
+                        end
+                    end
+                end
+            end
+            return false
+        else
+            return false
+        end
+        
+    end
+
     tab_Auto:CreateButton("Auto Cargo Plane", function(bool)
-    status_auto("Teleporting Cargo Plane...")
-        if main.is_opened("Cargo plane") == "aberto" or main.is_opened("Cargo plane") == "roubando" then else notificar("Cargo Plane is Closed.", 2, 5) return end 
+        if not main.getCar() then carro() end 
+        if cargoPlaneLoaded() and (main.is_opened("Cargo plane") == "aberto" or main.is_opened("Cargo plane") == "roubando") then else  return end 
         --Inspect Crate 
         --game:GetService("Workspace").Plane.BottomDoor.Door.Root
-
+        status_auto("Teleporting Cargo Plane...")
         main.Tp3(
             function()  
                 return game:GetService("Workspace").Plane.BottomDoor.Door.Root.Position
@@ -3513,7 +3573,6 @@ if game.PlaceId == Jogos["Jailbreak"] then
             true
         )
 
-        ExitCar()
         status_auto("Wait....")
         main.noclip(true)
 
@@ -3526,7 +3585,7 @@ if game.PlaceId == Jogos["Jailbreak"] then
                     v.Duration = 0
                     v:Callback(true)
                 end
-                getRoot().CFrame = CFrame.new(Root.Position + Vector3.new(0, 2.5, 0))
+                speaker.Character:PivotTo(CFrame.new(Root.Position + Vector3.new(0, 2.5, 0)))
                 task.wait()
             until main.bag() or main.is_opened("cargo plane") == "fechado" or getHumanoid().Health == 0 
             if getHumanoid().Health == 0 then 
@@ -3543,9 +3602,12 @@ if game.PlaceId == Jogos["Jailbreak"] then
 
         main.Tp2(Vector3.new(-341.9916687011719, 22.63744354248047, 2053.140869140625))
         main.noclip(false)
+        wait(2)
+
     end, "cargo plane auto")
 
-    tab_Auto:CreateButton("Auto Train", function()
+    tab_Auto:CreateButton("Auto Train", function(isfarm)
+        if not main.getCar() then carro() end 
         if not main.bag() then
             disable_touch()
         end
@@ -3598,8 +3660,8 @@ if game.PlaceId == Jogos["Jailbreak"] then
         main.Tp3(function()
             return getGold().Position
         end, false)
-        ExitCar()
         BreachVault()
+        ExitCar()
         spawn(function()
             for i = 1,10 do 
                 BreachVault()
@@ -3619,10 +3681,10 @@ if game.PlaceId == Jogos["Jailbreak"] then
             until main.is_opened("cargo train") == "fechado" or main.bag() or (getGold().Position - Vector3.new(-1227, 27, 448)).Magnitude < 200 or getHumanoid().Health == 0
         end)
         main.noclip(true)
-        repeat 
+        repeat wait(0.6)
             status_auto("Robbing ["..main.bag2().."]")
             
-            main.instant(Gold.Position + Vector3.new(0, 0, 0))
+            main.instant(Gold.Position + Vector3.new(0, 3, 0))
             wait()
         until main.is_opened("cargo train") == "fechado" or main.bag() or (getGold().Position - Vector3.new(-1227, 27, 448)).Magnitude < 200 or getHumanoid().Health == 0
         if main.bag() then 
@@ -3632,9 +3694,80 @@ if game.PlaceId == Jogos["Jailbreak"] then
             until not main.bag()
             wait(0.5)
             getHumanoid().Health = 0 
+            if isfarm then 
+                status_cooldown("Countdown...", 5)
+
+            end
         end   
     end, "train auto")
     
+    tab_Auto:CreateButton("Auto Donut Store", function()
+        if main.is_opened("donut store") == "aberto" then else notificar("Donut Store Close!", 3, 4) end
+            status_auto("Teleporting Donut Store...")
+            main.Tp2(Vector3.new(105.21797180175781, 33.26239013671875, -1534.832275390625))
+            wait(1)
+            ExitCar()
+            status_auto("Entering...")
+            main.instant(Vector3.new(96.66537475585938, 19.515846252441406, -1528.657958984375))
+            main.instant(Vector3.new(96.66537475585938, 19.515846252441406, -1528.657958984375))
+            main.instant(Vector3.new(96.66537475585938, 19.515846252441406, -1528.657958984375))
+            wait(0.1)
+            main.Tp1(Vector3.new(99.35599517822266, 19.715871810913086, -1536.43798828125), nil, 50)
+            main.Tp1(Vector3.new(111.64977264404297, 19.715871810913086, -1578.5653076171875))
+            main.Tp1(Vector3.new(77.77365112304688, 19.715871810913086, -1590.0621337890625))
+            wait(0.5)
+            main.instant(Vector3.new(77.77365112304688, 19.715871810913086, -1590.0621337890625))
+            main.instant(Vector3.new(77.77365112304688, 19.715871810913086, -1590.0621337890625))
+            main.instant(Vector3.new(77.77365112304688, 19.715871810913086, -1590.0621337890625))
+            status_auto("Rob Donut Store, Wait...")
+            wait(1)
+            workspace.CurrentCamera.CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, game:GetService("Workspace").SmallStores:GetChildren()[2].Position)
+            KeyEvent(Enum.KeyCode.E, true)
+            wait(12)
+            KeyEvent(Enum.KeyCode.E, false)
+                 status_auto("Success!")
+            wait(0.5)
+            main.Tp1(Vector3.new(77.77365112304688, 19.715871810913086, -1590.0621337890625))
+            main.Tp1(Vector3.new(111.64977264404297, 19.715871810913086, -1578.5653076171875))
+            main.Tp1(Vector3.new(93.4583969116211, 19.215852737426758, -1520.963623046875), nil, 50)
+            wait(0.2)
+            main.Tp2(Vector3.new(105.21797180175781, 36.26239013671875, -1534.832275390625))
+    end, "roscafarm")
+
+    tab_Auto:CreateButton("Auto Gas Station", function()
+        if main.is_opened("gas gtation") == "aberto" then else notificar("Gas Station Close!", 3, 4) end
+        status_auto("Teleporting Gas Station...")
+                main.Tp2(Vector3.new(-1602.6942138671875, 47.64346694946289, 694.2086181640625))
+                wait(1)
+                ExitCar()
+                status_auto("Entering...")
+                main.Tp1(Vector3.new(-1627.9384765625, 55.29555892944336, 693.8628540039062))
+                wait(0.5)
+                main.instant(Vector3.new(-1616.5906982421875, 18.423141479492188, 691.570068359375))
+                main.instant(Vector3.new(-1616.5906982421875, 18.423141479492188, 691.570068359375))
+                main.instant(Vector3.new(-1616.5906982421875, 18.423141479492188, 691.570068359375))
+                main.Tp1(Vector3.new(-1608.262451171875, 18.496139526367188, 690.5849609375), nil, 50)
+                main.Tp1(Vector3.new(-1602.4930419921875, 18.49614143371582, 687.3925170898438), nil, 50)
+                status_auto("Rob Gas Station, Wait...")
+                wait(1)
+                local loja = workspace:FindFirstChild("SmallStores")
+
+                if loja then
+                    workspace.CurrentCamera.CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, loja.Position)
+                    KeyEvent(Enum.KeyCode.E, true)
+                    wait(12)
+                end
+                KeyEvent(Enum.KeyCode.E, false) 
+                 status_auto("Success!")
+                wait(0.5)
+        main.Tp1(Vector3.new(-1602.4930419921875, 18.49614143371582, 687.3925170898438))
+        main.Tp1(Vector3.new(-1608.262451171875, 18.496139526367188, 690.5849609375))
+        main.Tp1(Vector3.new(-1621.239990234375, 18.01364517211914, 692.4659423828125), 50)
+        wait(0.2)
+        main.Tp2(Vector3.new(-1602.6942138671875, 50.64346694946289, 694.2086181640625))
+    end, "gasfarm")
+
+
     tab_Others:CreateLabel("Museum Options", true)
     
     
@@ -3709,6 +3842,7 @@ if game.PlaceId == Jogos["Jailbreak"] then
     tab_Auto:CreateLabel("Auto sell", true)
     
     tab_Auto:CreateButton("Sell Vulcano", function()
+        if not main.bag() then return "não tem bag" end 
         --game:GetService('Players').LocalPlayer.PlayerGui.RobberyMoneyGui.Enabled
         status_auto("Teleporting to vulcano...")
         main.Tp2(Vector3.new(1800.567138671875, 111.19849395751953, -2653.16845703125))
