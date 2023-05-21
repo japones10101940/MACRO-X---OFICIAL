@@ -1667,16 +1667,3 @@ local localPlayer = game.Players.LocalPlayer
 
 
 notificar("Macro X", "Loading Buttons..", 2, 3)
-local time_loaded = 0 
-
-
-
-repeat 
-	task.wait()
-	time_loaded = time_loaded + 0.02
-until getgenv().newtab
-moretti = {}
-
-function moretti:CreateTab(text)
-	return getgenv().newtab(text)
-end
