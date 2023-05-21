@@ -1,0 +1,1682 @@
+spawn(function()
+	while true do 
+		game:GetService("UserInputService").MouseIconEnabled = true
+		task.wait()		
+	end
+end	)
+local Compatible = false 
+
+for i,v in pairs(Jogos) do 
+	if v == game.PlaceId then 
+		Compatible = true 
+	end
+end
+
+if not Compatible then print("This game is not compatible.") return false end 
+
+if not isfile("MacroX Vehicles") then 
+
+	makefolder("MacroX Vehicles")
+	
+end
+
+-- \\ Main // --
+if (not game:IsLoaded()) then
+	game.Loaded:wait()
+end
+
+function verificar_mag(item1, item2)
+	local sucess, dist = pcall(function()
+		return (item1.Position - item2.Position).Magnitude
+	end)
+
+	if sucess then 
+		return dist
+	end
+	return 0
+end
+local GC = getconnections or get_signal_cons
+if GC then
+	for i,v in pairs(GC(game.Players.LocalPlayer.Idled)) do
+		if v["Disable"] then
+			v["Disable"](v)
+		elseif v["Disconnect"] then
+			v["Disconnect"](v)
+		end
+	end
+end
+game.Players.LocalPlayer.Idled:Connect(function()
+	local VirtualUser = game:GetService("VirtualUser")
+	VirtualUser:CaptureController()
+	VirtualUser:ClickButton2(Vector2.new())
+end)
+
+for i,v in pairs(game.CoreGui:GetChildren()) do if v.Name == "MacroX UI" then v:Destroy() end end
+-- \\ Services // --
+local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+local HttpService = game:GetService("HttpService")
+local RunService = game:GetService("RunService")
+local Players = game:GetService("Players")
+local CoreGui = game:GetService("CoreGui")
+getgenv().Flags = {}
+
+
+function flags(um,dois)
+	if Flags[um] then 
+		pcall(Flags[um], dois)
+	end
+end
+-- \\ MacroX // --
+
+local MacroXLibrary = {}
+
+-- \\ Init / Protect UI // --
+
+local MacroX = game:GetObjects("rbxassetid://13235522993")[1]
+local nums = {}
+
+for i = 0, 360 * 100, 360 do 
+	nums[#nums + 1] = i
+end
+local what_Num = 1
+MacroX.Background.Logo.MouseButton1Click:Connect(function()
+	local Logo = MacroX.Background.Logo 
+
+
+	game:GetService("TweenService"):Create(Logo, TweenInfo.new(1, Enum.EasingStyle.Quart, Enum.EasingDirection.InOut), {Rotation = nums[what_Num]}):Play()
+	what_Num = what_Num + 1
+	
+end)
+-- \\ Object Variables // --
+
+MacroX.Name = "MacroX UI"
+MacroX.Parent = CoreGui
+local Camera = workspace.CurrentCamera
+local Main = MacroX.Background
+local Elements = Main.Elements
+local TabList = Main["Tab Container"]
+
+-- \\ Make not Visible // --
+MacroX.Enabled = false
+for i,v in ipairs(Main:GetChildren()) do
+	if not v:IsA("UICorner") then
+		v.Visible = false
+		Main.Visible = false
+	end
+end
+
+-- \\ Variables // --
+
+local request = (syn and syn.request) or (http and http.request) or http_request
+local Hidden = false
+local Debounce = false
+
+-- \\ Make Draggable // --
+
+local function MakeDraggAble(DragPoint, Main)
+	pcall(function()
+		local Dragging, DragInput, MousePos, FramePos = false
+		DragPoint.InputBegan:Connect(function(Input)
+			if Input.UserInputType == Enum.UserInputType.MouseButton1 then
+				Dragging = true
+				MousePos = Input.Position
+				FramePos = Main.Position
+
+				Input.Changed:Connect(function()
+					if Input.UserInputState == Enum.UserInputState.End then
+						Dragging = false
+					end
+				end)
+			end
+		end)
+		DragPoint.InputChanged:Connect(function(Input)
+			if Input.UserInputType == Enum.UserInputType.MouseMovement then
+				DragInput = Input
+			end
+		end)
+		UserInputService.InputChanged:Connect(function(Input)
+			if Input == DragInput and Dragging then
+				local Delta = Input.Position - MousePos
+				TweenService:Create(Main, TweenInfo.new(0.1, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Position  = UDim2.new(FramePos.X.Scale,FramePos.X.Offset + Delta.X, FramePos.Y.Scale, FramePos.Y.Offset + Delta.Y)}):Play()
+			end
+		end)
+	end)
+end
+
+-- \\ Hide / UnHide // --
+
+function Hide()
+	Debounce = true
+	MacroX.Enabled = false
+	Main.Visible = false
+	wait(0.2)
+	Debounce = false
+end
+
+function UnHide()
+	Debounce = true
+	Main.Visible = true
+	MacroX.Enabled = true
+	wait(0.2)
+	Debounce = false
+end
+
+-- \\ Notify // --
+
+function MacroXLibrary:Notify(NotificationSettings)
+
+	local NotifyMain = MacroX.NotifyHolder
+	local Template = NotifyMain.Template
+
+end
+
+-- \\ Create Window // --
+
+local FirstTab = false
+function MacroXLibrary:Window(Settings)
+
+	local Window = {
+		CurrentTab = nil,
+	}
+
+	-- Vars
+	local Elements = Main.Elements
+	local TabsHolder = Main["Tab Container"]
+	local TabEnabled = Elements["Tab Actived"]
+	local TabDisabled = Elements["Tab Disabled"]
+	local SectionHolder = Main["Section Container"]
+
+	-- Window Settings
+	local SaveBind = Settings.KeyBind
+	KeyBind = Main.TextLabel
+	Main.Title.TextXAlignment = 2
+	Main.Title.Text = Settings.Title
+	Main.SubTitle.Text = Settings.SubTitle or ""
+	KeyBind.Text = "[ "..Settings.KeyBind.." ]" or "[ ".."RightControl".." ]"
+
+	-- Hide / UnHide
+
+	UserInputService.InputBegan:Connect(function(input, processed)
+		if (input.KeyCode == Enum.KeyCode[SaveBind] and not processed) then
+			if Debounce then return end
+			if Hidden then
+				Hidden = false
+				UnHide()
+			else
+				Hidden = true
+				Hide()
+			end
+		end
+	end)
+
+	-- Make Draggable 
+	MakeDraggAble(Main, Main)
+
+	-- Function DestroyLib
+	function MacroXLibrary:Destroy()
+		MacroX:Destroy()
+	end
+
+	-- Make Search Works
+	local Search = SectionHolder.SearchFrame.Search
+
+	local function SearchOnFocus()
+
+		spawn(function()
+
+			while Search:IsFocused() do
+				for i, v in next, SectionHolder:GetDescendants() do
+
+					if v:IsA("TextButton") then
+
+						local Name = v.Title.Text:lower()
+						local TextBox = Search.Text:lower()
+
+						local NameSub = string.sub(Name, 1, #TextBox)
+						local TextBoxSub = string.sub(TextBox, 1, #TextBox)
+
+						if NameSub == TextBoxSub then
+							v.Visible = true
+						elseif TextBox == "" then
+							v.Visible = true
+						else
+							v.Visible = false
+						end
+
+					end
+
+				end
+				wait()
+			end
+
+		end)
+
+	end
+
+	Search.Focused:Connect(SearchOnFocus)
+
+	-- Window Enable
+	MacroX.Enabled = true
+	for i,v in ipairs(Main:GetChildren()) do
+		if not v:IsA("UICorner") and v.Name~="Elements" then
+			v.Visible = true
+			Main.Visible = true
+		end
+	end
+
+	function Window:Tab(Name)
+
+		local Tab = {
+			Active = false,
+		}
+
+		Name = tostring(Name)
+		local ExampleTab = Main["Section Container"]:FindFirstChild("Active Tab")
+		local NewTab = TabDisabled:Clone()
+		NewTab.Text = Name
+		NewTab.Name = Name
+		NewTab.Parent = TabsHolder
+
+		local NewSection = ExampleTab:Clone()
+		NewSection.Name = "Section__"..Name
+		NewSection.Parent = SectionHolder
+		NewSection.Visible = false
+		NewSection.LayoutOrder = #Elements:GetChildren()
+
+		for _, TemplateElement in ipairs(NewSection:GetChildren()) do
+			if TemplateElement.ClassName == "Frame" and TemplateElement.Name ~= "Placeholder" then
+				TemplateElement:Destroy()
+			end
+		end
+
+		function Tab:Activate()
+			if not Tab.Active then
+
+				if Window.CurrentTab ~= nil then
+					Window.CurrentTab:Deactivate()
+				end
+
+				Tab.Active = true
+				TweenService:Create(NewTab, TweenInfo.new(0.35), {TextColor3 = TabEnabled.TextColor3}):Play()
+				TweenService:Create(NewTab.Toggle, TweenInfo.new(0.35), {Transparency  = TabEnabled.Toggle.Transparency}):Play()
+				SectionHolder["Section__"..NewTab.Name].Visible = true
+
+				Window.CurrentTab = Tab
+			end
+		end
+
+		function Tab:Deactivate()
+			if Tab.Active then
+				Tab.Active = false
+
+				TweenService:Create(NewTab, TweenInfo.new(0.35), {TextColor3 = TabDisabled.TextColor3}):Play()
+				TweenService:Create(NewTab.Toggle, TweenInfo.new(0.35), {Transparency  = TabDisabled.Toggle.Transparency}):Play()
+				SectionHolder["Section__"..NewTab.Name].Visible = false
+
+			end
+		end
+
+		NewTab.MouseButton1Click:Connect(function()
+			Tab:Activate()
+		end)
+
+		if Window.CurrentTab == nil then
+			Tab:Activate()
+		end
+
+		function Tab:CreateButton(text, callback, flags)
+			if flags then 
+				Flags[flags] = callback
+			end
+			local ButtonSettings = {Name = text, Callback = callback}
+			local Button = {}
+
+			local NewButton = Elements.Button:Clone()
+			NewButton.Name = "Button__"..ButtonSettings.Name
+			NewButton.Title.Text = ButtonSettings.Name
+			NewButton.Parent = NewSection
+
+			NewButton.MouseButton1Click:Connect(function()
+				ButtonSettings.Callback()
+			end)
+
+			function Button:Set(EditButton)
+				NewButton.Name = "Button__"..EditButton
+				NewButton.Title.Text = EditButton
+			end
+
+			return Button
+
+		end
+
+		function Tab:CreateToggle(text, callback, flags)
+
+			local ToggleSettings = {Name = text, Callback = callback, CurrentValue = false}
+
+			local Toggle = {}
+			local DebounceToggle = false
+
+			local NewToggle = Elements.Toggle:Clone()
+			NewToggle.Name = "Toggle__"..ToggleSettings.Name
+			NewToggle.Title.Text = ToggleSettings.Name
+			NewToggle.Parent = NewSection
+			local Check = NewToggle.Toggle:FindFirstChildOfClass("ImageLabel")
+			Check.Name = "Check"
+			Check.ImageTransparency = 1
+			CurrentValue = ToggleSettings.CurrentValue
+
+			local isToggle = false
+			local function CHANGE(bool)
+				if bool ~= nil  then 
+					if isToggle == bool then 
+						return 
+					else
+						isToggle = bool
+					end
+				else
+					isToggle = not isToggle
+				end
+				TweenService:Create(Check, TweenInfo.new(0.2), {ImageTransparency  = ((isToggle == true and 0) or (isToggle == false and 1))}):Play()
+
+
+				ToggleSettings.Callback(isToggle)
+			end
+			NewToggle.MouseButton1Click:Connect(function()
+
+				CHANGE()
+
+			end)
+
+			if flags then 
+				Flags[flags] = CHANGE 
+			end
+
+			local tab = {}
+			function tab:Refresh(text)
+				NewToggle.Title.Text = text
+			end
+			return tab 
+
+		end
+
+		function Tab:CreateSlider(text, min, max, callback)
+			local SliderSettings = {Name = text, Callback = callback, Range={min, max}, Suffix = "value", CurrentValue = 0, Increment = 1}
+			local Dragging = false
+
+			local Slider = {}
+
+			local NewSlider = Elements.Slider:Clone()
+			NewSlider.Name = "Slider__"..SliderSettings.Name
+			NewSlider.Title.Text = SliderSettings.Name
+			NewSlider.Parent = NewSection
+
+			local SliderInner = NewSlider.SliderInner
+			local SliderProgress = SliderInner.SliderOut
+
+			SliderProgress.Size =	UDim2.new(0, SliderInner.AbsoluteSize.X * ((SliderSettings.CurrentValue + SliderSettings.Range[1]) / (SliderSettings.Range[2] - SliderSettings.Range[1])) > 5 and 
+				SliderInner.AbsoluteSize.X * (SliderSettings.CurrentValue / (SliderSettings.Range[2] - SliderSettings.Range[1])) or 5, 1, 0)
+
+			if not SliderSettings.Suffix then
+				NewSlider.Value.Text = tostring(SliderSettings.CurrentValue)
+			else
+				NewSlider.Value.Text =  SliderSettings.Suffix..": "..tostring(SliderSettings.CurrentValue)
+			end
+
+			NewSlider.InputBegan:Connect(function(Input)
+				if Input.UserInputType == Enum.UserInputType.MouseButton1 then 
+					Dragging = true 
+				end 
+			end)
+			NewSlider.InputEnded:Connect(function(Input) 
+				if Input.UserInputType == Enum.UserInputType.MouseButton1 then 
+					Dragging = false 
+				end 
+			end)
+
+			NewSlider.MouseButton1Down:Connect(function()
+				local Current = SliderProgress.AbsolutePosition.X + SliderProgress.AbsoluteSize.X
+				local Start = Current
+				local Location;
+				local Loop; Loop = RunService.Stepped:Connect(function()
+					if Dragging then
+						Location = UserInputService:GetMouseLocation().X
+						Current = Current + 0.025 * (Location - Start)
+
+						if Location < SliderInner.AbsolutePosition.X then
+							Location = SliderInner.AbsolutePosition.X
+						elseif Location > SliderInner.AbsolutePosition.X + SliderInner.AbsoluteSize.X then
+							Location = SliderInner.AbsolutePosition.X + SliderInner.AbsoluteSize.X
+						end
+
+						if Current < SliderInner.AbsolutePosition.X + 5 then
+							Current = SliderInner.AbsolutePosition.X + 5
+						elseif Current > SliderInner.AbsolutePosition.X + SliderInner.AbsoluteSize.X then
+							Current = SliderInner.AbsolutePosition.X + SliderInner.AbsoluteSize.X
+						end
+
+						if Current <= Location and (Location - Start) < 0 then
+							Start = Location
+						elseif Current >= Location and (Location - Start) > 0 then
+							Start = Location
+						end
+						TweenService:Create(SliderProgress, TweenInfo.new(0.2, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, Current - SliderInner.AbsolutePosition.X, 1, 0)}):Play()
+						local NewValue = SliderSettings.Range[1] + (Location - SliderInner.AbsolutePosition.X) / SliderInner.AbsoluteSize.X * (SliderSettings.Range[2] - SliderSettings.Range[1])
+
+						NewValue = math.floor(NewValue / SliderSettings.Increment + 0.5) * (SliderSettings.Increment * 10000000) / 10000000
+						if not SliderSettings.Suffix then
+							NewSlider.Value.Text = tostring(NewValue)
+						else
+							NewSlider.Value.Text =  SliderSettings.Suffix..": "..tostring(SliderSettings.CurrentValue)
+						end
+
+						if SliderSettings.CurrentValue ~= NewValue then
+							local Success, Response = pcall(function()
+								SliderSettings.Callback(NewValue)
+							end)
+							if not Success then
+								error("Error: "..NewSlider.Name.." /// "..tostring(Response))
+							end
+
+							SliderSettings.CurrentValue = NewValue
+						end
+					else
+						TweenService:Create(SliderProgress, TweenInfo.new(0.3, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, Location - SliderInner.AbsolutePosition.X > 5 and Location - SliderInner.AbsolutePosition.X or 5, 1, 0)}):Play()
+						Loop:Disconnect()
+					end
+				end)
+			end)
+
+			return Slider
+
+		end
+
+		function Tab:CreateLabel(Name)
+
+			local Label = {}
+
+			local NewLabel = Elements.TextLabel:Clone()
+			NewLabel.Name = "Label__"..tostring(Name)
+			NewLabel.Title.Text = tostring(Name)
+			NewLabel.Parent = NewSection
+
+			function Label:Refresh(EditValue)
+				NewLabel.Title.Text = tostring(EditValue)
+			end
+
+			return Label
+
+		end
+
+		function Tab:CreateBox(text, callback, holder)
+			local InputSettings = {Name = text, Callback = callback, PlaceholderText = holder or "Place value here"}
+
+			local InputBox = {}
+
+			local NewInput = Elements.InputBox:Clone()
+			NewInput.Name = "Input__"..InputSettings.Name
+			NewInput.Title.Text = InputSettings.Name
+			NewInput.Parent = NewSection
+			NewInput.Input.Search.PlaceholderText = InputSettings.PlaceholderText
+
+			local InputTool = NewInput.Input.Search
+
+			InputTool.FocusLost:Connect(function()
+
+
+				local Success, Response = pcall(function()
+					InputSettings.Callback(InputTool.Text)
+				end)
+				if not Success then
+					error("Error: "..NewInput.Name.." /// "..tostring(Response))
+				end
+			end)
+
+			return InputBox
+
+		end
+
+		return Tab
+
+	end
+
+	return Window
+
+end
+
+
+local Window = MacroXLibrary:Window({
+	Title = "MacroX", -- Nome do Script (ROXO)
+	SubTitle = "Hub", -- SubTitulo ou Acompanhamento do Nome (BRANCO)
+	KeyBind = "Backspace" -- KeyBind Abrir e Fechar // https://create.roblox.com/docs/reference/engine/enums/KeyCode
+})
+
+getgenv().newtab = function(text)
+	return Window:Tab(text)
+end
+
+
+
+for i, v in pairs(game.CoreGui:GetChildren()) do
+	if v.Name == "ScreenGui" then v:Destroy() end
+end
+
+local localPlayer = game.Players.LocalPlayer
+local localChar = localPlayer.Character or localPlayer.CharacterAdded:wait()
+local localRoot = localChar and localChar:FindFirstChild('HumanoidRootPart')
+game:GetService('RunService').Heartbeat:Connect(function()
+	pcall(function()
+		localChar = game.Players.LocalPlayer.Character
+		localRoot = game.Players.LocalPlayer.Character.HumanoidRootPart
+	end)
+end)
+local connections = {}
+
+connections.respawn = localPlayer.CharacterAdded:Connect(function(newCharacter)
+	localChar = newCharacter
+	localRoot = newCharacter:WaitForChild('HumanoidRootPart')
+end)
+
+
+
+local NOTIFICACOES = Instance.new('ScreenGui')
+
+NOTIFICACOES.Parent = game.CoreGui
+local inicial = UDim2.new(0.729397297, 0, 0.0177165568, 0)
+local fora = UDim2.new(1.729397297, 0, 0.0177165568, 0)
+
+function organizar()
+	for i, v in pairs(NOTIFICACOES:GetChildren()) do
+		local num = 0.1277165568 * i
+		game:GetService('TweenService'):Create(v, TweenInfo.new(0.5), {
+			Position = UDim2.new(0.729397297, 0, num, 0)
+		}):Play()
+	end
+end
+
+local Notify_ = game:GetObjects("rbxassetid://13426360845")[1]
+Notify_.Parent = game:GetService("CoreGui")
+
+function notificar(title, text, type_, duration)
+    local Template = Notify_.Templates[(type_ == 1 and "Notify") or (type_ == 2 and "Warning Notify") or (type_ == 3 and "Error Notify")]:Clone()
+    local function ChangeState(boolean, dl)
+        dl = dl or 0.1
+        local Trans = boolean and 0 or 1
+        game:GetService("TweenService"):Create(Template, boolean and TweenInfo.new(dl) or TweenInfo.new(dl, Enum.EasingStyle.Quart, Enum.EasingDirection.In), {BackgroundTransparency = Trans}):Play()
+        for i,v in pairs(Template:GetDescendants()) do 
+            if v:IsA("TextLabel") then 
+                game:GetService("TweenService"):Create(v, boolean and TweenInfo.new(dl) or TweenInfo.new(dl, Enum.EasingStyle.Quart, Enum.EasingDirection.In), {TextTransparency = Trans}):Play()
+            elseif v:IsA("ImageLabel") then 
+                if v.Name == "DropShadow" then
+                    game:GetService("TweenService"):Create(v, boolean and TweenInfo.new(dl) or TweenInfo.new(dl, Enum.EasingStyle.Quart, Enum.EasingDirection.In), {ImageTransparency = boolean and 0.5 or 1}):Play()
+                else
+                    game:GetService("TweenService"):Create(v, boolean and TweenInfo.new(dl) or TweenInfo.new(dl, Enum.EasingStyle.Quart, Enum.EasingDirection.In), {ImageTransparency = Trans}):Play()
+                end
+            elseif v:IsA("Frame") then
+	            if v.Name ~= "Shadow" then 
+	            	game:GetService("TweenService"):Create(v, boolean and TweenInfo.new(dl) or TweenInfo.new(dl, Enum.EasingStyle.Quart, Enum.EasingDirection.In), {BackgroundTransparency = Trans}):Play()
+	            end
+            end
+        end
+    end
+    spawn(function()
+		ChangeState(false, 0)
+		wait(0.01)
+		ChangeState(true, 0.5)
+		Template.Parent = Notify_.NotifyHolder
+		Template.Title.Text = title 
+	
+		Template.Shadow.DropShadow.Size = Template.Shadow.DropShadow.Size + UDim2.new(0.08, 0, 0.40, 0)
+		Template.Content.Text = text 
+	
+		delay(duration, function()
+			spawn(function()
+				ChangeState(false, 1)
+				wait(1)
+				Template:Destroy()
+			end)
+		end)
+	end)
+end
+
+
+
+
+pcall(function()
+	for i, v in next, workspace:GetChildren() do
+		if v.Name == 'Cell' then
+			v:FindFirstChild('Door'):Destroy()
+		end
+	end
+end)
+
+local main = {}
+
+local alturaMaxima = 1000
+
+function main.teto(posicao)
+	local humanoid = game.Players.LocalPlayer.Character.Humanoid
+	local raioDeColisao = Vector3.new(2, 2, 2)
+	local parteDeTeste = Instance.new('Part')
+	parteDeTeste.Size = Vector3.new(0, 0, 0)
+	parteDeTeste.Anchored = true
+	parteDeTeste.CanCollide = true
+	parteDeTeste.Position = posicao + Vector3.new(0, 10, 0) 
+	parteDeTeste.Parent = workspace
+	local parteTocada, pontoDeContato = workspace:FindPartOnRayWithIgnoreList(
+		Ray.new(parteDeTeste.Position, Vector3.new(0, 1, 0).unit * alturaMaxima), {parteDeTeste})
+	parteDeTeste:Destroy()
+	if parteTocada then
+		return true
+	else
+		return false
+	end
+end
+
+local speaker = game.Players.LocalPlayer
+
+local gcs = {}
+
+
+for i, v in pairs(getgc(true)) do
+	if typeof(v) == 'function' then
+		if (getinfo(v).name == 'attemptPunch' or getinfo(v).name == 'StartSkydiving') then
+			gcs[getinfo(v).name] = v
+			task.wait()
+		end
+	end
+
+end
+
+function main.specs(name)
+	local tab = {}
+	for i, v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+		if v.Name == name then
+			tab[#tab + 1] = v
+		end
+	end
+	return tab
+end
+
+
+function anti_ragdoll(bool)
+	anti_ragdoll_running = bool
+
+	hookfunction(require(game:GetService('ReplicatedStorage').Module.AlexRagdoll).Ragdoll, function()
+		return wait(9e9)
+	end)
+end
+function carro()
+	pcall(
+		function()
+			if getHumanoid().Sit == false then
+				local args = {[1] = 'Chassis', [2] = 'Camaro'}
+
+				game:GetService('ReplicatedStorage'):WaitForChild('GarageSpawnVehicle'):FireServer(unpack(args))
+			end
+		end
+	)
+	wait(1)
+end
+local GUN_Names =
+	('Rifle Pistol Revolver Flintlock AK47 Uzi Shotgun Sword ForcefieldLauncher PlasmaPistol Sniper'):split(' ')
+local localPlayer = game.Players.LocalPlayer
+
+local RunService = game:GetService('RunService')
+local eventos = {}
+local can = true
+
+function main.get_gun(name)
+	if can then
+		can = false
+		eventos.teleport = RunService.Heartbeat:Connect(function()
+			localRoot.CFrame = CFrame.new(10.554950714111328, 19.565845489501953, -1725.76953125)
+		end)
+		local a
+		getGUNTIME = 0
+		repeat
+			pcall(function()
+				a = game:GetService('Players').LocalPlayer.PlayerGui.GunShopGui.Container.Container.Main.Container
+				.Slider:FindFirstChild(name)
+				firesignal(a.Bottom.Action.MouseButton1Down)
+			end)
+			getGUNTIME = getGUNTIME + 0.3
+			wait(0.1)
+		until (a ~= nil and a.Bottom.Action.Text == 'UNEQUIP') or getGUNTIME > 2
+		task.wait()
+		eventos.teleport:Disconnect()
+		can = true
+	end
+end
+local vehicles_selects_ = {}
+
+function tem(nome)
+	for i,v in pairs(vehicles_selects_) do 
+		if v == nome then 
+			return true 
+		end 
+	end 
+	return false
+end
+function main.getCamaro()
+	local vehicle, spec, nearest = nil, nil, 1000
+	local Root = getRoot(speaker)
+	for i, v in next, require(game.ReplicatedStorage.Module.UI).CircleAction.Specs do
+		if v.ValidRoot ~= nil and (v.Name == 'Enter Driver' or v.Name == 'Hijack') and tem(v.ValidRoot.Name) and v.ValidRoot.Seat.Player.Value == false  then
+			local dist = (v.ValidRoot.PrimaryPart.Position - Root.Position).Magnitude
+
+			if dist < nearest then
+				vehicle, spec, nearest = v.ValidRoot, v, dist
+			end
+		end
+	end
+	if vehicle ~= nil then
+		return vehicle, spec, nearest
+	end
+	if getHumanoid().Sit == false then 
+		carro()
+	end
+end
+
+function main.getCar()
+	for i, v in pairs(game:GetService('Workspace').Vehicles:GetChildren()) do
+		if v:FindFirstChild('Seat') and v.Seat:FindFirstChild('PlayerName') ~= nil then
+			if v.Seat.PlayerName.Value == game.Players.LocalPlayer.Name then
+				return v.Seat.Parent.Engine
+			end
+		end
+	end
+	return nil
+end
+getgenv().getCar = main.getCar
+function main.arrest()
+	local dist = 35
+	local arrest = {}
+	for i, v in next, require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs do
+		if v.Name == 'Arrest' then
+			if v.ValidRoot and v.ValidRoot.HumanoidRootPart and
+				tostring(game:GetService('Players'):GetPlayerFromCharacter(v.ValidRoot).Team) == 'Criminal' then
+				local mag = (v.ValidRoot.Head.Position - game.Players.LocalPlayer.Character.Head.Position).Magnitude
+
+				if mag < 50 then
+					arrest[#arrest + 1] = v
+				end
+			end
+		end
+	end
+
+	return arrest
+end
+function main.bag()
+	local sucess, title = pcall(function()
+		return game:GetService('Players').LocalPlayer.PlayerGui.RobberyMoneyGui.Container.Bottom.Progress.Amount
+	end)
+	if not sucess  then 
+		return false
+	end
+	if title.Parent.Parent.Parent.Parent.Enabled == false then 
+		return false 
+	end
+	local args = title.Text:split(' / ')
+
+	if args[1] == args[2] then
+		return true
+	else
+		return false
+	end
+end
+function main.bag2()
+	local sucess, title = pcall(function()
+		return game:GetService('Players').LocalPlayer.PlayerGui.RobberyMoneyGui.Container.Bottom.Progress.Amount
+	end)
+	if not sucess  then 
+		return "$0 / $0"
+	end
+	if title.Parent.Parent.Parent.Parent.Enabled == false then 
+		return "$0 / $0" 
+	end
+	local args = title.Text:split(' / ')
+
+	return args[1] .. " / " .. args[2]
+end
+
+
+
+function Procurar(pos)
+	local caminho = {}
+	local humanoidRootPart = localRoot
+	local pathfindingService = game:GetService('PathfindingService')
+	local path = pathfindingService:CreatePath()
+	path:ComputeAsync(humanoidRootPart.Position, pos)
+	path:GetWaypoints()
+	return caminho
+end
+
+function main.path_find(pos, altura, customvelo, check, enquanto)
+	check = check or function()return true end
+	customvelo = customvelo or 140
+	altura = altura or 3
+	local caminho = {}
+	local humanoidRootPart = localRoot
+	local pathfindingService = game:GetService('PathfindingService')
+	local path = pathfindingService:CreatePath()
+	path:ComputeAsync(humanoidRootPart.Position, pos)
+
+	if path.Status == Enum.PathStatus.Success then
+		caminho = path:GetWaypoints()
+	else
+		return false
+	end
+
+	local ENQUANTO = true
+	spawn(function()
+		while ENQUANTO do 
+			pcall(enquanto)
+			wait(0.1)
+		end
+	end)
+	if caminho and typeof(caminho) == 'table' and #caminho > 0 then
+		local bodyPosition = Instance.new('BodyPosition')
+		bodyPosition.P = 50000
+		bodyPosition.D = 500
+		bodyPosition.MaxForce = Vector3.new(9e9, 9e9, 9e9)
+
+		local continuea = false 
+		local SENTANDO = false
+		spawn(function()
+			while SENTANDO == false do 
+				if getHumanoid().Sit == true and not main.getCar() then 
+					ExitCar()
+				end
+				wait()
+			end
+		end)
+
+		local i = 1
+		while i <= #caminho do
+			if check() then 
+				local Lugar = caminho[i].Position + Vector3.new(0, altura, 0) 
+				Tp1(Lugar, nil, 50)
+				i = i + 1
+			else
+				break
+			end
+		end
+
+		SENTANDO = true 
+		bodyPosition:Destroy()
+
+		if check() then 
+			return true
+		else  
+			return false
+		end
+	end
+	ENQUANTO = false
+	return false
+end
+
+
+local Robberys = {
+	['1'] = 'Bank',
+	['2'] = 'Jewelry Store',
+	['3'] = 'Museum',
+	['4'] = 'Power Plant',
+	['5'] = 'Passenger Train',
+	['6'] = 'Cargo Train',
+	['7'] = 'Cargo Ship',
+	['8'] = 'Cargo Plane',
+	['9'] = 'Gas Station',
+	['10'] = 'Donut Store',
+	['11'] = 'Money Truck',
+	['12'] = 'Home Vault',
+	['13'] = 'Tomb',
+	['14'] = 'Casino',
+	['15'] = 'Mansion'
+}
+function get_rob(nome)
+	for i, v in pairs(Robberys) do
+		if v:lower() == nome:lower() then
+			return i
+		end
+	end
+end
+
+function main.is_opened(rob)
+	local roubo = get_rob(rob)
+
+	local State = game:GetService('ReplicatedStorage').RobberyState:FindFirstChild(roubo)
+
+	return (tostring(State) == 'nil' and 'fechado') or
+		((State.Value == 1 and 'aberto') or (State.Value == 2 and 'roubando') or (State.Value == 3 and 'fechado'))
+end
+
+local Noclip = {}
+Noclip.__index = Noclip
+
+function Noclip.new(character)
+	local self = setmetatable({}, Noclip)
+	self.character = character
+	self.loop = nil
+	self.enabled = false
+	return self
+end
+
+function Noclip:setEnabled(enabled)
+	if enabled == self.enabled then
+		return
+	end
+
+	self.enabled = enabled
+
+	if enabled then
+		self.loop = game:GetService("RunService").Stepped:Connect(function()
+			for _, part in ipairs(self.character:GetDescendants()) do
+				if part:IsA("BasePart") then
+					part.CanCollide = false
+				end
+			end
+		end)
+	else
+		if self.loop then
+			self.loop:Disconnect()
+		end
+		for _, part in ipairs(self.character:GetDescendants()) do
+			if part:IsA("BasePart") then
+				part.CanCollide = true 
+			end
+		end
+	end
+end
+
+local noclip = nil
+
+function main.noclip(bool)
+	if bool then
+		local player = game.Players.LocalPlayer
+		local character = player.Character or player.CharacterAdded:Wait()
+		noclip = Noclip.new(character)
+		noclip:setEnabled(true)
+	else
+		if noclip then
+			noclip:setEnabled(false)
+		end
+	end
+end
+
+local noclipped = false 
+local function noclip(bool)
+	noclipped = bool 
+end
+game:GetService("RunService").Stepped:Connect(function()
+	for i, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+		if v:IsA("BasePart") and v.CanCollide == true then
+			v.CanCollide = not noclipped
+		end
+	end
+end)
+
+function main.esperar(bloco, numero, other)
+	other = other or function()
+	end
+	local dist = 5000
+	repeat
+		if other then
+			other()
+		end
+		local localplayer = game.Players.LocalPlayer
+		local character = localplayer.Character or localplayer.CharacterAdded:wait()
+		local bloco_position = (typeof(bloco) == 'Vector3' and bloco) or
+			(typeof(bloco) == 'Instance' and bloco.Position)
+		local root_position = character:FindFirstChild('HumanoidRootPart').Position
+
+		dist = (bloco_position - root_position).Magnitude
+		task.wait()
+	until (dist <= numero) or getHumanoid().Health == 0
+end
+
+local lasers = false
+function main.laser(bool)
+end
+
+getRoot = function(plr)
+	plr = plr or game.Players.LocalPlayer
+	local sucess, root = pcall(function()
+		return plr.Character.HumanoidRootPart or false
+	end)
+	return root
+end
+
+getCharacter = function(plr)
+	plr = plr or speaker
+	return plr.Character or false
+end
+
+getHumanoid = function(plr)
+	plr = plr or game.Players.LocalPlayer
+	if getCharacter() then 
+		for i,v in pairs(getCharacter():GetChildren()) do 
+			if v:IsA("Humanoid") then 
+				return v 
+			end 
+		end
+		return false 
+	else
+		return false
+	end
+	return false
+end
+
+___ = function(bool, num)
+	if bool and num then 
+		getHumanoid().Name = "macro_"
+		delay(num, function()
+			getHumanoid().Name = "Humanoid"
+		end)
+		return
+	end
+	if bool then 
+		getHumanoid().Name = "macro_"
+	else
+		spawn(function()
+			for i = 1,10 do 
+				getHumanoid().Name = "Humanoid"
+				wait()
+			end
+		end)
+	end
+end
+
+getCharacter = function(plr)
+	plr = plr or game.Players.LocalPlayer
+	local sucess, char = pcall(function()
+		return plr.Character or false
+	end)
+	return char
+end
+
+FindPlayer = function(playerName)
+	local target = false
+
+	for i, v in pairs(game.Players:GetChildren()) do
+		if v.Name:lower():match(playerName:lower()) or v.DisplayName:lower():match(playerName:lower()) then
+			target = v
+		end
+	end
+
+	return target
+end
+
+FindTool = function(plr,name)
+	plr = plr or game.Players.LocalPlayer 
+	local Tool = plr.Backpack:FindFirstChild(name) or plr.Character:FindFirstChild(name)
+	if Tool then 
+		return Tool
+	end
+	return false 
+end
+
+getNearest = function(teamcheck)
+	local nearest = 9e9
+	local target
+
+	for i, v in pairs(game.Players:GetChildren()) do
+		if game.Players.LocalPlayer ~= v then
+			pcall(function()
+				if ((teamcheck == true and v.TeamColor ~= game.Players.LocalPlayer.TeamColor) or teamcheck == false) then
+					local mag = (v.Character.Head.Position - game.Players.LocalPlayer.Character.Head.Position).Magnitude
+
+					if mag < nearest then
+						nearest = mag
+						target = v
+					end
+				end
+			end)
+		end
+	end
+
+	return target
+end
+
+getNearestToMouse = function(fov, teamcheck)
+	local target = nil
+	local dist = fov
+
+	local mouse = game.Players.LocalPlayer:GetMouse()
+
+	local camera = workspace.CurrentCamera
+
+	for i, v in pairs(game.Players:GetChildren()) do
+		if v ~= game.Players.LocalPlayer and
+			((teamcheck == true and v.TeamColor ~= game.Players.LocalPlayer.TeamColor) or teamcheck == false) then
+			if v.Character ~= nil and v.Character:FindFirstChild('Head') and
+				v.Character:FindFirstChild('Humanoid').Health > 0 then
+				local vector, onscreen = camera:worldToViewportPoint(v.Character.Head.Position)
+
+				local mag = (Vector2.new(mouse.X, mouse.Y) - Vector2.new(vector.X, vector.Y)).Magnitude
+
+				if onscreen and mag < dist then
+					dist = mag
+					target = v
+				end
+			end
+		end
+	end
+
+	return target
+end
+
+function main.instant(position)
+	if typeof(position) == "Vector3" then
+		if main.getCar() then
+			if main.getCar().Parent.Name == "Camaro" then 
+				main.getCar().CFrame = CFrame.new(position)
+			end
+			for i, v in pairs(main.getCar().Parent:GetChildren()) do
+				if v:IsA('BasePart') then
+					v.CFrame = CFrame.new(position)
+				end
+			end
+		else
+			getRoot().CFrame = CFrame.new(position)
+		end
+	elseif typeof(position) == "CFrame" then
+		if main.getCar() then
+			if main.getCar().Parent.Name == "Camaro" then 
+				main.getCar().CFrame = position
+			end
+			for i, v in pairs(main.getCar().Parent:GetChildren()) do
+				if v:IsA('BasePart') then
+					v.CFrame = CFrame.new(position.Position)
+				end
+			end
+		else
+			localRoot.CFrame = position
+		end
+	end
+end
+function instant(position)
+	main.instant(position) 
+end
+
+local abort = false
+local todos_nomes = {}
+local pode = true 
+function tp(vector, velo, velo2, extra, extra2)
+	hookfunction(require(game:GetService('ReplicatedStorage').Module.AlexRagdoll).Ragdoll, function()
+		return wait(9e9)
+	end)
+	for i,v in pairs(getRoot():GetChildren()) do 
+		if table.find(todos_nomes, v.Name) then 
+			v:Destroy()
+		end
+	end
+	local myFunc 
+	if typeof(vector) == "function" then 
+		myFunc = vector 
+
+		vector = myFunc()
+	end
+	if pode == true then 
+		pode = false 
+		
+	end
+	
+
+	local reached = false
+	velo = velo or 420
+	velo2 = velo2 or 180
+	local BodyPosition = Instance.new("BodyPosition")
+	BodyPosition.MaxForce = Vector3.new(9e9, 9e9, 9e9)
+	BodyPosition.D = 500
+	BodyPosition.P = 50000
+	BodyPosition.Position = getRoot().Position
+	local Nome = tostring(math.random(1,1000))
+	todos_nomes[#todos_nomes + 1] = Nome
+	BodyPosition.Name = Nome
+	BodyPosition.Parent = getRoot(speaker)
+	local last_diff = 9e9
+	local travar = false
+	local Loop = game:GetService("RunService").Stepped:Connect(function(_, step)
+
+
+		
+		if myFunc then 
+			vector = myFunc()
+		end
+		
+		if main.getCar() then 
+			main.getCar().CFrame = CFrame.new(main.getCar().Position)
+		end
+		local diff = (vector - getRoot().Position)
+
+		local teleport_velo = (main.getCar() and velo) or velo2
+
+		BodyPosition.Position = getRoot().Position + diff.Unit * math.min(step * teleport_velo, diff.Magnitude)
+		if diff.Magnitude < ((myFunc and 10) or 1) then 
+			if extra2 then 
+				if typeof(extra2) == "function" and extra2() == true then 
+					reached = true 
+				end
+			else
+				reached = true
+			end
+		end
+		if extra and typeof(extra) == "function" then 
+			abort = extra()
+		end
+	end)
+	abort = false
+	repeat 
+		task.wait() 
+		if getRoot() then 
+			getRoot().CFrame = CFrame.new(getRoot().Position)
+			getRoot().Velocity = Vector3.new(0,0,0)
+		end
+		if main.getCar() then
+			for i, v in pairs(main.getCar().Parent:GetChildren()) do
+				if v:IsA("BasePart") then
+					v.Velocity = Vector3.new(0, 0, 0)
+				end
+			end
+		end
+		if main.getCar() then 
+			main.getCar().BodyGyro.MaxTorque = Vector3.new(9e9, 0, 9e9)
+		end
+
+	until getHumanoid().Health == 0 or abort == true or reached == true 
+	if main.getCar() then 
+		main.getCar().BodyGyro.MaxTorque = Vector3.new(0, 0, 0)
+	end
+	BodyPosition:Destroy()
+	Loop:Disconnect() 
+
+	pode = true
+	if abort or not getRoot():FindFirstChild(Nome) then 
+		return false
+	end
+	return true
+end
+
+main.usecar = true
+function main.Tp1(...)
+	if getHumanoid().Health == 0 then 
+		return 
+	end
+	local args = {...}
+	args[4] = args[4] or false
+	if args[4] == false then
+		tp(...)
+	elseif args[4] == true then
+		repeat
+			tp(...)
+			wait(0.5)
+		until (getRoot().Position - args[1]).Magnitude < 4
+	end
+end
+
+function Tp1(...)
+	main.Tp1(...)
+end
+
+function transformar(pos)
+	pos = pos or Vector3.new(0,0,0)
+	return Vector3.new(pos.X, 450, pos.Z)
+end
+
+local time_alived = 0 
+
+spawn(function()
+	pcall(function()
+		while true do 
+			repeat 
+				time_alived = time_alived + 1
+				wait(1)
+			until getHumanoid().Health == 0
+			time_alived = 0 
+
+
+			localPlayer.CharacterAdded:wait():WaitForChild("HumanoidRootPart")
+		end
+	end)
+end)
+
+function tpporcima(vector, um, dois)
+	local humanoid = getHumanoid()
+	if not humanoid or humanoid.Health == 0 then 
+		return 
+	end
+	for i,v in pairs(getRoot():GetChildren()) do 
+		if table.find(todos_nomes, v.Name) then 
+			v:Destroy()
+		end
+	end
+
+	um = um or 560
+	dois = dois or 140
+
+	local rootPosition = getRoot().Position
+	main.instant(transformar(rootPosition))
+	task.wait()
+
+	local transformedVector = transformar(vector)
+	local test = main.Tp1(transformedVector, um, dois)
+	if test == false then 
+		return 
+	end
+	___(true, 0.1)
+	instant(vector)
+
+end
+
+function main.Tp2(...)
+	local humanoid = getHumanoid()
+	if not humanoid or humanoid.Health == 0 then 
+		return 
+	end
+
+	anti_ragdoll(true)
+
+	local args = {...}
+	local speaker = game.Players.LocalPlayer
+
+	if main.usecar and main.getCamaro() and not getHumanoid(speaker).Sit then
+		local vehicle, spec = main.getCamaro()
+		local localRoot = getRoot()
+
+		if vehicle then 
+			local distanceFromLocalRootToVehicleSeat = (vehicle.Seat.Position - localRoot.Position).Magnitude
+			if distanceFromLocalRootToVehicleSeat < (args[1] - localRoot.Position).Magnitude and 
+				distanceFromLocalRootToVehicleSeat < 40 then
+
+				local num = 0
+				repeat 
+					spec:Callback(true)
+					num = num + 0.1
+					wait(0.1)
+				until num > 3 or main.getCar()
+			else
+				tpporcima(vehicle.Seat.Position + Vector3.new(0, 20, 0))
+
+				local startTime = tick()
+				repeat
+					task.wait()
+					main.instant(vehicle.Seat.Position + Vector3.new(0, 20, 0))
+					spec:Callback(true)
+				until (main.getCar()) or tick() - startTime > 3
+				wait(0.5)
+			end
+		end
+	end
+	tpporcima(...)
+	if main.getCar() then 
+		for i, v in pairs(main.getCar().Parent:GetChildren()) do
+			if v:IsA('BasePart') then
+				v.Velocity = Vector3.new(0,0,0)
+			end
+		end
+	end
+end
+
+function Tp2(...)
+	return main.Tp2(...)
+end
+
+
+function main.Tp3(Part, usecar, other)
+
+	anti_ragdoll(true)
+	if getHumanoid().Health == 0 then 
+		return 
+	end
+	usecar = usecar or false
+	if usecar and main.getCamaro() and getHumanoid(speaker).Sit == false then
+		local vehicle, spec = main.getCamaro()
+		if vehicle and spec then
+			if (localRoot.Position - vehicle.Seat.Position).Magnitude < 40 then
+				spec:Callback(true)
+				repeat
+					wait()
+				until getHumanoid().Sit == true
+			else
+				tpporcima(vehicle.Seat.Position + Vector3.new(0, 15, 0))
+
+				local esperando = 0
+				repeat
+					task.wait()
+					esperando = esperando + 0.1
+					main.instant(vehicle.Seat.Position + Vector3.new(0, 15, 0))
+					spec:Callback(true)
+				until getHumanoid(speaker).Sit == true or esperando > 3
+
+			end
+		end
+	end
+
+	main.instant(transformar(getRoot().Position))
+	task.wait()
+	if typeof(Part) == "function" then 
+		local old = Part 
+		Part = function()
+			local sucess,other = pcall(function()
+				return old()
+			end)
+
+			if sucess then 
+				return other 
+			else
+				return false
+			end
+		end
+	end
+	local function Take()
+		if typeof(Part) == "Instance" then
+			return Part.Position
+		elseif typeof(Part) == "function" then
+			return Part()
+		end
+	end
+
+
+
+	repeat
+		tp(function() return transformar(Take()) end, 350, 200, nil, other)
+		abort = true 
+	until ( (transformar(getRoot().Position) - transformar(Take())).Magnitude < 50 ) or getHumanoid().Health == 0 or Take() == false
+	if Take() == false then return end 
+	___(true)
+	main.instant(Take())
+	delay(0.1, function()
+		___(false)
+	end)
+end
+
+function Tp3(...)
+	return main.Tp3(...)
+end
+
+function main.equipar(nome, bool)
+	pcall(function()
+		game:GetService('Players').LocalPlayer.Folder[nome].InventoryEquipRemote:FireServer(bool)
+	end)
+end
+
+sendNotification = function(titlee, text, duration)
+	if game.CoreGui:FindFirstChild('Notification') then
+		for i, v in pairs(game.CoreGui:GetChildren()) do
+			if v.Name == 'Notification' and v:FindFirstChild('Frame') then
+				v.Frame:TweenPosition(UDim2.new(0.344000012, 0, -1.0219999999, 0), 'InOut', 'Quart', 1, true)
+			end
+		end
+	end
+	local Notification = Instance.new('ScreenGui')
+	local Frame = Instance.new('Frame')
+	local UICorner = Instance.new('UICorner')
+	local DropShadow = Instance.new('Frame')
+	local UICorner_2 = Instance.new('UICorner')
+	local DropShadow_2 = Instance.new('Frame')
+	local UICorner_3 = Instance.new('UICorner')
+	local DropShadow_3 = Instance.new('Frame')
+	local UICorner_4 = Instance.new('UICorner')
+	local DropShadow_4 = Instance.new('Frame')
+	local UICorner_5 = Instance.new('UICorner')
+	local title = Instance.new('TextLabel')
+	local Mesage = Instance.new('TextLabel')
+
+	Notification.Name = 'Notification'
+	Notification.Parent = game.CoreGui
+
+	Frame.Parent = Notification
+	Frame.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+	Frame.BorderSizePixel = 0
+	Frame.Position = UDim2.new(0.344000012, 0, -1.0219999999, 0)
+	Frame.Size = UDim2.new(0.311650485, 0, 0.1640625, 0)
+	Frame.ZIndex = 5
+
+	spawn(function()
+		Frame:TweenPosition(UDim2.new(0.344000012, 0, 0.0219999999, 0), 'InOut', 'Quart', 1, true)
+		wait(1)
+		wait(duration)
+		Frame:TweenPosition(UDim2.new(0.344000012, 0, -1.0219999999, 0), 'InOut', 'Quart', 1, true)
+	end)
+
+	UICorner.CornerRadius = UDim.new(0, 25)
+	UICorner.Parent = Frame
+
+	DropShadow.Name = 'DropShadow'
+	DropShadow.Parent = Frame
+	DropShadow.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+	DropShadow.BorderSizePixel = 0
+	DropShadow.Position = UDim2.new(0.0031152647, 0, 0.00952380989, 0)
+	DropShadow.Size = UDim2.new(1, 0, 1, 0)
+
+	UICorner_2.CornerRadius = UDim.new(0, 25)
+	UICorner_2.Parent = DropShadow
+
+	DropShadow_2.Name = 'DropShadow'
+	DropShadow_2.Parent = Frame
+	DropShadow_2.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+	DropShadow_2.BorderSizePixel = 0
+	DropShadow_2.Position = UDim2.new(-0.0031152647, 0, -0.00952380989, 0)
+	DropShadow_2.Size = UDim2.new(1, 0, 1, 0)
+
+	UICorner_3.CornerRadius = UDim.new(0, 25)
+	UICorner_3.Parent = DropShadow_2
+
+	DropShadow_3.Name = 'DropShadow'
+	DropShadow_3.Parent = Frame
+	DropShadow_3.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+	DropShadow_3.BorderSizePixel = 0
+	DropShadow_3.Position = UDim2.new(-0.0031152647, 0, 0.00952380989, 0)
+	DropShadow_3.Size = UDim2.new(1, 0, 1, 0)
+
+	UICorner_4.CornerRadius = UDim.new(0, 25)
+	UICorner_4.Parent = DropShadow_3
+
+	DropShadow_4.Name = 'DropShadow'
+	DropShadow_4.Parent = Frame
+	DropShadow_4.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+	DropShadow_4.BorderSizePixel = 0
+	DropShadow_4.Position = UDim2.new(0.0031152647, 0, -0.00952380989, 0)
+	DropShadow_4.Size = UDim2.new(1, 0, 1, 0)
+
+	UICorner_5.CornerRadius = UDim.new(0, 25)
+	UICorner_5.Parent = DropShadow_4
+
+	title.Name = 'title'
+	title.Parent = Frame
+	title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	title.BackgroundTransparency = 1.000
+	title.BorderSizePixel = 0
+	title.Position = UDim2.new(0, 0, 0.00952380989, 0)
+	title.Size = UDim2.new(0.996884763, 0, 0.323809534, 0)
+	title.ZIndex = 5
+	title.Font = Enum.Font.Arial
+	title.TextColor3 = Color3.fromRGB(255, 0, 0)
+	title.TextSize = 20.000
+	title.TextWrapped = true
+	title.Text = titlee
+
+	Mesage.Name = 'Mesage'
+	Mesage.Parent = Frame
+	Mesage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Mesage.BackgroundTransparency = 1.000
+	Mesage.BorderSizePixel = 0
+	Mesage.Position = UDim2.new(0, 0, 0.333333343, 0)
+	Mesage.Size = UDim2.new(0.996884763, 0, 0.657142878, 0)
+	Mesage.ZIndex = 5
+	Mesage.Font = Enum.Font.Arial
+	Mesage.Text = text
+	Mesage.TextColor3 = Color3.fromRGB(255, 0, 0)
+	Mesage.TextScaled = true
+	Mesage.TextSize = 20.000
+	Mesage.TextWrapped = true
+end
+
+Translate = function(num)
+	function round(num, numDecimalPlaces)
+		local mult = 10 ^ (numDecimalPlaces or 0)
+		return math.floor(num * mult + 0.5) / mult
+	end
+
+	function converttoletter(num)
+		if num / 1e21 >= 1 then
+			newnum = num / 1e21
+			return round(newnum, 6) .. 'Sx'
+		elseif num / 1e18 >= 1 then
+			newnum = num / 1e18
+			return round(newnum, 6) .. 'Qi'
+		elseif num / 1e15 >= 1 then
+			newnum = num / 1e15
+			return round(newnum, 6) .. 'Qa'
+		elseif num / 1e12 >= 1 then
+			newnum = num / 1e12
+			return round(newnum, 6) .. 'T'
+		elseif num / 1e09 >= 1 then
+			newnum = num / 1e09
+			return round(newnum, 6) .. 'B'
+		elseif num / 1e06 >= 1 then
+			newnum = num / 1e06
+			return round(newnum, 6) .. 'M'
+		elseif num / 1e03 >= 1 then
+			newnum = num / 1e03
+			return round(newnum, 6) .. 'K'
+		else
+			return num
+		end
+	end
+
+	return converttoletter(num)
+end
+
+KeyEvent = function(key, pressed)
+	game:GetService('VirtualInputManager'):SendKeyEvent(pressed, key, false, game)
+end
+ExitCar = function()
+	if main.getCar() then
+		repeat
+			wait()
+			KeyEvent(Enum.KeyCode.Space, true)
+			task.wait()
+			KeyEvent(Enum.KeyCode.Space, false)
+		until not main.getCar()
+	end
+end
+
+local localPlayer = game.Players.LocalPlayer
+
+
+notificar("Macro X", "Loading Buttons..", 2, 3)
+local time_loaded = 0 
+
+
+
+repeat 
+	task.wait()
+	time_loaded = time_loaded + 0.02
+until getgenv().newtab
+moretti = {}
+
+function moretti:CreateTab(text)
+	return getgenv().newtab(text)
+end
