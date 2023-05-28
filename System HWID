@@ -2,4 +2,5 @@ return function()
 return {
 "" --HWID
 }
-end
+end,
+    "HWID_DO_ADD_AQUI", -- NOME_ESCOLHIDO_DO_ADD_AQUI
