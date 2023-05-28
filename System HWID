@@ -1,6 +1,6 @@
 return function()
-return {
-"" --HWID
-}
-end,
-    "HWID_DO_ADD_AQUI", -- NOME_ESCOLHIDO_DO_ADD_AQUI
+    return {
+        "HWID": "se25",
+        -- Nome: "15125"
+    }
+    end
