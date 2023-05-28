@@ -1,6 +1,7 @@
 return function()
         return {
                 "Test", -- Test
+        "gas", -- gas
 "testando", -- test
         }
         end
