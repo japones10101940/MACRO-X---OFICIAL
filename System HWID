@@ -1,6 +1,5 @@
 return function()
     return {
-        "HWID": "se25",
-        -- Nome: "15125"
+        "ain", -- 2512
     }
     end
