@@ -1,6 +1,7 @@
 return function()
         return {
         
+            "fkeofkoefk", -- Japones
             "Sexo", -- Sexo
         }
         end
