@@ -1,6 +1,7 @@
 return function()
         return {
         
+            "nova", -- oi
         "oi", -- pi
         "Sexo", -- Sexov2
         }
