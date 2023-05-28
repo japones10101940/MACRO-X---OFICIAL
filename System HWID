@@ -1,6 +1,6 @@
 return function()
         return {
         
-            "HWDI TESTE", -- Japa
+            "HWID", -- Japa
         }
         end
