@@ -1,6 +1,7 @@
 return function()
         return {
             "Test", --Testando
+            "test", -- oi
             "gas", -- gasg
         }
         end
