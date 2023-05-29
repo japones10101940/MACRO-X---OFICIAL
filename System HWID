@@ -1,6 +1,6 @@
 return function()
         return {
         
-            "sexo", -- sexo
+            "oi", -- sexo
         }
         end
