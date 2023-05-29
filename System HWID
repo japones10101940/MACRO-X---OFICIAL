@@ -1,6 +1,5 @@
 return function()
         return {
         
-            "foekfoekfo", -- fkfoekfoe
         }
         end
