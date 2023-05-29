@@ -1,6 +1,5 @@
 return function()
         return {
         
-            "1", -- Japa
         }
         end
