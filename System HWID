@@ -1,5 +1,6 @@
 return function()
         return {
         
+            "OMAGA-SEXO-V2", -- Japones
         }
         end
