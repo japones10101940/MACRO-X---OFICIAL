@@ -1,6 +1,5 @@
 return function()
         return {
         
-            "oi", -- sexo
         }
         end
