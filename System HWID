@@ -1,6 +1,6 @@
 return function()
         return {
 
-            "Teste", -- Japa
+            "tESTE2", -- Japa
         }
         end
