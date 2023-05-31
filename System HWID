@@ -1,6 +1,5 @@
 return function()
         return {
         
-            "viado", -- Japa
         }
         end
