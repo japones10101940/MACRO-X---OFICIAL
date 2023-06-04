@@ -1,6 +1,6 @@
 return function()
         return {
 
-            "OEKOKFOEKFO", -- Japones
+            "FOEKOFKOEFKOEFK", -- Japones
         }
         end
