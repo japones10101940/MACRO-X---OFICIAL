@@ -1,5 +1,6 @@
 return function()
         return {
             "c03caa60-4fb1-4a0e-97b9-df5de4831ca2", -- Dezx
+            "sexo", -- sexo
         }
         end
