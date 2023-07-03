@@ -1,5 +1,6 @@
 return function()
         return {
             "c03caa60-4fb1-4a0e-97b9-df5de4831ca2", -- Dezx
+            "f636279b-b770-4d4e-8e0e-9b8c8f9b75ab", -- Dex do sexo
         }
         end
